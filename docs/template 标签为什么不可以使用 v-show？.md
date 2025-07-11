@@ -1,10 +1,11 @@
-**面试官**：能解释下为什么 Vue 的 `<template>` 标签不能使用 `v-show` 吗？
+# 能解释下为什么 Vue 的 `<template>` 标签不能使用 `v-show` 吗？
 
 **我**（5年经验开发者）：这个问题可以从三个层面来理解，我结合代码示例说明：
 
 ---
 
 ### **1. 技术实现层面**
+
 ```html
 <!-- 示例：尝试在template使用v-show（错误用法） -->
 <template v-show="isVisible">
@@ -12,6 +13,7 @@
   <div>内容B</div>
 </template>
 ```
+
 **问题本质**：  
 - `v-show` 实际是通过 `display: none` 控制元素显示  
 - 但 `<template>` 是**虚拟节点**，编译后不会生成真实DOM  

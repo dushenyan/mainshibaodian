@@ -78,7 +78,7 @@ const vitePressOptions: UserConfig = {
    * @see markdown https://vitepress.vuejs.org/config/app-configs#markdown
    */
   markdown: {
-    lineNumbers: true,
+    lineNumbers: false,
     image: {
       lazyLoading: true,
     },
@@ -93,6 +93,11 @@ const vitePressOptions: UserConfig = {
           return renderSandbox(tokens, idx, 'sandbox');
         },
       });
+      md.renderer.rules.heading_close = (tokens, idx, options, env, slf) => {
+        let htmlResult = slf.renderToken(tokens, idx, options);
+        if (tokens[idx].tag === 'h1') htmlResult += `<ArticleMetadata />`; // [!code focus]
+        return htmlResult;
+      }
     }
   }
 }

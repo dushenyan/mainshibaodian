@@ -22,12 +22,12 @@ const getType = (target: unknown): string => {
 以 [Fighting Design](https://github.com/FightingDesign/fighting-design) 为演示
 
 <el-button type="primary">主要按钮</el-button>
-<f-button type="success" ripples>涟漪效果</f-button>
-<f-button type="warning" ripples>点我试试</f-button>
-<f-button type="danger" ripples simple>看看我</f-button>
-<f-button type="success" text ripples ripples-color="green">
+<el-button type="success" ripples>涟漪效果</el-button>
+<el-button type="warning" ripples>点我试试</el-button>
+<el-button type="danger" ripples simple>看看我</el-button>
+<el-button type="success" text ripples ripples-color="green">
 自定义涟漪颜色
-</f-button>
+</el-button>
 
 ## 贡献者
 
