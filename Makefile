@@ -2,26 +2,15 @@
 default: help
 
 # build all theme
-build-theme:
-	npm run build:theme
-
-install:
-	npm install
-
-install-cn:
-	npm install --registry=http://registry.npm.taobao.org
+p:
+	/Users/shenyandu/Desktop/mainshibaodian/build/auto_pull_push.sh
 
 dev:
 	npm run dev
 
-play:
-	npm run dev:play
-
 new:
 	node scripts/new.js $(filter-out $@,$(MAKECMDGOALS))
 
-new-lang:
-	node build/bin/new-lang.js $(filter-out $@,$(MAKECMDGOALS))
 
 dist: install
 	npm run dist
@@ -29,11 +18,6 @@ dist: install
 deploy:
 	@npm run deploy
 
-pub:
-	npm run pub
-
-test:
-	npm run test:watch
 
 help:
 	@echo "   \033[35mmake\033[0m \033[1m命令使用说明\033[0m"
