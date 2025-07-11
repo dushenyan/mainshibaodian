@@ -8,6 +8,7 @@
   },
   "license": "MIT",
   "dependencies": {
+    "@vueuse/core": "^13.5.0",
     "canvas-confetti": "^1.9.3",
     "element-plus": "^2.10.3",
     "markdown-it": "^13.0.1",

@@ -1,4 +1,4 @@
-import { h } from 'vue'
+import { h, watch } from 'vue'
 import DefaultTheme from 'vitepress/theme'
 import type { Theme as ThemeType } from 'vitepress'
 import vpSearch from './components/vp-search.vue'
@@ -29,12 +29,16 @@ export default {
   //   })
   // },
   enhanceApp(ctx) {
-    const { app } = ctx
+    const { app, router } = ctx
 
     DefaultTheme.enhanceApp(ctx)
+
     vitepressNprogress(ctx)
+
     app.component('Sandbox', Sandbox);
+
     app.use(elTable)
     app.use(components)
   }
 } satisfies ThemeType
+

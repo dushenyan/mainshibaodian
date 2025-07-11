@@ -1,5 +1,6 @@
 <template>
   <LockScreen ref="lockScreenRef" />
+  <HomeUnderline />
   <Layout>
     <template #layout-top>
       <el-backtop>

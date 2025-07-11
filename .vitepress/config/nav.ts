@@ -5,8 +5,13 @@
  */
 export const nav = [
   {
-    text: '文档',
-    activeMatch: '/docs/',
-    link: '/docs/hello'
-  }
+    text: `敌对`,
+    items: [
+      {
+        text: '文档',
+        activeMatch: '/docs/',
+        link: '/docs/hello'
+      },
+    ],
+  },
 ]
