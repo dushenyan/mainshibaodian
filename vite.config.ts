@@ -11,6 +11,9 @@ export default (): UserConfigExport => {
     },
     plugins: [
       unocss()
-    ]
+    ],
+    ssr: {
+      noExternal: ['vitepress-plugin-nprogress']
+    },
   }
 }

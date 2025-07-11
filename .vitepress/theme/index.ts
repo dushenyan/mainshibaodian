@@ -8,6 +8,10 @@ import elTable from '../plugin/element-ui'
 import components from '../components'
 import Layout from '../layout/index.vue'
 import 'virtual:uno.css'
+import vitepressNprogress from 'vitepress-plugin-nprogress'
+import 'vitepress-plugin-nprogress/lib/css/index.css'
+import { Sandbox } from 'vitepress-plugin-sandpack';
+import 'vitepress-plugin-sandpack/dist/style.css';
 
 export default {
   extends: DefaultTheme,
@@ -28,7 +32,8 @@ export default {
     const { app } = ctx
 
     DefaultTheme.enhanceApp(ctx)
-
+    vitepressNprogress(ctx)
+    app.component('Sandbox', Sandbox);
     app.use(elTable)
     app.use(components)
   }

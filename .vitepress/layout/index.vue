@@ -1,4 +1,5 @@
 <template>
+  <LockScreen ref="lockScreenRef" />
   <Layout>
     <template #layout-top>
       <el-backtop>
@@ -19,8 +20,10 @@ export const injectKey = Symbol('Layout')
 // 具体使用参见：https://vitepress.vuejs.org/guide/theme-introduction#extending-the-default-theme
 import Theme from 'vitepress/theme'
 import mediumZoom, { Zoom } from 'medium-zoom'
-import { onBeforeMount, } from 'vue'
-import { onContentUpdated } from 'vitepress'
+import confetti from "canvas-confetti";
+import { onBeforeMount, ref, onMounted, useTemplateRef } from 'vue'
+import { onContentUpdated, inBrowser } from 'vitepress'
+import LockScreen from '../components/LockScreen.vue'
 
 const { Layout } = Theme
 let zoom: Zoom
@@ -37,7 +40,25 @@ onBeforeMount(() => {
   })
 })
 
+// 引用锁屏组件
+const lockScreenRef = useTemplateRef('lockScreenRef')
 
+// 模拟空闲一段时间后锁定屏幕
+onMounted(() => {
+  setTimeout(() => {
+    lockScreenRef.value!.lock();
+  }, 300000); // 5分钟后锁定屏幕
+});
+
+
+if (inBrowser) {
+  /* 纸屑 */
+  confetti({
+    particleCount: 100,
+    spread: 170,
+    origin: { y: 0.6 },
+  });
+}
 </script>
 
 <style lang="scss">

@@ -1,14 +1,19 @@
+import { defineConfig } from 'vitepress';
 import { nav } from './config/nav'
 import { sidebar } from './config/sidebar'
 import { PluginTable } from './plugin'
 import type MarkdownIt from 'markdown-it'
+import { withSidebar } from 'vitepress-sidebar';
+import { UserConfig } from 'vitepress';
+import container from 'markdown-it-container';
+import { renderSandbox } from 'vitepress-plugin-sandpack';
 
 /**
  * 更多配置项参考：
  * 
  * @see app-configs https://vitepress.vuejs.org/config/app-configs.html
  */
-export default {
+const vitePressOptions: UserConfig = {
   base: '/',
   appearance: true,
   // 标签页logo
@@ -83,7 +88,20 @@ export default {
      * @param { Object } md markdown 实例
      */
     config: (md: MarkdownIt): void => {
-      md.use(PluginTable)
+      md.use(PluginTable).use(container, 'sandbox', {
+        render(tokens, idx) {
+          return renderSandbox(tokens, idx, 'sandbox');
+        },
+      });
     }
   }
 }
+
+const vitePressSidebarOptions = {
+  // VitePress Sidebar's options here...
+  documentRootPath: '/',
+  collapsed: false,
+  capitalizeFirst: true
+};
+
+export default defineConfig(withSidebar(vitePressOptions, vitePressSidebarOptions));

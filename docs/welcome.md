@@ -12,3 +12,7 @@
 - [tyh-blog](https://github.com/Tyh2001/tyh-blog) 我的博客
 - [tian-classmate](https://github.com/Tyh2001/tian-classmate) 我的简历
 - [tyh-theme-vscode](https://github.com/Tyh2001/tyh-theme-vscode) vscode 主题插件
+
+
+::: sandbox {template=vue3-ts}
+:::
