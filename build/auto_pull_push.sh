@@ -10,32 +10,32 @@ PROJECT_DIR="/Users/shenyandu/Desktop/mainshibaodian"
 LOG_FILE="/Users/shenyandu/Desktop/mainshibaodian/git_auto.log"
 
 # 定义提交信息
-COMMIT_MSG="Auto commit at $(date +'%Y-%m-%d %H:%M:%S')"
+COMMIT_MSG="自动提交于 $(date +'%Y-%m-%d %H:%M:%S')"
 
 # 记录日志函数
 log() {
     echo "$(date +'%Y-%m-%d %H:%M:%S') - $1" >> "$LOG_FILE"
 }
 
-log "Starting auto pull and push script"
+log "开始执行自动拉取和推送脚本"
 
 # 进入项目目录
-cd "$PROJECT_DIR" || { log "Failed to enter project directory"; exit 1; }
+cd "$PROJECT_DIR" || { log "无法进入项目目录"; exit 1; }
 
 # 拉取最新代码
-log "Pulling latest code"
+log "正在拉取最新代码"
 git pull 2>&1 | tee -a "$LOG_FILE"
 
 # 检查是否有未提交的更改
 if [[ -n $(git status --porcelain) ]]; then
-    log "Uncommitted changes found. Adding changes"
+    log "发现未提交的更改，正在添加更改"
     git add . 2>&1 | tee -a "$LOG_FILE"
-    log "Committing changes with message: $COMMIT_MSG"
+    log "正在使用以下信息提交更改：$COMMIT_MSG"
     git commit -m "$COMMIT_MSG" 2>&1 | tee -a "$LOG_FILE"
-    log "Pushing changes to remote repository"
+    log "正在将更改推送到远程仓库"
     git push 2>&1 | tee -a "$LOG_FILE"
 else
-    log "No uncommitted changes found"
+    log "未发现未提交的更改"
 fi
 
-log "Script finished"
+log "脚本执行完毕"
