@@ -1,0 +1,39 @@
+// https://www.typescriptlang.org/zh/tsconfig
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "strict": true,
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "lib": [
+      "ESNext",
+      "DOM"
+    ],
+    "skipLibCheck": true,
+    "typeRoots": [
+      "node_modules/@types",
+      "@types",
+      "types/**/*"
+    ],
+    "paths": {
+      "@/*": [
+        ".vitepress/*"
+      ]
+    },
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.d.ts",
+    "**/*.vue"
+  ],
+  "exclude": [
+    "node_modules",
+  ]
+}

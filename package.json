@@ -1,0 +1,27 @@
+{
+  "name": "mainsibaodian",
+  "type": "module",
+  "scripts": {
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "serve": "vitepress serve"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "element-plus": "^2.10.3",
+    "markdown-it": "^13.0.1",
+    "medium-zoom": "^1.1.0",
+    "vitepress": "1.0.0-rc.34",
+    "vue": "^3.4.3"
+  },
+  "devDependencies": {
+    "@unocss/preset-attributify": "^66.3.3",
+    "@unocss/preset-icons": "^66.3.3",
+    "@unocss/preset-uno": "^66.3.3",
+    "@unocss/vite": "^66.3.3",
+    "fighting-design": "^0.67.1",
+    "sass": "^1.66.1",
+    "unocss": "^66.3.3",
+    "vite": "^4.3.9"
+  }
+}

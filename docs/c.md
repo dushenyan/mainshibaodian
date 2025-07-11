@@ -1,0 +1,96 @@
+**面试官**：在 Vue 组件中使用原生 `addEventListener` 监听事件时，需要手动销毁吗？为什么？
+
+**我**（5年经验开发者）：这个问题可以从三个方面来深入分析，我结合具体代码示例说明：
+
+![顶部图标](./public/brand.svg)
+
+---
+
+### **1. 内存泄漏演示**
+```javascript
+// 危险示例：未销毁的事件监听
+export default {
+  mounted() {
+    window.addEventListener('resize', this.handleResize)
+  },
+  methods: {
+    handleResize() {
+      console.log('窗口大小变化')
+    }
+  }
+}
+```
+**问题**：  
+- 组件销毁后，`resize` 事件仍然绑定在 `window` 上  
+- 反复创建/销毁组件会导致监听器堆积  
+- 使用 Chrome DevTools 的 `Performance Monitor` 可以看到内存持续增长  
+
+---
+
+### **2. 正确销毁方案**
+```javascript
+// 安全示例：配合 beforeUnmount 销毁
+export default {
+  mounted() {
+    this.resizeHandler = this.handleResize.bind(this)
+    window.addEventListener('resize', this.resizeHandler)
+  },
+  beforeUnmount() {
+    window.removeEventListener('resize', this.resizeHandler)
+  },
+  methods: {
+    handleResize() {
+      console.log('窗口大小变化')
+    }
+  }
+}
+```
+**关键点**：  
+- 保存函数引用（避免 `bind` 每次生成新函数）  
+- `beforeUnmount` 是销毁的最佳时机（比 `destroyed` 更早）  
+- 使用 `once` 选项可简化一次性监听：
+```javascript
+element.addEventListener('click', callback, { once: true })
+```
+
+---
+
+### **3. 对比 Vue 模板事件**
+```html
+<!-- Vue 自动管理的模板事件 -->
+<button @click="handleClick">按钮</button>
+
+<!-- 等价于 -->
+<button ref="btn">按钮</button>
+
+<script>
+export default {
+  mounted() {
+    this.$refs.btn.addEventListener('click', this.handleClick)
+  },
+  beforeUnmount() {
+    // 但 Vue 自动帮我们做了这步！
+  }
+}
+</script>
+```
+**Vue 的优势**：  
+- 模板中的 `@click` 等事件会自动解绑  
+- 无需手动维护，降低内存泄漏风险  
+
+---
+
+### **通俗总结（递进式表达）**
+1. **"租房比喻"**：  
+   - 添加监听就像租房时安装门铃（`addEventListener`）  
+   - 退租时如果不拆掉（`removeEventListener`），下一个租户会被你的门铃骚扰  
+
+2. **"快递员比喻"**：  
+   - 事件监听像快递员送货（事件回调）  
+   - 组件销毁就像搬家，如果不通知快递公司（解绑事件），快递员会一直往旧址送货  
+
+3. **"自动化分级"**：  
+   - **Vue 模板事件**：物业公司自动处理（自动解绑）  
+   - **原生 DOM 事件**：需要自己联系物业（手动销毁）  
+
+（停顿）需要我演示具体的内存泄漏检测方法吗？
