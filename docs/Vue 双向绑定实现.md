@@ -1,3 +1,7 @@
+# Vue双向绑定实现
+
+::: sandbox {template=static}
+```html index.html
 <!DOCTYPE html>
 <html>
 
@@ -159,3 +163,5 @@
 </body>
 
 </html>
+```
+:::

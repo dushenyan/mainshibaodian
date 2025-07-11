@@ -21,7 +21,7 @@ const vitePressOptions: UserConfig = {
     ['link', { rel: 'icon', type: 'image/png', href: '/logo.png' }],
     ['link', { rel: 'manifest', href: '/manifest.webmanifest' }], // chrome pwa
   ],
-  title: 'vitepress-template',
+  title: 'shenyan′面试集合',
   /**
    * 是否显示最后更新时间
    *

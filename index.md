@@ -1,7 +1,7 @@
 ---
 layout: home
 hero:
-  name: VitePress Template
+  name: shenyan'面试集合
   tagline: 开箱即用的Vite Press模板，快速搭建你的文档网站。
   image:
     src: /brand.svg

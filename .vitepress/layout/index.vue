@@ -48,7 +48,7 @@ const lockScreenRef = useTemplateRef('lockScreenRef')
 onMounted(() => {
   console.log("开启验证",)
   setTimeout(() => {
-    lockScreenRef.value!.lock();
+    // lockScreenRef.value!.lock();
   }, 300000); // 5分钟后锁定屏幕
 });
 
