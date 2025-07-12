@@ -23,7 +23,7 @@
     <f-divider margin="40px" color="#eef" />
 
     <f-text bold block>欢迎使用</f-text>
-    <f-text block>⚡ 欢迎使用 vitePress-template</f-text>
+    <f-text block>⚡ 欢迎使用 shenyan'面试集合</f-text>
     <f-text block>🌲 在这里编写你的博客吧</f-text>
     <f-text block>
       🔨 官方文档在
