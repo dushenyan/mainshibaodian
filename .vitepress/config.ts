@@ -7,6 +7,7 @@ import { withSidebar } from 'vitepress-sidebar';
 import { UserConfig } from 'vitepress';
 import container from 'markdown-it-container';
 import { renderSandbox } from 'vitepress-plugin-sandpack';
+import { VitePressSidebarOptions } from 'vitepress-sidebar/types';
 
 /**
  * 更多配置项参考：
@@ -102,11 +103,8 @@ const vitePressOptions: UserConfig = {
   }
 }
 
-const vitePressSidebarOptions = {
-  // VitePress Sidebar's options here...
-  documentRootPath: '/',
-  collapsed: false,
-  capitalizeFirst: true
+const vitePressSidebarOptions :VitePressSidebarOptions = {
+  debugPrint: true,
 };
 
 export default defineConfig(withSidebar(vitePressOptions, vitePressSidebarOptions));
