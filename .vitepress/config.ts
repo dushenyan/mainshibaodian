@@ -34,7 +34,7 @@ const vitePressOptions: UserConfig = {
    *
    * @see cacheDir https://vitepress.vuejs.org/config/app-configs#cachedir
    */
-  cacheDir: '../../node_modules',
+  cacheDir: '../node_modules',
   /**
    * 主题配置
    *
