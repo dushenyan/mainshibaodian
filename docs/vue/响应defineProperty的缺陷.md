@@ -16,6 +16,7 @@ const vm = new Vue({
 vm.list[1] = 'X' // 不会触发视图更新！
 vm.list.length = 1 // 同样无效
 ```
+
 **缺陷本质**：  
 - `Object.defineProperty` 无法检测数组索引赋值  
 - 也无法拦截 `length` 变化  
@@ -51,6 +52,7 @@ delete vm.obj.a // 不会触发更新！
 ```javascript
 Vue.set(vm.obj, 'b', 2) // 正确写法
 ```
+
 **底层限制**：  
 - `Object.defineProperty` 需要预先定义属性  
 - 无法拦截未声明的属性操作  
@@ -66,6 +68,7 @@ data: {
   }
 }
 ```
+
 **性能缺陷**：  
 1. 初始化时需要深度遍历整个对象  
 2. 嵌套层级过深时递归开销大  

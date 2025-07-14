@@ -103,8 +103,10 @@ const vitePressOptions: UserConfig = {
   }
 }
 
-const vitePressSidebarOptions :VitePressSidebarOptions = {
-  debugPrint: true,
+const vitePressSidebarOptions: VitePressSidebarOptions = {
+  documentRootPath: '/',
+  collapsed: false,
+  capitalizeFirst: true
 };
 
 export default defineConfig(withSidebar(vitePressOptions, vitePressSidebarOptions));

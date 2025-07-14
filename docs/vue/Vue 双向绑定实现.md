@@ -1,5 +1,7 @@
 # Vue双向绑定实现
 
+以下是手写 Vue 双向绑定的精简实现，包含关键代码和详细注释，帮助您理解其核心原理：
+
 ::: sandbox {template=static}
 ```html index.html
 <!DOCTYPE html>
@@ -165,3 +167,58 @@
 </html>
 ```
 :::
+
+### 核心实现解析：
+
+1. **数据劫持 (Observer)**
+   - 使用 `Object.defineProperty` 对数据对象进行递归劫持
+   - 每个属性都有独立的 `Dep` 依赖收集器
+   - 在 getter 中收集依赖，setter 中通知更新
+
+2. **依赖收集 (Dep)**
+   ```javascript
+   class Dep {
+     constructor() { this.subs = []; }
+     addSub(sub) { this.subs.push(sub); }
+     notify() { this.subs.forEach(sub => sub.update()); }
+   }
+   ```
+
+3. **订阅者 (Watcher)**
+   ```javascript
+   class Watcher {
+     constructor(data, key, cb) {
+       Dep.target = this;
+       this.value = data[key]; // 触发getter
+       Dep.target = null;
+       this.cb = cb;
+     }
+     update() { this.cb(this.value); }
+   }
+   ```
+
+4. **模板编译**
+   - 递归遍历 DOM 节点
+   - 处理 `{{ }}` 插值表达式
+   - 处理 `v-model` 指令
+
+5. **双向绑定实现**
+   ```javascript
+   // 数据 -> 视图
+   new Watcher(data, key, (newVal) => {
+     node.textContent = newVal; // 更新文本
+     node.value = newVal;       // 更新输入框
+   });
+   
+   // 视图 -> 数据
+   node.addEventListener('input', (e) => {
+     this.$data[key] = e.target.value;
+   });
+   ```
+
+### 与 Vue3 的区别：
+1. Vue3 使用 Proxy 替代 Object.defineProperty
+2. Vue3 的响应式系统与渲染器解耦
+3. Vue3 采用编译时优化（如静态提升）
+
+这个实现包含了 Vue 双向绑定的核心思想，实际 Vue 源码还包含虚拟 DOM、组件系统等更多复杂功能。
