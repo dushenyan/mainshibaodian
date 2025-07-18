@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "~build/*": [
+                "build/*"
+            ],
+            "~docs/*": [
+                "docs/*"
+            ],
+            "~public/*": [
+                "public/*"
+            ],
+            "~types/*": [
+                "types/*"
+            ],
+            "~/*": [
+                "mainshibaodian/*"
+            ]
+        }
+    }
+}
