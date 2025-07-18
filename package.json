@@ -21,11 +21,13 @@
     "@unocss/preset-icons": "^66.3.3",
     "@unocss/preset-uno": "^66.3.3",
     "@unocss/vite": "^66.3.3",
+    "@vitejs/plugin-vue-jsx": "^5.0.1",
     "fighting-design": "^0.67.1",
     "markdown-it-container": "^4.0.0",
     "sass": "^1.66.1",
     "unocss": "^66.3.3",
     "vite": "^4.3.9",
+    "vite-aliases": "^0.11.8",
     "vitepress-plugin-nprogress": "^0.0.4",
     "vitepress-plugin-sandpack": "^1.1.4",
     "vitepress-sidebar": "^1.32.1"

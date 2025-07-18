@@ -1,0 +1,15 @@
+.hero-text {
+  display: inline-block;
+  position: relative;
+  font-size: 19px;
+}
+
+.hero-svg {
+  position: absolute;
+  top: 2em;
+  left: 0.2em;
+  z-index: -1;
+  width: calc(100% - 0.7em);
+  height: auto;
+  color: var(--vp-c-brand);
+}

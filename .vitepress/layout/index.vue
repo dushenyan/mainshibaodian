@@ -1,6 +1,5 @@
 <template>
   <LockScreen ref="lockScreenRef" />
-  <HomeUnderline />
   <Layout>
     <template #layout-top>
       <el-backtop>
@@ -22,11 +21,14 @@ export const injectKey = Symbol('Layout')
 import Theme from 'vitepress/theme'
 import mediumZoom, { Zoom } from 'medium-zoom'
 import confetti from "canvas-confetti";
-import { onBeforeMount, ref, onMounted, useTemplateRef } from 'vue'
+import { onBeforeMount, ref, onMounted, useTemplateRef, createApp, onActivated, watch, nextTick } from 'vue'
 import { onContentUpdated, inBrowser } from 'vitepress'
 import LockScreen from '../components/LockScreen.vue'
+import HomeUnderline from '../components/HomeUnderline'
+import { useData } from "vitepress";
 
 const { Layout } = Theme
+const { frontmatter: fm } = useData();
 let zoom: Zoom
 
 onContentUpdated(() => {
@@ -41,16 +43,45 @@ onBeforeMount(() => {
   })
 })
 
+function performDOMOperations() {
+  nextTick(() => {
+    // 查找目标节点
+    const oldNode = document.querySelector(".VPHero .tagline");
+    if (oldNode && oldNode.parentNode) {
+      // 创建并挂载应用
+      const app = createApp(HomeUnderline, {
+        fm: fm.value
+      })
+
+      // 替换节点
+      app.mount(oldNode)
+      oldNode.parentNode.replaceChild(app._container as Node, oldNode)
+    }
+  })
+}
+
 // 引用锁屏组件
 const lockScreenRef = useTemplateRef('lockScreenRef')
 
-// 模拟空闲一段时间后锁定屏幕
-onMounted(() => {
+function startLock() {
   console.log("开启验证",)
   setTimeout(() => {
-    // lockScreenRef.value!.lock();
+    lockScreenRef.value!.lock();
   }, 300000); // 5分钟后锁定屏幕
+}
+
+// 模拟空闲一段时间后锁定屏幕
+onMounted(() => {
+  // startLock()
 });
+
+watch(
+  fm,
+  () => {
+    performDOMOperations();
+  },
+  { immediate: true, deep: true }
+);
 
 
 if (inBrowser) {

@@ -4,8 +4,8 @@
     "baseUrl": "./",
     "target": "ESNext",
     "useDefineForClassFields": true,
-    "module": "ESNext",
-    "moduleResolution": "node",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
     "strict": true,
     "sourceMap": true,
     "resolveJsonModule": true,
@@ -27,11 +27,16 @@
         ".vitepress/*"
       ]
     },
+    "jsx": "preserve",
+    "jsxImportSource": "vue",
+    "types": ["vite/client"]
   },
   "include": [
     "**/*.ts",
     "**/*.d.ts",
-    "**/*.vue"
+    "**/*.vue",
+    ".vitepress/**/*.tsx",
+    ".vitepress/**/*.ts",
   ],
   "exclude": [
     "node_modules",
