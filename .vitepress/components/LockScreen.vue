@@ -29,11 +29,15 @@ const skipLockKey = 'skip_lock_screen';
 const { wsCache } = useCache();
 
 function secureRandomString(length: number) {
-  const array = new Uint8Array(length);
-  window.crypto.getRandomValues(array);
-  return Array.from(array, byte =>
-    ('0' + byte.toString(16)).slice(-2)
-  ).join('').slice(0, length);
+  if (inBrowser) {
+    const array = new Uint8Array(length);
+    window.crypto.getRandomValues(array);
+    return Array.from(array, byte =>
+      ('0' + byte.toString(16)).slice(-2)
+    ).join('').slice(0, length);
+  } else {
+    return 'dushenyan'
+  }
 }
 
 // 生成新密码

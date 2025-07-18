@@ -1,4 +1,5 @@
-import { JSEncrypt } from 'jsencrypt'
+import { JSEncrypt } from ''
+import JSEncrypt from 'jsencrypt'
 
 // 密钥对生成 http://web.chacuo.net/netrsakeypair
 
@@ -42,6 +43,13 @@ pb+K6gwHUXqdGYp7wUOCel0vfLefU3Vc8STTpbtWozIsSHeEfWutLRoa52Mc6Jy0
 Pn8lzX1Xz2EiE6Xy+8hhqRJ++ekRR6TzW86mWACmJsMT+InPM7ImnER3YNTRmiyT
 9d4pEqcqHWWrGA77HD/u69g0
 `
+
+let JSEncrypt: JSEncrypt | null = null
+if (!import.meta.env.SSR) {
+  import('jsencrypt').then((module) => {
+    JSEncrypt = new module.JSEncrypt()
+  })
+}
 
 export default {
   // 加密
