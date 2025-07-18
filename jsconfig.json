@@ -19,6 +19,42 @@
             ],
             "~@types/*": [
                 "@types/*"
+            ],
+            "~dist/*": [
+                "dist/*"
+            ],
+            "~.temp/*": [
+                ".temp/*"
+            ],
+            "~utils/*": [
+                "utils/*"
+            ],
+            "~web-storage-cache/*": [
+                "web-storage-cache/*"
+            ],
+            "~hooks/*": [
+                "hooks/*"
+            ],
+            "~@vitejs/*": [
+                "@vitejs/*"
+            ],
+            "~unocss/*": [
+                "unocss/*"
+            ],
+            "~vite/*": [
+                "vite/*"
+            ],
+            "~vite-aliases/*": [
+                "vite-aliases/*"
+            ],
+            "~vitepress/*": [
+                "vitepress/*"
+            ],
+            "~vitepress-plugin-sandpack/*": [
+                "vitepress-plugin-sandpack/*"
+            ],
+            "~jsencrypt/*": [
+                "jsencrypt/*"
             ]
         }
     }

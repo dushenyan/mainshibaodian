@@ -45,35 +45,23 @@ onBeforeMount(() => {
 
 function performDOMOperations() {
   nextTick(() => {
-    // 查找目标节点
-    const oldNode = document.querySelector(".VPHero .tagline");
-    if (oldNode && oldNode.parentNode) {
-      // 创建并挂载应用
-      const app = createApp(HomeUnderline, {
-        fm: fm.value
-      })
+    // 先检查是否在浏览器环境
+    if (inBrowser) {
+      // 查找目标节点
+      const oldNode = window.document.querySelector(".VPHero .tagline");
+      if (oldNode && oldNode.parentNode) {
+        // 创建并挂载应用
+        const app = createApp(HomeUnderline, {
+          fm: fm.value
+        })
 
-      // 替换节点
-      app.mount(oldNode)
-      oldNode.parentNode.replaceChild(app._container as Node, oldNode)
+        // 替换节点
+        app.mount(oldNode)
+        oldNode.parentNode.replaceChild(app._container as Node, oldNode)
+      }
     }
   })
 }
-
-// 引用锁屏组件
-const lockScreenRef = useTemplateRef('lockScreenRef')
-
-function startLock() {
-  console.log("开启验证",)
-  setTimeout(() => {
-    lockScreenRef.value!.lock();
-  }, 300000); // 5分钟后锁定屏幕
-}
-
-// 模拟空闲一段时间后锁定屏幕
-onMounted(() => {
-  // startLock()
-});
 
 watch(
   fm,

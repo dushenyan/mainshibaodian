@@ -20,7 +20,7 @@
     "typeRoots": [
       "node_modules/@types",
       "@types",
-      "types/**/*"
+      "types/*"
     ],
     "paths": {
       "@/*": [
@@ -28,8 +28,7 @@
       ]
     },
     "jsx": "preserve",
-    "jsxImportSource": "vue",
-    "types": ["vite/client"]
+    "jsxImportSource": "vue"
   },
   "include": [
     "**/*.ts",
@@ -37,6 +36,7 @@
     "**/*.vue",
     ".vitepress/**/*.tsx",
     ".vitepress/**/*.ts",
+    ".vitepress/**/*.vue",
   ],
   "exclude": [
     "node_modules",

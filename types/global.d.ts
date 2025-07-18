@@ -1,7 +1,12 @@
-export {}
+export { }
 
 declare global {
   interface Fn<T = any> {
     (...arg: T[]): T
+  }
+
+  interface Window {
+    lc: any
+    decrypt: any
   }
 }
