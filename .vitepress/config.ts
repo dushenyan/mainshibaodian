@@ -30,16 +30,11 @@ const vitePressOptions: UserConfig = {
    */
   lastUpdated: true,
   /**
-   * 缓存目录
-   *
-   * @see cacheDir https://vitepress.vuejs.org/config/app-configs#cachedir
-   */
-  cacheDir: '../node_modules',
-  /**
    * 主题配置
    *
    * @see theme-config https://vitepress.vuejs.org/guide/migration-from-vitepress-0#theme-config
    */
+  cacheDir: './node_modules/.cache',
   themeConfig: {
     logo: '/logo.png',
     /**
