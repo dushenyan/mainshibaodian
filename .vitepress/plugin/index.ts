@@ -1,1 +1,1 @@
-export * from './plugin-table'
+export * from './plugin-table.js'

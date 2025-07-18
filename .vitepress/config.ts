@@ -1,7 +1,7 @@
 import { defineConfig } from 'vitepress';
-import { nav } from './config/nav'
-import { sidebar } from './config/sidebar'
-import { PluginTable } from './plugin'
+import { nav } from './config/nav.js'
+import { sidebar } from './config/sidebar.js'
+import { PluginTable } from './plugin/index.js'
 import type MarkdownIt from 'markdown-it'
 import { withSidebar } from 'vitepress-sidebar';
 import { UserConfig } from 'vitepress';
@@ -100,7 +100,7 @@ const vitePressOptions: UserConfig = {
 
 const vitePressSidebarOptions: VitePressSidebarOptions = {
   documentRootPath: '/',
-  scanStartPath: '/docs',
+  scanStartPath: '/',
   collapsed: false,
   capitalizeFirst: true
 };

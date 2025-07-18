@@ -16,6 +16,9 @@
             ],
             "~/*": [
                 "mainshibaodian/*"
+            ],
+            "~@types/*": [
+                "@types/*"
             ]
         }
     }
