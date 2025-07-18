@@ -7,7 +7,7 @@
     <f-text align="center" bold block :size="25"> Hello </f-text>
 
     <f-text align="center" style="margin-top: 20px">
-      <f-button round type="primary" class="start" href="/docs/hello.html">
+      <f-button round type="primary" class="start" href="/docs/other/welcome.md">
         😊 快速开始
       </f-button>
       <f-button

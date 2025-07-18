@@ -34,7 +34,7 @@ const vitePressOptions: UserConfig = {
    *
    * @see theme-config https://vitepress.vuejs.org/guide/migration-from-vitepress-0#theme-config
    */
-  cacheDir: './node_modules/.cache',
+  cacheDir: './node_modules/cache',
   themeConfig: {
     logo: '/logo.png',
     /**
@@ -100,6 +100,7 @@ const vitePressOptions: UserConfig = {
 
 const vitePressSidebarOptions: VitePressSidebarOptions = {
   documentRootPath: '/',
+  scanStartPath: '/docs',
   collapsed: false,
   capitalizeFirst: true
 };

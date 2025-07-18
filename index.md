@@ -8,7 +8,7 @@ hero:
   actions:
     - theme: brand
       text: 快速入手
-      link: /start
+      link: /docs/other/hello
 features:
   - icon: ⚡
     title: 简单

@@ -8,7 +8,7 @@ export const sidebar = {
     {
       text: '快速上手',
       collapsible: true,
-      link: '/docs/hello',
+      link: '/docs/other/welcome',
       items: [
         { text: 'hello', link: '/docs/hello' },
         { text: '欢迎使用', link: '/docs/welcome' },
