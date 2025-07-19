@@ -1,4 +1,3 @@
-// https://www.typescriptlang.org/zh/tsconfig
 {
   "compilerOptions": {
     "baseUrl": "./",
@@ -24,7 +23,19 @@
     ],
     "paths": {
       "@/*": [
-        ".vitepress/*"
+        "mainshibaodian/*"
+      ],
+      "@build/*": [
+        "build/*"
+      ],
+      "@docs/*": [
+        "docs/*"
+      ],
+      "@public/*": [
+        "public/*"
+      ],
+      "@types/*": [
+        "types/*"
       ]
     },
     "jsx": "preserve",
@@ -36,9 +47,9 @@
     "**/*.vue",
     ".vitepress/**/*.tsx",
     ".vitepress/**/*.ts",
-    ".vitepress/**/*.vue",
+    ".vitepress/**/*.vue"
   ],
   "exclude": [
-    "node_modules",
+    "node_modules"
   ]
 }

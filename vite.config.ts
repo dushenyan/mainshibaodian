@@ -12,10 +12,13 @@ export default (): UserConfigExport => {
       exclude: ['vitepress']
     },
     plugins: [
-      vueJsx(),
       ViteAliases({
         dir: '.',
+        prefix: '@',
+        depth: 0,
+        dts: true
       }),
+      vueJsx(),
       unocss(),
     ],
     ssr: {
