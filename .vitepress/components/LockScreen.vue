@@ -26,7 +26,7 @@ const correctPassword = ref('');
 // 24 小时不锁屏的标记
 const skipLockKey = 'skip_lock_screen';
 
-const { wsCache } = useCache();
+const wsCache = await useCache();
 
 function secureRandomString(length: number) {
   if (inBrowser) {
@@ -96,8 +96,9 @@ if (inBrowser) {
   window.decrypt = useJsencrypt.decrypt
 }
 
-onMounted(() => {
+onMounted(async () => {
   const skipLock = wsCache.get(skipLockKey);
+  console.log(skipLock)
   if (!skipLock) {
     // 如果没有跳过标记，检查密码并锁定屏幕
     checkPasswordExpiration();

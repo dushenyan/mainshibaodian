@@ -21,7 +21,7 @@ export const injectKey = Symbol('Layout')
 import Theme from 'vitepress/theme'
 import mediumZoom, { Zoom } from 'medium-zoom'
 import confetti from "canvas-confetti";
-import { onBeforeMount, ref, onMounted, useTemplateRef, createApp, onActivated, watch, nextTick } from 'vue'
+import { onBeforeMount, createApp, watch, nextTick } from 'vue'
 import { onContentUpdated, inBrowser } from 'vitepress'
 import LockScreen from '../components/LockScreen.vue'
 import HomeUnderline from '../components/HomeUnderline'

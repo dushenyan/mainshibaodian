@@ -1,6 +1,3 @@
-import { JSEncrypt } from ''
-import JSEncrypt from 'jsencrypt'
-
 // 密钥对生成 http://web.chacuo.net/netrsakeypair
 
 const publicKey = `
@@ -13,8 +10,6 @@ m0fyGnSlAEpphYG3QHyq1dSQAkIDBi3I/NZ8QKcqX150dzPbtYWUAm8yd0x3MdY3
 gwIDAQAB
 `
 
-
-// 私钥 可能没同步
 const privateKey = `
 MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC07vXR//G//bJN
 qSwAbwZrHQ4s/GUva6Dpg3rK2BdwXV7y5cVFxAQDDuaDCCl60O6kIMGTntC5CAVz
@@ -44,24 +39,26 @@ Pn8lzX1Xz2EiE6Xy+8hhqRJ++ekRR6TzW86mWACmJsMT+InPM7ImnER3YNTRmiyT
 9d4pEqcqHWWrGA77HD/u69g0
 `
 
-let JSEncrypt: JSEncrypt | null = null
+import type { JSEncrypt } from 'jsencrypt'
+
+let jsEncrypt: typeof JSEncrypt
 if (!import.meta.env.SSR) {
   import('jsencrypt').then((module) => {
-    JSEncrypt = new module.JSEncrypt()
+    jsEncrypt = module.JSEncrypt
   })
 }
 
 export default {
   // 加密
   encrypt: (txt: string) => {
-    const encryptor = new JSEncrypt()
+    const encryptor = new jsEncrypt()
     encryptor.setPublicKey(publicKey) // 设置公钥
     return encryptor.encrypt(txt) // 对数据进行加密
   },
 
   // 解密
   decrypt: (txt: string) => {
-    const encryptor = new JSEncrypt()
+    const encryptor = new jsEncrypt()
     encryptor.setPrivateKey(privateKey) // 设置私钥
     return encryptor.decrypt(txt) // 对数据进行解密
   }

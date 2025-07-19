@@ -20,28 +20,24 @@ interface MockCache {
  * 配置浏览器本地存储的方式，可直接存储对象数组。
  */
 export const useCache = async (type: CacheType = 'localStorage') => {
+  // SSR 环境下返回模拟的缓存对象
+  const mockCache: MockCache = {
+    set: () => { },
+    get: () => null,
+    delete: () => { },
+    deleteAllExpires: () => { },
+    clear: () => { },
+    touch: () => { },
+    add: () => { },
+    replace: () => { }
+  };
+  let wsCache = mockCache
+
   if (!import.meta.env.SSR) {
     const { default: WebStorageCache } = await import('web-storage-cache');
-    const wsCache = new WebStorageCache({
+    wsCache = new WebStorageCache({
       storage: type
     });
-    return {
-      wsCache
-    };
-  } else {
-    // SSR 环境下返回模拟的缓存对象
-    const mockCache: MockCache = {
-      set: () => {},
-      get: () => null,
-      delete: () => {},
-      deleteAllExpires: () => {},
-      clear: () => {},
-      touch: () => {},
-      add: () => {},
-      replace: () => {}
-    };
-    return {
-      wsCache: mockCache
-    };
   }
+  return wsCache
 };
