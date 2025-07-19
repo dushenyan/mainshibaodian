@@ -13,10 +13,11 @@ export default (): UserConfigExport => {
     },
     plugins: [
       ViteAliases({
-        dir: './.vitepress',
+        dir: '.vitepress',
         prefix: '@',
         depth: 0,
-        ovrConfig: true
+        ovrConfig: true,
+        dts: true
       }),
       vueJsx(),
       unocss(),

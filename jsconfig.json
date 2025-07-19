@@ -1,0 +1,37 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "@cache/*": [
+                "cache/*"
+            ],
+            "@components/*": [
+                "components/*"
+            ],
+            "@config/*": [
+                "config/*"
+            ],
+            "@hooks/*": [
+                "hooks/*"
+            ],
+            "@icons/*": [
+                "icons/*"
+            ],
+            "@layout/*": [
+                "layout/*"
+            ],
+            "@plugin/*": [
+                "plugin/*"
+            ],
+            "@styles/*": [
+                "styles/*"
+            ],
+            "@theme/*": [
+                "theme/*"
+            ],
+            "@.vitepress/*": [
+                ".vitepress/*"
+            ]
+        }
+    }
+}

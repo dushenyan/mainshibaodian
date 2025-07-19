@@ -22,20 +22,35 @@
       "types/*"
     ],
     "paths": {
+      "@cache/*": [
+        ".vitepress/cache/*"
+      ],
+      "@components/*": [
+        ".vitepress/components/*"
+      ],
+      "@config/*": [
+        ".vitepress/config/*"
+      ],
+      "@hooks/*": [
+        ".vitepress/hooks/*"
+      ],
+      "@icons/*": [
+        ".vitepress/icons/*"
+      ],
+      "@layout/*": [
+        ".vitepress/layout/*"
+      ],
+      "@plugin/*": [
+        ".vitepress/plugin/*"
+      ],
+      "@styles/*": [
+        ".vitepress/styles/*"
+      ],
+      "@theme/*": [
+        ".vitepress/theme/*"
+      ],
       "@/*": [
-        "mainshibaodian/*"
-      ],
-      "@build/*": [
-        "build/*"
-      ],
-      "@docs/*": [
-        "docs/*"
-      ],
-      "@public/*": [
-        "public/*"
-      ],
-      "@types/*": [
-        "types/*"
+        ".vitepress/*"
       ]
     },
     "jsx": "preserve",

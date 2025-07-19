@@ -12,8 +12,8 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
-import { useCache, CACHE_KEY } from '../hooks/useCache';
-import useJsencrypt from '../hooks/useJsencrypt';
+import { useCache, CACHE_KEY } from '@hooks/useCache';
+import useJsencrypt from '@hooks/useJsencrypt';
 import { ElMessage } from 'element-plus';
 import { inBrowser } from 'vitepress';
 

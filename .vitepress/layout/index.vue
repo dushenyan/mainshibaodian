@@ -22,10 +22,9 @@ import Theme from 'vitepress/theme'
 import mediumZoom, { Zoom } from 'medium-zoom'
 import confetti from "canvas-confetti";
 import { onBeforeMount, createApp, watch, nextTick } from 'vue'
-import { onContentUpdated, inBrowser } from 'vitepress'
-import LockScreen from '../components/LockScreen.vue'
-import HomeUnderline from '../components/HomeUnderline'
-import { useData } from "vitepress";
+import { onContentUpdated, inBrowser, useData } from 'vitepress'
+import LockScreen from '@components/LockScreen.vue'
+import HomeUnderline from '@components/HomeUnderline'
 
 const { Layout } = Theme
 const { frontmatter: fm } = useData();
