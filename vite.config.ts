@@ -16,6 +16,7 @@ export default (): UserConfigExport => {
         dir: './.vitepress',
         prefix: '@',
         depth: 0,
+        ovrConfig: true
       }),
       vueJsx(),
       unocss(),
