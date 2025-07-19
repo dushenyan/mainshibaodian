@@ -100,7 +100,7 @@ const vitePressOptions: UserConfig = {
 
 const vitePressSidebarOptions: VitePressSidebarOptions = {
   documentRootPath: '/',
-  scanStartPath: '/',
+  scanStartPath: '/docs',
   collapsed: false,
   capitalizeFirst: true
 };
