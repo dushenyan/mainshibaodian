@@ -22,9 +22,6 @@
       "types/*"
     ],
     "paths": {
-      "@cache/*": [
-        ".vitepress/cache/*"
-      ],
       "@components/*": [
         ".vitepress/components/*"
       ],
@@ -42,6 +39,9 @@
       ],
       "@plugin/*": [
         ".vitepress/plugin/*"
+      ],
+      "@server/*": [
+        ".vitepress/server/*"
       ],
       "@styles/*": [
         ".vitepress/styles/*"

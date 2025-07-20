@@ -11,7 +11,6 @@ dev:
 new:
 	node scripts/new.js $(filter-out $@,$(MAKECMDGOALS))
 
-
 dist: install
 	npm run dist
 

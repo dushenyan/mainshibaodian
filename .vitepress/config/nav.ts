@@ -5,7 +5,7 @@
  */
 export const nav = [
   {
-    text: '文档',
+    text: 'vue',
     activeMatch: '/docs/',
     link: '/docs/other/hello'
   }

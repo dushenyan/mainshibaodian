@@ -7,7 +7,7 @@ hero:
     src: /brand.svg
   actions:
     - theme: brand
-      text: 快速入手
+      text: 快速入手1
       link: /docs/other/hello
 features:
   - icon: ⚡

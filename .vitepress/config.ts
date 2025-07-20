@@ -8,6 +8,7 @@ import { UserConfig } from 'vitepress';
 import container from 'markdown-it-container';
 import { renderSandbox } from 'vitepress-plugin-sandpack';
 import { VitePressSidebarOptions } from 'vitepress-sidebar/types';
+import { getTree } from './server/usePrintTree.js'
 
 /**
  * 更多配置项参考：
@@ -95,6 +96,15 @@ const vitePressOptions: UserConfig = {
         return htmlResult;
       }
     }
+  },
+  // 这里假设 docs 目录在项目根目录
+  async transformPageData(pageData) {
+    console.log(getTree('docs'))
+    console.log(pageData)
+    // if (pageData.relativePath === 'index.md') {
+    //   pageData.tree = 
+    // }
+    return pageData
   }
 }
 
@@ -105,4 +115,5 @@ const vitePressSidebarOptions: VitePressSidebarOptions = {
   capitalizeFirst: true
 };
 
-export default defineConfig(withSidebar(vitePressOptions, vitePressSidebarOptions));
+export default vitePressOptions
+// export default defineConfig(withSidebar(vitePressOptions, vitePressSidebarOptions));
