@@ -51,6 +51,12 @@
       ],
       "@/*": [
         ".vitepress/*"
+      ],
+      "@dist/*": [
+        ".vitepress/dist/*"
+      ],
+      "@.temp/*": [
+        ".vitepress/.temp/*"
       ]
     },
     "jsx": "preserve",

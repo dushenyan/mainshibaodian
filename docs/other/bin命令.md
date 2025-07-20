@@ -28,7 +28,7 @@ pp/
 
 下面示例展示了如何运行该 CLI 工具，以及它的最简单输出。
 
-:::sandpack
+```js
 {
   "template": "node",
   "entry": "bin/cli.js",
@@ -42,7 +42,7 @@ pp/
     }
   }
 }
-:::
+```
 
 运行命令：
 
@@ -77,7 +77,7 @@ hello world
 示例：使用 `commander` 实现带参数的 CLI
 
 
-:::sandpack
+```js
 {
   "template": "node",
   "entry": "bin/cli.js",
@@ -91,7 +91,7 @@ hello world
     }
   }
 }
-:::
+```
 
 运行示例：
 

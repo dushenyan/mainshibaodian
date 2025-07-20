@@ -98,15 +98,17 @@ const vitePressOptions: UserConfig = {
     }
   },
   // 这里假设 docs 目录在项目根目录
-  async transformPageData(pageData) {
-    console.log(getTree('docs'))
-    console.log(pageData)
-    // if (pageData.relativePath === 'index.md') {
-    //   pageData.tree = 
-    // }
-    return pageData
-  }
+  // async transformPageData(pageData) {
+  //   console.log(pageData)
+  //   // if (pageData.relativePath === 'index.md') {
+  //   //   pageData.tree = 
+  //   // }
+  //   return pageData
+  // }
 }
+
+// console.log(getTree('docs'))
+
 
 const vitePressSidebarOptions: VitePressSidebarOptions = {
   documentRootPath: '/',
