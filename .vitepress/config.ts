@@ -85,7 +85,7 @@ const vitePressOptions: UserConfig = {
      */
     config: (md: MarkdownIt): void => {
       md.use(PluginTable).use(container, 'sandbox', {
-        render(tokens, idx) {
+        render(tokens: any[], idx: number) {
           return renderSandbox(tokens, idx, 'sandbox');
         },
       });
