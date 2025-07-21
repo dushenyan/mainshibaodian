@@ -1,12 +1,14 @@
 {
   "name": "mainsibaodian",
   "type": "module",
+  "private": "true",
   "scripts": {
     "dev": "vitepress dev",
     "build": "vitepress build",
-    "serve": "vitepress serve"
+    "serve": "vitepress serve",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix"
   },
-  "license": "MIT",
   "dependencies": {
     "@vueuse/core": "^13.5.0",
     "canvas-confetti": "^1.9.3",
@@ -19,6 +21,7 @@
     "web-storage-cache": "^1.1.1"
   },
   "devDependencies": {
+    "@antfu/eslint-config": "^4.17.0",
     "@types/canvas-confetti": "^1.9.0",
     "@types/markdown-it": "^14.1.2",
     "@types/markdown-it-container": "^2.0.10",
@@ -28,6 +31,7 @@
     "@unocss/preset-uno": "^66.3.3",
     "@unocss/vite": "^66.3.3",
     "@vitejs/plugin-vue-jsx": "^5.0.1",
+    "eslint": "^9.31.0",
     "fighting-design": "^0.67.1",
     "markdown-it-container": "^4.0.0",
     "sass": "^1.66.1",
