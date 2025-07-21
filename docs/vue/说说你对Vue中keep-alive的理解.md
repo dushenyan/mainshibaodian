@@ -112,8 +112,8 @@ keep-alive特别适合以下场景：
 ```html
 <div class="tab-container">
   <div>
-    <span 
-      v-for="tab in ['A', 'B']" 
+    <span
+      v-for="tab in ['A', 'B']"
       :key="tab"
       :class="['tab-button', { active: currentTab === tab }]"
       @click="currentTab = tab"
@@ -121,7 +121,7 @@ keep-alive特别适合以下场景：
       标签{{ tab }}
     </span>
   </div>
-  
+
   <keep-alive>
     <component :is="currentComponent"></component>
   </keep-alive>
@@ -253,8 +253,8 @@ keep-alive的实现原理可以简单理解为：
   <div id="app">
     <div class="tab-container">
       <div>
-        <span 
-          v-for="tab in ['A', 'B']" 
+        <span
+          v-for="tab in ['A', 'B']"
           :key="tab"
           :class="['tab-button', { active: currentTab === tab }]"
           @click="currentTab = tab"
@@ -262,7 +262,7 @@ keep-alive的实现原理可以简单理解为：
           标签{{ tab }}
         </span>
       </div>
-      
+
       <keep-alive>
         <component :is="currentComponent"></component>
       </keep-alive>

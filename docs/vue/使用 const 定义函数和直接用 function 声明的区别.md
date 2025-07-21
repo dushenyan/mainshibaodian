@@ -34,18 +34,18 @@
 ```javascript
 // 函数声明
 function functionDeclaration() {
-  console.log('这是一个函数声明');
+  console.log('这是一个函数声明')
 }
 
 // 使用const定义函数表达式
-const functionExpression = function() {
-  console.log('这是一个使用const定义的函数表达式');
-};
+function functionExpression() {
+  console.log('这是一个使用const定义的函数表达式')
+}
 
 // 使用const定义箭头函数
-const arrowFunction = () => {
-  console.log('这是一个使用const定义的箭头函数');
-};
+function arrowFunction() {
+  console.log('这是一个使用const定义的箭头函数')
+}
 ```
 
 ### 2. 提升(Hoisting)行为
@@ -55,26 +55,28 @@ const arrowFunction = () => {
 ```javascript
 // 测试提升行为
 try {
-  hoistedFunction(); // 可以调用，因为函数声明会被提升
-} catch (e) {
-  console.log('hoistedFunction调用失败:', e.message);
+  hoistedFunction() // 可以调用，因为函数声明会被提升
+}
+catch (e) {
+  console.log('hoistedFunction调用失败:', e.message)
 }
 
 try {
-  notHoistedFunction(); // 会抛出错误，因为函数表达式不会被提升
-} catch (e) {
-  console.log('notHoistedFunction调用失败:', e.message);
+  notHoistedFunction() // 会抛出错误，因为函数表达式不会被提升
+}
+catch (e) {
+  console.log('notHoistedFunction调用失败:', e.message)
 }
 
 // 函数声明
 function hoistedFunction() {
-  console.log('这是一个被提升的函数声明');
+  console.log('这是一个被提升的函数声明')
 }
 
 // 函数表达式
-const notHoistedFunction = function() {
-  console.log('这是一个不会被提升的函数表达式');
-};
+function notHoistedFunction() {
+  console.log('这是一个不会被提升的函数表达式')
+}
 ```
 
 **关键区别**：
@@ -89,7 +91,7 @@ function duplicateDeclaration() {}
 // function duplicateDeclaration() {} // 这里会抛出语法错误
 
 // 使用const定义的函数可以看作是一个常量赋值
-const duplicateFunction = function() {};
+function duplicateFunction() {}
 // const duplicateFunction = function() {}; // 这里会抛出TypeError，因为重复声明const变量
 ```
 
@@ -106,32 +108,32 @@ const duplicateFunction = function() {};
 ```javascript
 // 函数作为参数传递
 function executeFunction(fn) {
-  fn();
+  fn()
 }
 
 // 函数声明
 function declaredFunction() {
-  console.log('函数声明作为参数');
+  console.log('函数声明作为参数')
 }
 
 // 函数表达式
-const expressedFunction = function() {
-  console.log('函数表达式作为参数');
-};
+function expressedFunction() {
+  console.log('函数表达式作为参数')
+}
 
-executeFunction(declaredFunction); // 可以
-executeFunction(expressedFunction); // 可以
+executeFunction(declaredFunction) // 可以
+executeFunction(expressedFunction) // 可以
 
 // 在对象属性中
 const obj = {
-  declaredFunc: function() { console.log('对象中的函数声明'); }, // 实际上这也是函数表达式
-  expressedFunc: function() { console.log('对象中的函数表达式'); }
-};
+  declaredFunc() { console.log('对象中的函数声明') }, // 实际上这也是函数表达式
+  expressedFunc() { console.log('对象中的函数表达式') }
+}
 
 // 更清晰的函数表达式作为对象属性
 const obj2 = {
-  func: function() { console.log('对象属性中的函数表达式'); }
-};
+  func() { console.log('对象属性中的函数表达式') }
+}
 ```
 
 **关键区别**：
@@ -144,17 +146,17 @@ const obj2 = {
 
 ```javascript
 // 箭头函数必须使用const或let定义
-const arrowFn = () => {
-  console.log('这是一个箭头函数');
-};
+function arrowFn() {
+  console.log('这是一个箭头函数')
+}
 
 // 箭头函数不能使用function声明
 // function arrowFn() {} // 这不是箭头函数，而是普通函数声明
 
 // 箭头函数的一些特性
-const lexicalThis = () => {
-  console.log(this); // 继承自外层作用域的this
-};
+function lexicalThis() {
+  console.log(this) // 继承自外层作用域的this
+}
 ```
 
 **关键区别**：
@@ -168,28 +170,28 @@ const lexicalThis = () => {
 ```javascript
 // 1. 当需要函数提升特性时，使用函数声明
 // 这在某些需要先调用后定义的场景很有用
-initApp();
+initApp()
 
 function initApp() {
-  console.log('应用初始化');
+  console.log('应用初始化')
 }
 
 // 2. 当需要将函数作为值传递或赋值给变量时，使用const定义的函数表达式
-const calculate = function(a, b) {
-  return a + b;
-};
+function calculate(a, b) {
+  return a + b
+}
 
 // 3. 在模块化代码中，通常使用const定义函数
 // 这样可以明确表示函数不会被重新赋值
 const apiClient = {
-  getData: function() { /* ... */ },
-  postData: function() { /* ... */ }
-};
+  getData() { /* ... */ },
+  postData() { /* ... */ }
+}
 
 // 4. 箭头函数通常用于回调或需要词法this的场景
-const buttonHandler = () => {
-  console.log('按钮点击处理');
-};
+function buttonHandler() {
+  console.log('按钮点击处理')
+}
 ```
 
 ### 7. 可运行完整示例
@@ -222,21 +224,21 @@ const buttonHandler = () => {
       <div class="code">
         // 函数声明(会被提升)<br>
         hoistedFunction(); // 可以调用<br><br>
-        
+
         // 函数表达式(不会被提升)<br>
         // notHoistedFunction(); // 会抛出错误
       </div>
       <button @click="runHoistingExample">运行提升示例</button>
       <div>结果: {{ hoistingResult }}</div>
     </div>
-    
+
     <div class="example">
       <h3>2. 重复声明对比</h3>
       <div class="code">
         // 函数声明不能重复声明<br>
         // function duplicate() {} // 语法错误<br>
         // function duplicate() {}<br><br>
-        
+
         // const定义的函数不能重复声明<br>
         // const duplicate = function() {};<br>
         // const duplicate = function() {}; // TypeError
@@ -244,26 +246,26 @@ const buttonHandler = () => {
       <button @click="runDuplicateExample">运行重复声明示例</button>
       <div>结果: {{ duplicateResult }}</div>
     </div>
-    
+
     <div class="example">
       <h3>3. 作为值传递</h3>
       <div class="code">
         // 函数声明可以作为参数传递<br>
         executeFunction(declaredFunction);<br><br>
-        
+
         // 函数表达式也可以作为参数传递<br>
         executeFunction(expressedFunction);
       </div>
       <button @click="runValueExample">运行值传递示例</button>
       <div>结果: {{ valueResult }}</div>
     </div>
-    
+
     <div class="example">
       <h3>4. 箭头函数</h3>
       <div class="code">
         // 箭头函数必须使用const或let定义<br>
         const arrowFn = () => {};<br><br>
-        
+
         // 箭头函数的this行为<br>
         const obj = {<br>
         &nbsp;&nbsp;method: function() {<br>
@@ -295,7 +297,7 @@ const buttonHandler = () => {
           } catch (e) {
             this.hoistingResult += 'hoistedFunction调用失败: ' + e.message + '\n';
           }
-          
+
           try {
             notHoistedFunction();
             this.hoistingResult += 'notHoistedFunction调用成功\n';
@@ -303,14 +305,14 @@ const buttonHandler = () => {
             this.hoistingResult += 'notHoistedFunction调用失败: ' + e.message + '\n';
           }
         },
-        
+
         runDuplicateExample() {
           this.duplicateResult = '';
           try {
             function duplicate() {}
             // function duplicate() {} // 取消注释会看到语法错误
             this.duplicateResult += '第一次函数声明成功\n';
-            
+
             // const duplicate = function() {};
             // const duplicate = function() {}; // 取消注释会看到TypeError
             this.duplicateResult += '第一次const定义成功\n';
@@ -318,21 +320,21 @@ const buttonHandler = () => {
             this.duplicateResult += '错误: ' + e.message + '\n';
           }
         },
-        
+
         runValueExample() {
           this.valueResult = '';
           function declaredFunction() {
             return '函数声明作为参数';
           }
-          
+
           const expressedFunction = function() {
             return '函数表达式作为参数';
           };
-          
+
           this.valueResult += executeFunction(declaredFunction) + '\n';
           this.valueResult += executeFunction(expressedFunction) + '\n';
         },
-        
+
         runArrowExample() {
           this.arrowResult = '';
           const obj = {
@@ -340,13 +342,13 @@ const buttonHandler = () => {
               setTimeout(function() {
                 this.arrowResult += '普通函数this: ' + (typeof this) + '\n';
               }, 100);
-              
+
               setTimeout(() => {
                 this.arrowResult += '箭头函数this: ' + (typeof this) + '\n';
               }, 100);
             }
           };
-          
+
           obj.method();
         }
       },
@@ -355,31 +357,31 @@ const buttonHandler = () => {
         function hoistedFunction() {
           return 'hoistedFunction被调用';
         }
-        
+
         const notHoistedFunction = function() {
           return 'notHoistedFunction被调用';
         };
-        
+
         // 定义执行函数
         function executeFunction(fn) {
           return fn();
         }
       }
     })
-    
+
     // 注意: 由于Vue的mounted钩子中定义的函数在全局不可见，
     // 所以我们需要将这些函数也定义在全局作用域中以便按钮点击能正常工作
     // 这在实际面试中可能需要解释
-    
+
     // 重新定义全局函数以便示例工作
     function hoistedFunction() {
       return 'hoistedFunction被调用';
     }
-    
+
     const notHoistedFunction = function() {
       return 'notHoistedFunction被调用';
     };
-    
+
     function executeFunction(fn) {
       return fn();
     }
@@ -417,21 +419,21 @@ const buttonHandler = () => {
       <div class="code">
         // 函数声明(会被提升)<br>
         hoistedFunction(); // 可以调用<br><br>
-        
+
         // 函数表达式(不会被提升)<br>
         // notHoistedFunction(); // 会抛出错误
       </div>
       <button id="hoistingBtn">运行提升示例</button>
       <div id="hoistingResult"></div>
     </div>
-    
+
     <div class="example">
       <h3>2. 重复声明对比</h3>
       <div class="code">
         // 函数声明不能重复声明<br>
         // function duplicate() {} // 语法错误<br>
         // function duplicate() {}<br><br>
-        
+
         // const定义的函数不能重复声明<br>
         // const duplicate = function() {};<br>
         // const duplicate = function() {}; // TypeError
@@ -439,26 +441,26 @@ const buttonHandler = () => {
       <button id="duplicateBtn">运行重复声明示例</button>
       <div id="duplicateResult"></div>
     </div>
-    
+
     <div class="example">
       <h3>3. 作为值传递</h3>
       <div class="code">
         // 函数声明可以作为参数传递<br>
         executeFunction(declaredFunction);<br><br>
-        
+
         // 函数表达式也可以作为参数传递<br>
         executeFunction(expressedFunction);
       </div>
       <button id="valueBtn">运行值传递示例</button>
       <div id="valueResult"></div>
     </div>
-    
+
     <div class="example">
       <h3>4. 箭头函数</h3>
       <div class="code">
         // 箭头函数必须使用const或let定义<br>
         const arrowFn = () => {};<br><br>
-        
+
         // 箭头函数的this行为<br>
         const obj = {<br>
         &nbsp;&nbsp;method: function() {<br>
@@ -477,34 +479,34 @@ const buttonHandler = () => {
     function hoistedFunction() {
       return 'hoistedFunction被调用';
     }
-    
+
     const notHoistedFunction = function() {
       return 'notHoistedFunction被调用';
     };
-    
+
     // 定义执行函数(在全局作用域)
     function executeFunction(fn) {
       return fn();
     }
-    
+
     // 全局结果记录函数
     function logResult(text) {
       const resultElement = document.getElementById('arrowResult');
       resultElement.textContent += text + '\n';
     }
-    
+
     // 按钮事件处理
     document.getElementById('hoistingBtn').addEventListener('click', function() {
       const resultElement = document.getElementById('hoistingResult');
       resultElement.textContent = '';
-      
+
       try {
         hoistedFunction();
         resultElement.textContent += 'hoistedFunction调用成功\n';
       } catch (e) {
         resultElement.textContent += 'hoistedFunction调用失败: ' + e.message + '\n';
       }
-      
+
       try {
         notHoistedFunction();
         resultElement.textContent += 'notHoistedFunction调用成功\n';
@@ -512,17 +514,17 @@ const buttonHandler = () => {
         resultElement.textContent += 'notHoistedFunction调用失败: ' + e.message + '\n';
       }
     });
-    
+
     document.getElementById('duplicateBtn').addEventListener('click', function() {
       const resultElement = document.getElementById('duplicateResult');
       resultElement.textContent = '';
-      
+
       try {
         function duplicate() {}
         // 取消下面这行的注释会看到语法错误
         // function duplicate() {}
         resultElement.textContent += '第一次函数声明成功\n';
-        
+
         const duplicateConst = function() {};
         // 取消下面这行的注释会看到TypeError
         // const duplicateConst = function() {};
@@ -531,42 +533,42 @@ const buttonHandler = () => {
         resultElement.textContent += '错误: ' + e.message + '\n';
       }
     });
-    
+
     document.getElementById('valueBtn').addEventListener('click', function() {
       const resultElement = document.getElementById('valueResult');
       resultElement.textContent = '';
-      
+
       function declaredFunction() {
         return '函数声明作为参数';
       }
-      
+
       const expressedFunction = function() {
         return '函数表达式作为参数';
       };
-      
+
       resultElement.textContent += executeFunction(declaredFunction) + '\n';
       resultElement.textContent += executeFunction(expressedFunction) + '\n';
     });
-    
+
     document.getElementById('arrowBtn').addEventListener('click', function() {
       const resultElement = document.getElementById('arrowResult');
       resultElement.textContent = '';
-      
+
       const obj = {
         method: function() {
           setTimeout(function() {
             logResult('普通函数this: ' + (typeof this));
           }, 100);
-          
+
           setTimeout(() => {
             logResult('箭头函数this: ' + (typeof this));
           }, 100);
         }
       };
-      
+
       obj.method();
     });
-    
+
     // 全局结果记录函数
     function logResult(text) {
       const resultElement = document.getElementById('arrowResult');

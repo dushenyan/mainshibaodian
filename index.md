@@ -36,5 +36,3 @@ title: vitepress-template
  */
 import Home from '@theme/components/vp-home.vue'
 </script> -->
-
-

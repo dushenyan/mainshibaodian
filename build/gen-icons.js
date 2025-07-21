@@ -1,10 +1,9 @@
-
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'fs'
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { downloadSvgs } from 'iconfont-downloader'
-import path from 'path'
 import prompt from 'prompt'
 import rimraf from 'rimraf'
-import { fileURLToPath } from 'url'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const destDir = path.resolve(__dirname, '../icons')
@@ -15,21 +14,22 @@ if (!existsSync(destDir)) {
 }
 
 function readConfig() {
-  if (!existsSync(configFilePath)) return null
+  if (!existsSync(configFilePath))
+    return null
   const content = readFileSync(configFilePath, { encoding: 'utf-8' })
   const lines = content.split(/\r?\n/g).filter(line => line && line.trim())
   return lines.reduce((conf, line) => {
     const parts = line.split('=')
     const name = (parts[0] || '').trim()
     const value = (parts[1] || '').trim()
-    if (!name || !value) return conf
+    if (!name || !value)
+      return conf
     conf[name] = value
     return conf
   }, {})
 }
 
-(async function() {
-
+(async function () {
   let config = readConfig()
   if (!config) {
     prompt.start()
@@ -42,8 +42,8 @@ function readConfig() {
         token: {
           message: '请输入iconfont token',
           required: true,
-        }
-      }
+        },
+      },
     })
   }
 
@@ -58,7 +58,8 @@ function readConfig() {
       destDir,
       filename: id => id.replace(/^icon-(.*)$/g, '$1'),
     })
-  } catch (err) {
+  }
+  catch (err) {
     console.error(err)
     // 删除配置文件
     rimraf.sync(configFilePath)

@@ -1,120 +1,124 @@
-<template>
-  <div v-if="isLocked" class="lock-screen">
-    <div class="lock-screen-overlay">
-      <div class="lock-screen-content">
-        <h2>屏幕已锁定</h2>
-        <input type="password" v-model="password" placeholder="请输入密码解锁" @keyup.enter="unlock" />
-        <button @click="unlock">解锁</button>
-      </div>
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
-import { useCache, CACHE_KEY } from '@hooks/useCache';
-import useJsencrypt from '@hooks/useJsencrypt';
-import { ElMessage } from 'element-plus';
-import { inBrowser } from 'vitepress';
+import { CACHE_KEY, useCache } from '@hooks/useCache'
+import useJsencrypt from '@hooks/useJsencrypt'
+import { ElMessage } from 'element-plus'
+import { inBrowser } from 'vitepress'
+import { onMounted, ref } from 'vue'
 
 // 定义是否锁定的状态
-const isLocked = ref(false);
+const isLocked = ref(false)
 // 定义用户输入的密码
-const password = ref('');
+const password = ref('')
 // 正确的密码
-const correctPassword = ref('');
+const correctPassword = ref('')
 // 24 小时不锁屏的标记
-const skipLockKey = 'skip_lock_screen';
+const skipLockKey = 'skip_lock_screen'
 
-const wsCache = await useCache();
+const wsCache = await useCache()
 
 function secureRandomString(length: number) {
   if (inBrowser) {
-    const array = new Uint8Array(length);
-    window.crypto.getRandomValues(array);
+    const array = new Uint8Array(length)
+    window.crypto.getRandomValues(array)
     return Array.from(array, byte =>
-      ('0' + byte.toString(16)).slice(-2)
-    ).join('').slice(0, length);
-  } else {
+      (`0${byte.toString(16)}`).slice(-2)).join('').slice(0, length)
+  }
+  else {
     return 'dushenyan'
   }
 }
 
 // 生成新密码
 function generatePassword() {
-  const newPassword = useJsencrypt.encrypt(secureRandomString(16));
-  correctPassword.value = newPassword as string;
+  const newPassword = useJsencrypt.encrypt(secureRandomString(16))
+  correctPassword.value = newPassword as string
   console.log(newPassword)
 
   // 缓存密码 5 分钟
   wsCache.set(CACHE_KEY.PASS_WORD, newPassword, {
-    exp: 5 * 60 * 1000
-  });
-  return newPassword;
+    exp: 5 * 60 * 1000,
+  })
+  return newPassword
 }
 
 // 检查密码是否过期，过期则生成新密码
 function checkPasswordExpiration() {
-  const cachedPassword = wsCache.get(CACHE_KEY.PASS_WORD);
+  const cachedPassword = wsCache.get(CACHE_KEY.PASS_WORD)
   if (!cachedPassword) {
-    generatePassword();
-  } else {
-    correctPassword.value = cachedPassword;
+    generatePassword()
+  }
+  else {
+    correctPassword.value = cachedPassword
   }
 }
 
 // 锁定屏幕的方法
-const lock = () => {
-  checkPasswordExpiration();
-  isLocked.value = true;
-  password.value = '';
-};
+function lock() {
+  checkPasswordExpiration()
+  isLocked.value = true
+  password.value = ''
+}
 
 // 解锁屏幕的方法
-const unlock = () => {
-  const skipLock = wsCache.get(skipLockKey);
+function unlock() {
+  const skipLock = wsCache.get(skipLockKey)
   if (skipLock) {
-    isLocked.value = false;
-    return;
+    isLocked.value = false
+    return
   }
   if (password.value === useJsencrypt.decrypt(correctPassword.value)) {
-    isLocked.value = false;
-  } else {
-    ElMessage.error('密码错误，请重试');
+    isLocked.value = false
   }
-};
+  else {
+    ElMessage.error('密码错误，请重试')
+  }
+}
 
 // 控制台输入 lc 跳过验证
 if (inBrowser) {
   window.lc = () => {
-    isLocked.value = false;
+    isLocked.value = false
     // 24 小时内不锁屏
     wsCache.set(skipLockKey, true, {
-      exp: 24 * 60 * 60 * 1000
-    });
-  };
+      exp: 24 * 60 * 60 * 1000,
+    })
+  }
   window.decrypt = useJsencrypt.decrypt
 }
 
 onMounted(async () => {
-  const skipLock = wsCache.get(skipLockKey);
+  const skipLock = wsCache.get(skipLockKey)
   console.log(skipLock)
   if (!skipLock) {
     // 如果没有跳过标记，检查密码并锁定屏幕
-    checkPasswordExpiration();
+    checkPasswordExpiration()
     // 可根据实际需求决定是否默认锁定屏幕
-    isLocked.value = true;
+    isLocked.value = true
   }
   // 每 5 分钟检查一次密码是否过期
-  setInterval(checkPasswordExpiration, 5 * 60 * 1000);
-});
+  setInterval(checkPasswordExpiration, 5 * 60 * 1000)
+})
 
 // 暴露锁定和解锁方法
-defineExpose({
+await defineExpose({
   lock,
-  unlock
-});
+  unlock,
+})
 </script>
+
+<template>
+  <div v-if="isLocked" class="lock-screen">
+    <div class="lock-screen-overlay">
+      <div class="lock-screen-content">
+        <h2>屏幕已锁定</h2>
+        <input v-model="password" type="password" placeholder="请输入密码解锁" @keyup.enter="unlock">
+        <button @click="unlock">
+          解锁
+        </button>
+      </div>
+    </div>
+  </div>
+</template>
 
 <style scoped>
 /* 样式部分保持不变 */

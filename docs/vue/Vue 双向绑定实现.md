@@ -178,9 +178,9 @@
 2. **依赖收集 (Dep)**
    ```javascript
    class Dep {
-     constructor() { this.subs = []; }
-     addSub(sub) { this.subs.push(sub); }
-     notify() { this.subs.forEach(sub => sub.update()); }
+     constructor() { this.subs = [] }
+     addSub(sub) { this.subs.push(sub) }
+     notify() { this.subs.forEach(sub => sub.update()) }
    }
    ```
 
@@ -188,12 +188,13 @@
    ```javascript
    class Watcher {
      constructor(data, key, cb) {
-       Dep.target = this;
-       this.value = data[key]; // 触发getter
-       Dep.target = null;
-       this.cb = cb;
+       Dep.target = this
+       this.value = data[key] // 触发getter
+       Dep.target = null
+       this.cb = cb
      }
-     update() { this.cb(this.value); }
+
+     update() { this.cb(this.value) }
    }
    ```
 
@@ -205,15 +206,16 @@
 5. **双向绑定实现**
    ```javascript
    // 数据 -> 视图
+   // eslint-disable-next-line no-new
    new Watcher(data, key, (newVal) => {
-     node.textContent = newVal; // 更新文本
-     node.value = newVal;       // 更新输入框
-   });
-   
+     node.textContent = newVal // 更新文本
+     node.value = newVal // 更新输入框
+   })
+
    // 视图 -> 数据
    node.addEventListener('input', (e) => {
-     this.$data[key] = e.target.value;
-   });
+     this.$data[key] = e.target.value
+   })
    ```
 
 ### 与 Vue3 的区别：

@@ -1,22 +1,22 @@
+<script setup lang="ts">
+import { computed } from 'vue'
+
+interface Props {
+  name?: string
+  inline?: string
+}
+const props = defineProps<Props>()
+const symbolId = computed(() => `#svg-icon/${props.name}`)
+</script>
+
 <template>
   <i v-if="name" class="svg-icon inline-block">
     <svg aria-hidden="true">
       <use :xlink:href="symbolId" />
     </svg>
   </i>
-  <i v-else class="svg-icon inline-block" v-html="inline"></i>
+  <i v-else class="svg-icon inline-block" v-html="inline" />
 </template>
-
-<script setup lang="ts">
-import { computed } from 'vue'
-
-interface Props {
-  name?: string,
-  inline?: string,
-}
-const props = defineProps<Props>()
-const symbolId = computed(() => `#svg-icon/${props.name}`)
-</script>
 
 <style scoped>
 .svg-icon {

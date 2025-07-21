@@ -1,15 +1,15 @@
 import type { UserConfigExport } from 'vite'
+import vueJsx from '@vitejs/plugin-vue-jsx'
 import unocss from 'unocss/vite'
 import { ViteAliases } from 'vite-aliases'
-import vueJsx from '@vitejs/plugin-vue-jsx'
 
 export default (): UserConfigExport => {
   return {
     server: {
-      port: 1216
+      port: 1216,
     },
     optimizeDeps: {
-      exclude: ['vitepress']
+      exclude: ['vitepress'],
     },
     plugins: [
       ViteAliases({
@@ -17,13 +17,13 @@ export default (): UserConfigExport => {
         prefix: '@',
         depth: 0,
         ovrConfig: true,
-        dts: true
+        dts: true,
       }),
       vueJsx(),
       unocss(),
     ],
     ssr: {
-      noExternal: ['vitepress-plugin-nprogress']
+      noExternal: ['vitepress-plugin-nprogress'],
     },
   }
 }

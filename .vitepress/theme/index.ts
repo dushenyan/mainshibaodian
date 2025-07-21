@@ -1,17 +1,14 @@
-import { h, watch } from 'vue'
-import DefaultTheme from 'vitepress/theme'
 import type { Theme as ThemeType } from 'vitepress'
-import vpSearch from './components/vp-search.vue'
-import '../styles/index.scss'
-import type { VNode } from 'vue'
-import elTable from '@plugin/element-ui.js'
 import components from '@components/index.js'
-import Layout from '../layout/index.vue'
-import 'virtual:uno.css'
+import elTable from '@plugin/elementUI.js'
 import vitepressNprogress from 'vitepress-plugin-nprogress'
+import { Sandbox } from 'vitepress-plugin-sandpack'
+import DefaultTheme from 'vitepress/theme'
+import Layout from '../layout/index.vue'
+import '../styles/index.scss'
+import 'virtual:uno.css'
 import 'vitepress-plugin-nprogress/lib/css/index.css'
-import { Sandbox } from 'vitepress-plugin-sandpack';
-import 'vitepress-plugin-sandpack/dist/style.css';
+import 'vitepress-plugin-sandpack/dist/style.css'
 
 export default {
   extends: DefaultTheme,
@@ -35,10 +32,9 @@ export default {
 
     vitepressNprogress(ctx)
 
-    app.component('Sandbox', Sandbox);
+    app.component('Sandbox', Sandbox)
 
     app.use(elTable)
     app.use(components)
-  }
+  },
 } satisfies ThemeType
-

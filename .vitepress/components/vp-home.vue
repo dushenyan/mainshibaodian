@@ -1,10 +1,12 @@
 <script lang="ts" setup>
-  // code……
+// code……
 </script>
 
 <template>
   <f-main>
-    <f-text align="center" bold block :size="25"> Hello </f-text>
+    <f-text align="center" bold block :size="25">
+      Hello
+    </f-text>
 
     <f-text align="center" style="margin-top: 20px">
       <f-button round type="primary" class="start" href="/docs/other/welcome.md">
@@ -22,17 +24,27 @@
 
     <f-divider margin="40px" color="#eef" />
 
-    <f-text bold block>欢迎使用</f-text>
-    <f-text block>⚡ 欢迎使用 shenyan'面试集合</f-text>
-    <f-text block>🌲 在这里编写你的博客吧</f-text>
+    <f-text bold block>
+      欢迎使用
+    </f-text>
+    <f-text block>
+      ⚡ 欢迎使用 shenyan'面试集合
+    </f-text>
+    <f-text block>
+      🌲 在这里编写你的博客吧
+    </f-text>
     <f-text block>
       🔨 官方文档在
-      <f-link href="https://vitepress.vuejs.org" type="primary"> 这里 </f-link>
+      <f-link href="https://vitepress.vuejs.org" type="primary">
+        这里
+      </f-link>
     </f-text>
 
     <f-divider margin="40px" color="#eef" />
 
-    <f-text bold block>特性</f-text>
+    <f-text bold block>
+      特性
+    </f-text>
     <f-text>📌 开箱即用</f-text>
     <f-text>
       🚀 和

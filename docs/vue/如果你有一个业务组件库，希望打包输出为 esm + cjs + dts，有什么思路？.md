@@ -53,7 +53,7 @@ export default {
     exports: 'auto'
   },
   plugins: [typescript()],
-  // 排除peerDependencies 
+  // 排除peerDependencies
   external: ['vue']
 }
 ```
@@ -131,7 +131,6 @@ dist/
    - 中层：CJS（传统环境）
    - 地基：DTS（类型安全）
 
-
 ## 2、能否具体演示如何为单个组件配置多格式导出？
 
 **我**（5年经验开发者）：好的，我以封装一个 `Button` 组件为例，演示完整的多格式导出方案。这里会展示从源码组织到构建产物的全流程：
@@ -194,7 +193,7 @@ import vue from '@vitejs/plugin-vue'
 export default {
   input: 'src/Button/index.ts',
   output: [
-    { 
+    {
       file: 'dist/cjs/Button/index.js',
       format: 'cjs',
       exports: 'auto'
@@ -294,11 +293,10 @@ dist/
    ```javascript
    // 现代构建工具
    import Button from '@my-lib/Button' // 自动选ESM
-   
+
    // Node环境
    const Button = require('@my-lib/Button') // 降级到CJS
    ```
-
 
 ## 3、如何确保这种多格式输出的组件库支持按需加载和 Tree-shaking？
 
@@ -309,12 +307,12 @@ dist/
 ### **1. 源码规范（Tree-Shaking 基础）**
 ```typescript
 // 正确示例：组件独立导出（src/Button/index.ts）
-export { default } from './Button.vue'
-export { default as ButtonGroup } from './ButtonGroup.vue'
-
 // 错误示例：副作用写法（会导致无法被摇树）
-import './styles.css' // ❌ 副作用导入应移到入口文件
-export default { /*...*/ }
+import './styles.css'
+
+export { default } from './Button.vue'
+export { default as ButtonGroup } from './ButtonGroup.vue' // ❌ 副作用导入应移到入口文件
+export default { /* ... */ }
 ```
 
 **关键规则**：
@@ -331,13 +329,13 @@ export default {
   output: {
     format: 'esm',
     preserveModules: true, // 保留原始模块结构
-    dir: 'dist/esm',      // 多文件输出目录
+    dir: 'dist/esm', // 多文件输出目录
     entryFileNames: '[name].js'
   },
   plugins: [
-    terser({ 
+    terser({
       module: true,
-      compress: { 
+      compress: {
         pure_funcs: ['console.log'] // 移除调试代码
       }
     })
@@ -476,8 +474,8 @@ src/
 
 ### **2. 关键配置（vite.config.ts）**
 ```typescript
-import { defineConfig } from 'vite'
 import { visualizer } from 'rollup-plugin-visualizer'
+import { defineConfig } from 'vite'
 
 export default defineConfig({
   build: {
@@ -502,14 +500,14 @@ export default defineConfig({
     minify: 'terser',
     terserOptions: {
       compress: {
-        dead_code: true,  // 删除无用代码
-        unused: true      // 移除未使用变量
+        dead_code: true, // 删除无用代码
+        unused: true // 移除未使用变量
       }
     }
   },
   plugins: [
     // 5. 可视化分析
-    visualizer({ 
+    visualizer({
       filename: 'stats.html',
       gzipSize: true
     })
@@ -526,16 +524,16 @@ export default defineConfig({
 export { default } from './Button.vue' // 纯导出语句
 
 // 工具函数需标记为纯函数
-export const debounce = /*#__PURE__*/ (fn: Function) => {
-  /*...*/
+export function debounce(fn: Function) {
+  /* ... */
 }
 ```
 
 #### 主入口文件（动态导入优化）
 ```typescript
+export { default as Alert } from './components/Alert'
 // src/index.ts
 export { default as Button } from './components/Button'
-export { default as Alert } from './components/Alert'
 
 // 按需加载的utils
 export * as utils from './utils/shared'
@@ -603,7 +601,7 @@ build: {
 ```javascript
 rollupOptions: {
   output: {
-    chunkFileNames: 'chunks/[name]-[hash].js' 
+    chunkFileNames: 'chunks/[name]-[hash].js'
   }
 }
 ```

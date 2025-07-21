@@ -8,7 +8,6 @@
 
 ::: sandbox {template=vanilla showConsole autorun=false}
 ```js index.js [active]
-
 const obj = {}
 let value = 'initial'
 
@@ -30,8 +29,7 @@ console.log(obj.property) // 控制台输出: 获取值 \n new value
 
 **Proxy** 是ES6引入的全新特性，可以为对象创建代理：
 
-
-::: sandbox {template=vanilla autorun=false} 
+::: sandbox {template=vanilla autorun=false}
 ```js index.js [active]
 const target = {}
 const handler = {
@@ -63,7 +61,6 @@ console.log(proxy.name) // 控制台输出: 获取属性 name \n John
 
 ::: sandbox {template=vanilla autorun=false}
 ```js index.js [active]
-
 const obj = {}
 Object.defineProperty(obj, 'a', {
   get() { console.log('获取a') },
@@ -161,7 +158,7 @@ Proxy的性能通常更好，特别是在处理大型对象或频繁操作时，
 ::: sandbox {template=vanilla}
 ```js index.js [active]
 function reactive(obj) {
-  Object.keys(obj).forEach(key => {
+  Object.keys(obj).forEach((key) => {
     let value = obj[key]
     Object.defineProperty(obj, key, {
       get() {

@@ -20,6 +20,20 @@
 
 3.1 引入组件
 ```vue
+<script setup lang="ts">
+import { reactive } from 'vue'
+import SearchRow from './SearchRow'
+
+const queryParams = reactive({
+  no: '',
+  // 其他查询参数
+})
+
+function messageBox() {
+  // 搜索逻辑
+}
+</script>
+
 <template>
   <SearchRow>
     <el-form :model="queryParams" :inline="true">
@@ -42,19 +56,6 @@
     </el-form>
   </SearchRow>
 </template>
-<script setup lang="ts">
-import { reactive } from 'vue'
-import SearchRow from './SearchRow'
-
-const queryParams = reactive({
-  no: '',
-  // 其他查询参数
-})
-
-function messageBox() {
-  // 搜索逻辑
-}
-</script>
 ```
 
 3.2 说明
@@ -281,6 +282,20 @@ export default defineComponent({
 
 ::: sandbox {showLineNumbers=true}
 ```vue /index.vue [active]
+<script setup lang="ts">
+import { reactive } from 'vue'
+import SearchRow from './SearchRow.tsx'
+
+const queryParams = reactive({
+  no: '',
+  // 其他查询参数
+})
+
+function messageBox() {
+  // 搜索逻辑
+}
+</script>
+
 <template>
   <SearchRow>
     <el-form :model="queryParams" :inline="true">
@@ -303,19 +318,6 @@ export default defineComponent({
     </el-form>
   </SearchRow>
 </template>
-<script setup lang="ts">
-import { reactive } from 'vue'
-import SearchRow from './SearchRow.tsx'
-
-const queryParams = reactive({
-  no: '',
-  // 其他查询参数
-})
-
-function messageBox() {
-  // 搜索逻辑
-}
-</script>
 ```
 
 ```ts /MyApp.tsx

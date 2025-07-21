@@ -7,7 +7,7 @@
 示例代码
 
 ```ts
-const getType = (target: unknown): string => {
+function getType(target: unknown): string {
   return Object.prototype.toString.call(target)
 }
 ```

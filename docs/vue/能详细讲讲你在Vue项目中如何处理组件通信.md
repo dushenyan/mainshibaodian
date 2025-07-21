@@ -1,4 +1,3 @@
-
 # 面试官: 能详细讲讲你在Vue项目中如何处理组件通信吗?
 
 作为一个有5年Vue开发经验的开发者,我在项目中主要使用以下几种组件通信方式,根据不同的场景选择最合适的方案:
@@ -6,8 +5,6 @@
 ### 1. Props/Events (父子组件通信)
 
 这是最基础的通信方式,适用于直接的父子组件关系。
-
-
 
 ::: sandbox {template=vue}
 <script setup>
@@ -57,6 +54,9 @@ const injectedCount = inject('count')
 // store/user.js
 import { defineStore } from 'pinia'
 
+// 组件中使用
+import { useUserStore } from './store/user'
+
 export const useUserStore = defineStore('user', {
   state: () => ({
     name: 'John',
@@ -68,9 +68,6 @@ export const useUserStore = defineStore('user', {
     }
   }
 })
-
-// 组件中使用
-import { useUserStore } from './store/user'
 const userStore = useUserStore()
 </script>
 :::
@@ -84,6 +81,7 @@ const userStore = useUserStore()
 ::: sandbox {template=vue}
 <script setup>
 import { mitt } from 'mitt'
+
 const emitter = mitt()
 
 // 组件A发送事件

@@ -7,6 +7,6 @@ export const nav = [
   {
     text: 'vue',
     activeMatch: '/docs/',
-    link: '/docs/other/hello'
-  }
+    link: '/docs/other/hello',
+  },
 ]

@@ -28,7 +28,7 @@ pp/
 
 下面示例展示了如何运行该 CLI 工具，以及它的最简单输出。
 
-```js
+```json
 {
   "template": "node",
   "entry": "bin/cli.js",
@@ -76,8 +76,7 @@ hello world
 
 示例：使用 `commander` 实现带参数的 CLI
 
-
-```js
+```json
 {
   "template": "node",
   "entry": "bin/cli.js",
@@ -105,11 +104,6 @@ node ./bin/cli.js --name Trae
 Hello, Trae!
 ```
 
-
-
-
-
-
 ```plain
 ├── bin
 │   └── cli.js
@@ -117,7 +111,7 @@ Hello, Trae!
 └── package.json
 ```
 
-```js
+```bash
 // cli.js
 #! /usr/bin/env node
 
@@ -125,4 +119,3 @@ console.log('hello world');
 ```
 
 ![alt text](/image.png)
-

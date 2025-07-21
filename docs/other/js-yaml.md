@@ -1,22 +1,21 @@
 # js-yaml库使用
 
-
 ```js
 import fs from 'node:fs'
 import yaml from 'js-yaml'
 
 try {
   const obj = {
-  name: 'dushenyan',
-  age: 18,
-  hobbies: [
-    'coding',
-    'reading',
-    'swimming',
-  ],
-  fn: 'function () { return 1 }',
-  reg: '/test/',
-}
+    name: 'dushenyan',
+    age: 18,
+    hobbies: [
+      'coding',
+      'reading',
+      'swimming',
+    ],
+    fn: 'function () { return 1 }',
+    reg: '/test/',
+  }
   fs.writeFileSync(
     './example-1.yml',
     yaml.dump(obj),

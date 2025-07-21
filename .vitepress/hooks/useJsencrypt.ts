@@ -1,5 +1,7 @@
 // 密钥对生成 http://web.chacuo.net/netrsakeypair
 
+import type { JSEncrypt } from 'jsencrypt'
+
 const publicKey = `
 MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtO710f/xv/2yTaksAG8G
 ax0OLPxlL2ug6YN6ytgXcF1e8uXFRcQEAw7mgwgpetDupCDBk57QuQgFc9JcjvI+
@@ -39,28 +41,25 @@ Pn8lzX1Xz2EiE6Xy+8hhqRJ++ekRR6TzW86mWACmJsMT+InPM7ImnER3YNTRmiyT
 9d4pEqcqHWWrGA77HD/u69g0
 `
 
-import type { JSEncrypt } from 'jsencrypt'
-
-let jsEncrypt: typeof JSEncrypt
+let JSEncryptClass: typeof JSEncrypt
 if (!import.meta.env.SSR) {
   import('jsencrypt').then((module) => {
-    jsEncrypt = module.JSEncrypt
+    JSEncryptClass = module.JSEncrypt
   })
 }
 
 export default {
   // 加密
   encrypt: (txt: string) => {
-    const encryptor = new jsEncrypt()
+    const encryptor = new JSEncryptClass()
     encryptor.setPublicKey(publicKey) // 设置公钥
     return encryptor.encrypt(txt) // 对数据进行加密
   },
 
   // 解密
   decrypt: (txt: string) => {
-    const encryptor = new jsEncrypt()
+    const encryptor = new JSEncryptClass()
     encryptor.setPrivateKey(privateKey) // 设置私钥
     return encryptor.decrypt(txt) // 对数据进行解密
-  }
+  },
 }
-

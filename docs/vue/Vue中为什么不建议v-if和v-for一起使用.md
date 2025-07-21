@@ -110,7 +110,7 @@ new Vue({
         {{ user.name }}
       </li>
     </ul>
-    
+
     <h2>推荐的写法 (使用计算属性过滤)</h2>
     <ul class="good">
       <li v-for="user in activeUsers" :key="user.id">

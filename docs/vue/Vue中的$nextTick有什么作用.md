@@ -64,7 +64,7 @@ methods: {
     this.message = '更新后的消息'
     // 这里直接尝试访问DOM可能还是旧的
     console.log(this.$refs.message.textContent) // 输出: "初始消息"
-    
+
     // 使用$nextTick可以确保在DOM更新后执行
     this.$nextTick(() => {
       console.log(this.$refs.message.textContent) // 输出: "更新后的消息"
@@ -90,7 +90,7 @@ methods: {
     if (this.showElement) {
       // 直接访问可能获取不到元素，因为DOM还未更新
       // const el = document.querySelector('p') // 可能返回null
-      
+
       // 使用$nextTick确保DOM已更新
       this.$nextTick(() => {
         const el = document.querySelector('p')
@@ -111,12 +111,12 @@ methods: {
 
 ```javascript
 // Vue 2和Vue 3都支持的方式
+// Vue 3还支持直接使用全局的nextTick
+import { nextTick } from 'vue'
+
 this.$nextTick(() => {
   // 回调代码
 })
-
-// Vue 3还支持直接使用全局的nextTick
-import { nextTick } from 'vue'
 nextTick(() => {
   // 回调代码
 })
@@ -148,7 +148,7 @@ nextTick(() => {
     <p ref="message">{{ message }}</p>
     <button @click="updateMessage">更新消息</button>
     <p>控制台会显示更新前后的消息内容对比</p>
-    
+
     <h2>示例2: 元素显示后操作DOM</h2>
     <p v-if="showElement">这个元素可能会被动态显示</p>
     <button @click="toggleElement">切换元素显示</button>
@@ -167,7 +167,7 @@ nextTick(() => {
           console.log('更新前:', this.$refs.message.textContent) // 初始消息
           this.message = '更新后的消息'
           console.log('直接访问(可能还是旧的):', this.$refs.message.textContent) // 初始消息
-          
+
           this.$nextTick(() => {
             console.log('DOM更新后:', this.$refs.message.textContent) // 更新后的消息
           })
@@ -177,7 +177,7 @@ nextTick(() => {
           if (this.showElement) {
             // 直接访问可能获取不到元素
             // const el = document.querySelector('p') // 可能返回null
-            
+
             // 使用$nextTick确保DOM已更新
             this.$nextTick(() => {
               const el = document.querySelector('p')

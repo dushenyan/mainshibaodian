@@ -161,7 +161,6 @@ Vue.observable的实现基于Vue内部的响应式系统。当我们调用Vue.ob
   }
 </style>
 
-
 <div id="app">
   <div class="container">
     <h2>示例1: 基本计数器</h2>

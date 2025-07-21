@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-import { ref } from 'vue'
 import { ElMessage } from 'element-plus'
+import { ref } from 'vue'
 
 const value = ref('')
 
-const onEnter = (): void => {
+function onEnter(): void {
   ElMessage({ type: 'success', message: '开始搜索' })
 }
 </script>
