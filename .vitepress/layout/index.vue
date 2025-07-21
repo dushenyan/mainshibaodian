@@ -25,15 +25,10 @@ import { onBeforeMount, createApp, watch, nextTick, onMounted } from 'vue'
 import { onContentUpdated, inBrowser, useData } from 'vitepress'
 import LockScreen from '@components/LockScreen.vue'
 import HomeUnderline from '@components/HomeUnderline'
-import { usePrintTree } from '@hooks/usePrintTree'
 
 const { Layout } = Theme
 const { frontmatter: fm } = useData();
 let zoom: Zoom
-
-onMounted(()=>{
-  usePrintTree('/docs')
-})
 
 onContentUpdated(() => {
   if (!zoom) return

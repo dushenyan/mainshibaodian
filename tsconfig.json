@@ -3,19 +3,22 @@
     "baseUrl": "./",
     "target": "ESNext",
     "useDefineForClassFields": true,
-    "module": "nodenext",
-    "moduleResolution": "nodenext",
+    "module": "preserve",
+    "moduleResolution": "bundler",
     "strict": true,
     "sourceMap": true,
     "resolveJsonModule": true,
     "allowJs": true,
     "isolatedModules": true,
     "esModuleInterop": true,
+    "skipLibCheck": true,
+    "jsx": "preserve",
+    "jsxImportSource": "vue",
+    "forceConsistentCasingInFileNames": true,
     "lib": [
       "ESNext",
       "DOM"
     ],
-    "skipLibCheck": true,
     "typeRoots": [
       "node_modules/@types",
       "@types",
@@ -27,6 +30,9 @@
       ],
       "@config/*": [
         ".vitepress/config/*"
+      ],
+      "@dist/*": [
+        ".vitepress/dist/*"
       ],
       "@hooks/*": [
         ".vitepress/hooks/*"
@@ -51,16 +57,8 @@
       ],
       "@/*": [
         ".vitepress/*"
-      ],
-      "@dist/*": [
-        ".vitepress/dist/*"
-      ],
-      "@.temp/*": [
-        ".vitepress/.temp/*"
       ]
-    },
-    "jsx": "preserve",
-    "jsxImportSource": "vue"
+    }
   },
   "include": [
     "**/*.ts",
@@ -71,6 +69,8 @@
     ".vitepress/**/*.vue"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    ".vitepress/.cache",
+    ".vitepress/dist"
   ]
 }

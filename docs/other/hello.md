@@ -35,7 +35,7 @@ const getType = (target: unknown): string => {
 
 ## 静态资源
 
-![](/public/bug.jpg)
+![](/bug.jpg)
 
 ## 表格示例
 

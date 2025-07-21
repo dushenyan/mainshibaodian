@@ -5,6 +5,7 @@ interface C {
   name: string;
   children?: C[];
 }
+console.log('lalala')
 
 export function getTree(dirPath: string): C[] {
   const items = fs.readdirSync(dirPath, { withFileTypes: true });
@@ -26,5 +27,7 @@ export function writeTreeToFile(dirPath: string, outputFile: string) {
   fs.writeFileSync(outputFile, JSON.stringify(tree, null, 2), 'utf-8');
 }
 
-// 调用示例（你可以在服务端调用这个函数）
-writeTreeToFile('./docs', 'tree.json');
+writeTreeToFile('./docs', 'tree1.json');
+
+
+
