@@ -9,4 +9,14 @@ export const nav = [
     activeMatch: '/docs/',
     link: '/docs/other/hello',
   },
+  {
+    text: 'typescript',
+    activeMatch: '/docs/',
+    link: '/docs/typescript',
+  },
+  {
+    text: 'Playgounds',
+    activeMatch: '/docs/',
+    link: '/docs/other/hello',
+  },
 ]

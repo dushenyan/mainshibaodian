@@ -3,7 +3,7 @@ import { CACHE_KEY, useCache } from '@hooks/useCache'
 import useJsencrypt from '@hooks/useJsencrypt'
 import { ElMessage } from 'element-plus'
 import { inBrowser } from 'vitepress'
-import { onMounted, ref } from 'vue'
+import { defineExpose, onMounted, ref } from 'vue'
 
 // 定义是否锁定的状态
 const isLocked = ref(false)
@@ -100,7 +100,8 @@ onMounted(async () => {
 })
 
 // 暴露锁定和解锁方法
-await defineExpose({
+// eslint-disable-next-line vue/no-expose-after-await
+defineExpose({
   lock,
   unlock,
 })

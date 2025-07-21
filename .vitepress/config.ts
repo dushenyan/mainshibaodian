@@ -5,39 +5,68 @@ import container from 'markdown-it-container'
 import { defineConfig } from 'vitepress'
 import { renderSandbox } from 'vitepress-plugin-sandpack'
 import { withSidebar } from 'vitepress-sidebar'
-import { nav } from './config/nav.js'
-import { sidebar } from './config/sidebar.js'
-import { PluginTable } from './plugin/index.js'
+import { nav } from './config/nav'
+import { sidebar } from './config/sidebar'
+import { PluginTable } from './plugin'
 
-/**
- * 更多配置项参考：
- *
- * @see app-configs https://vitepress.vuejs.org/config/app-configs.html
- */
 const vitePressOptions: UserConfig = {
-  base: '/',
-  appearance: true,
-  head: [
-    ['link', { rel: 'icon', type: 'image/png', href: '/logo.png' }],
-    ['link', { rel: 'manifest', href: '/manifest.webmanifest' }], // chrome pwa
-  ],
   title: 'shenyan′资源集合',
-  lastUpdated: true,
+  lang: 'zh-CN',
+  base: '/',
+  head: [
+    ['link', { rel: 'icon', type: 'image/png', href: '/logo.png' },
+    ],
+    ['link', { rel: 'manifest', href: '/manifest.webmanifest' },
+    ], // chrome pwa
+  ],
+
   cacheDir: './node_modules/cache',
+
+  cleanUrls: true,
+  rewrites: {
+    '/docs/:page': '/:page',
+  },
+
+  metaChunk: true,
+
+  lastUpdated: true,
+  appearance: true,
+
   themeConfig: {
     logo: '/logo.png',
     lastUpdatedText: '最后更新时间',
     socialLinks: [
       {
+        icon: {
+          svg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>',
+        },
+        link: 'https://duhenyanblog.netlify.app/',
+      },
+      {
         icon: 'github',
-        link: 'https://github.com/Tyh2001/vitepress-template',
+        link: 'https://github.com/dushenyan/mainshibaodian',
       },
     ],
+    lightModeSwitchTitle: '切换浅色',
+    darkModeSwitchTitle: '切换深色',
+    sidebarMenuLabel: '合集',
+    returnToTopLabel: '返回顶部',
+    docFooter: {
+      prev: '上一篇',
+      next: '下一篇',
+    },
+    lastUpdated: {
+      text: '最近更新时间: ',
+      formatOptions: {
+        dateStyle: 'full',
+        timeStyle: 'medium',
+      },
+    },
     search: {
       provider: 'local',
     },
     editLink: {
-      pattern: 'https://github.com/shoppingzh/vitepress-template/edit/main/docs/:path',
+      pattern: 'https://github.com/dushenyan/mainshibaodian/edit/main/:path',
       text: '在Github编辑',
     },
     outline: [2, 4],
