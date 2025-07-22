@@ -36,6 +36,7 @@
     "fighting-design": "^0.67.1",
     "markdown-it-container": "^4.0.0",
     "sass": "^1.66.1",
+    "tsx": "^4.19.4",
     "unocss": "^66.3.3",
     "vite": "^5.0.10",
     "vite-aliases": "^0.11.8",

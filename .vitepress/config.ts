@@ -9,6 +9,7 @@ import { nav } from './config/nav'
 import { sidebar } from './config/sidebar'
 import { PluginTable } from './plugin'
 import markdownBracketEscaper from './plugin/markdownBracketEscaper'
+import runIndexOnStart from './plugin/runIndexOnStart'
 
 const vitePressOptions: UserConfig = {
   title: 'shenyan′资源集合',
@@ -113,7 +114,7 @@ const vitePressOptions: UserConfig = {
   //   return pageData
   // }
   vite: {
-    plugins: [markdownBracketEscaper],
+    plugins: [markdownBracketEscaper, runIndexOnStart],
   },
 }
 

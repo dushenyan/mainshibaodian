@@ -22,17 +22,3 @@ features:
     linkText: 更多
     details: 自动生成导航栏与侧边栏，你的烦恼即是我的烦恼。
 ---
-
-<!-- ---
-layout: home
-title: vitepress-template
----
-
-<Home />
-
-<script setup lang="ts">
-/**
- * 这里路径 @theme 可以直接指向 .vitepress/theme 目录
- */
-import Home from '@theme/components/vp-home.vue'
-</script> -->

@@ -26,6 +26,5 @@ export function getTree(dirPath: string): C[] {
 export function writeTreeToFile(dirPath: string, outputFile: string) {
   const tree = getTree(dirPath)
   fs.writeFileSync(outputFile, JSON.stringify(tree, null, 2), 'utf-8')
+  console.log(`${outputFile} 已生成`)
 }
-
-writeTreeToFile('./docs', 'tree1.json')

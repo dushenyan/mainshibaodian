@@ -17,3 +17,17 @@
 2.该项目解决什么问题
 3. 用法代码使用vitepress-plugin-sandpack插件格式 可以直接进行运行
 4.存在注释解释说明扩展显示基础用法以及高级用法
+
+<!-- ---
+layout: home
+title: vitepress-template
+---
+
+<Home />
+
+<script setup lang="ts">
+/**
+ * 这里路径 @theme 可以直接指向 .vitepress/theme 目录
+ */
+import Home from '@theme/components/vp-home.vue'
+</script> -->
