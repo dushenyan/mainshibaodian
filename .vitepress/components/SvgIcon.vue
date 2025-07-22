@@ -6,24 +6,32 @@ interface Props {
   inline?: string
 }
 const props = defineProps<Props>()
-const symbolId = computed(() => `#svg-icon/${props.name}`)
+const symbolId = computed(() => `${props.name}`)
 </script>
 
 <template>
-  <i v-if="name" class="svg-icon inline-block">
+  <!-- 修改判断条件为 props.name -->
+  <i v-if="props.name" class="svg-icon inline-block">
     <svg aria-hidden="true">
-      <use :xlink:href="symbolId" />
+      <!-- 使用 href 替代 xlink:href -->
+      <use :href="symbolId" />
     </svg>
   </i>
   <i v-else class="svg-icon inline-block" v-html="inline" />
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .svg-icon {
-  /* 为什么往下偏移12.5%？请参考ant-design的图标方案 */
-  @apply inline-flex items-center justify-center w-[1em] h-[1em] align-[-0.125em];
+  display: inline-flex;
+  vertical-align: middle;
+  align-items: center;
+  width: 1em;
+  height: 1em;
+
   :deep(svg) {
-    @apply w-[1em] h-[1em] fill-current;
+    width: 1em;
+    height: 1em;
+    fill: currentColor;
   }
 }
 </style>
