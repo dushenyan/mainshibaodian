@@ -55,6 +55,9 @@
       "@theme/*": [
         ".vitepress/theme/*"
       ],
+      "@utils/*": [
+        ".vitepress/utils/*"
+      ],
       "@/*": [
         ".vitepress/*"
       ]

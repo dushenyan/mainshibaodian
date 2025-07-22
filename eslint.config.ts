@@ -6,6 +6,11 @@ export default antfu({
   typescript: true,
 
   jsonc: false,
+
+  ignores: [
+    'node_modules',
+    'docs',
+  ],
 }, {
   rules: {
     'no-console': 'off',

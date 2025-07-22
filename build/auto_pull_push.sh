@@ -7,7 +7,7 @@ PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 PROJECT_DIR="/Users/shenyandu/Desktop/mainshibaodian"
 
 # 定义日志文件
-LOG_FILE="/Users/shenyandu/Desktop/mainshibaodian/git_auto.log"
+LOG_FILE="/Users/shenyandu/Desktop/mainshibaodian/build/git_auto.log"
 
 # 定义提交信息
 COMMIT_MSG="自动提交于 $(date +'%Y-%m-%d %H:%M:%S')"
