@@ -51,7 +51,7 @@ function performDOMOperations() {
 watch(
   fm,
   () => {
-    // performDOMOperations()
+    performDOMOperations()
   },
   { immediate: true, deep: true },
 )
