@@ -1,5 +1,6 @@
 ---
 titleTemplate: TS
+sidebar: false
 bracketEscaping: true
 ---
 
