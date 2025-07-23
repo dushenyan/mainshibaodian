@@ -1,18 +1,34 @@
 import type { Theme as ThemeType } from 'vitepress'
-import components from '@components/index.js'
-import elTable from '@plugin/elementUI.js'
+import { useData } from 'vitepress'
+
 import vitepressNprogress from 'vitepress-plugin-nprogress'
 import { Sandbox } from 'vitepress-plugin-sandpack'
 import DefaultTheme from 'vitepress/theme'
+
+import { h, watch } from 'vue'
 import Layout from '../layout/index.vue'
-import '../styles/index.scss'
+import components from './components/index'
+import './styles/index.scss'
 import 'virtual:uno.css'
 import 'vitepress-plugin-nprogress/lib/css/index.css'
 import 'vitepress-plugin-sandpack/dist/style.css'
 
+let homePageStyle: HTMLStyleElement | undefined
+
 export default {
   extends: DefaultTheme,
-  Layout,
+  Layout: () => {
+    const props: Record<string, any> = {}
+    // 获取 frontmatter
+    const { frontmatter } = useData()
+
+    /* 添加自定义 class */
+    if (frontmatter.value?.layoutClass) {
+      props.class = frontmatter.value.layoutClass
+    }
+
+    return h(Layout, props)
+  },
   // Layout() {
   //   return h(DefaultTheme.Layout, null, {
   //     /**
@@ -34,7 +50,54 @@ export default {
 
     app.component('Sandbox', Sandbox)
 
-    app.use(elTable)
     app.use(components)
+
+    if (typeof window !== 'undefined') {
+      watch(
+        () => router.route.data.relativePath,
+        () =>
+          updateHomePageStyle(
+            /* /vitepress-nav-template/ 是为了兼容 GitHub Pages */
+            location.pathname === '/',
+          ),
+        { immediate: true },
+      )
+    }
   },
 } satisfies ThemeType
+
+if (typeof window !== 'undefined') {
+  // detect browser, add to class for conditional styling
+  const browser = navigator.userAgent.toLowerCase()
+  if (browser.includes('chrome')) {
+    document.documentElement.classList.add('browser-chrome')
+  }
+  else if (browser.includes('firefox')) {
+    document.documentElement.classList.add('browser-firefox')
+  }
+  else if (browser.includes('safari')) {
+    document.documentElement.classList.add('browser-safari')
+  }
+}
+
+// Speed up the rainbow animation on home page
+function updateHomePageStyle(value: boolean): void {
+  if (value) {
+    if (homePageStyle)
+      return
+
+    homePageStyle = document.createElement('style')
+    homePageStyle.innerHTML = `
+    :root {
+      animation: rainbow 12s linear infinite;
+    }`
+    document.body.appendChild(homePageStyle)
+  }
+  else {
+    if (!homePageStyle)
+      return
+
+    homePageStyle.remove()
+    homePageStyle = undefined
+  }
+}

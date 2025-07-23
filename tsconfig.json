@@ -25,38 +25,17 @@
       "types/*"
     ],
     "paths": {
-      "@components/*": [
-        ".vitepress/components/*"
-      ],
       "@config/*": [
         ".vitepress/config/*"
-      ],
-      "@dist/*": [
-        ".vitepress/dist/*"
-      ],
-      "@hooks/*": [
-        ".vitepress/hooks/*"
-      ],
-      "@icons/*": [
-        ".vitepress/icons/*"
       ],
       "@layout/*": [
         ".vitepress/layout/*"
       ],
-      "@plugin/*": [
-        ".vitepress/plugin/*"
-      ],
       "@server/*": [
         ".vitepress/server/*"
       ],
-      "@styles/*": [
-        ".vitepress/styles/*"
-      ],
       "@theme/*": [
         ".vitepress/theme/*"
-      ],
-      "@utils/*": [
-        ".vitepress/utils/*"
       ],
       "@/*": [
         ".vitepress/*"

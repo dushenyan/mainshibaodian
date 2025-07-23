@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { CACHE_KEY, useCache } from '@hooks/useCache'
-import useJsencrypt from '@hooks/useJsencrypt'
 import { ElMessage } from 'element-plus'
 import { inBrowser } from 'vitepress'
 import { defineExpose, onMounted, ref } from 'vue'
+import { CACHE_KEY, useCache } from '../hooks/useCache'
+import useJsencrypt from '../hooks/useJsencrypt'
 
 // 定义是否锁定的状态
 const isLocked = ref(false)

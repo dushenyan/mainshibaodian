@@ -1,15 +1,12 @@
-<script lang="ts">
-</script>
-
 <script setup lang="ts">
 import type { Zoom } from 'medium-zoom'
-import HomeUnderline from '@components/HomeUnderline'
-import LockScreen from '@components/LockScreen.vue'
+import HomeUnderline from '@theme/components/HomeUnderline'
+import LockScreen from '@theme/components/LockScreen.vue'
 import confetti from 'canvas-confetti'
 import mediumZoom from 'medium-zoom'
 import { inBrowser, onContentUpdated, useData } from 'vitepress'
-// 具体使用参见：https://vitepress.vuejs.org/guide/theme-introduction#extending-the-default-theme
 import Theme from 'vitepress/theme'
+// 具体使用参见：https://vitepress.vuejs.org/guide/theme-introduction#extending-the-default-theme
 import { createApp, nextTick, onBeforeMount, watch } from 'vue'
 
 // export const injectKey = Symbol('Layout')
@@ -70,8 +67,8 @@ if (inBrowser) {
 </script>
 
 <template>
-  <LockScreen />
-  <Layout>
+  <Layout v-bind="$attrs">
+    <LockScreen />
     <template #layout-top>
       <el-backtop>
         <svg-icon name="zujian" class="text-2xl text-blue-500" />
