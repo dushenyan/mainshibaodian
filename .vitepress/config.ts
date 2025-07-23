@@ -114,7 +114,14 @@ const vitePressOptions: UserConfig = {
   //   return pageData
   // }
   vite: {
-    plugins: [markdownBracketEscaper, runIndexOnStart],
+    plugins: [
+      markdownBracketEscaper({
+        exclude: ['/index.md'],
+      }),
+      runIndexOnStart({
+        path: '../../server/index.ts',
+      }),
+    ],
   },
 }
 

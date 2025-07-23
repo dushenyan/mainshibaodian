@@ -1,5 +1,8 @@
 [
   {
+    "name": ".DS_Store"
+  },
+  {
     "name": "ES6",
     "children": [
       {

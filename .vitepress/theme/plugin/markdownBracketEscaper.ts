@@ -35,37 +35,45 @@ function escapeMarkdownBrackets(markdownContent: string): string {
   })
 }
 
+interface OptionVo {
+  exclude: string[]
+}
+
 // Vite插件：在Markdown文件被处理前转义尖括号
 /**
  * Vite 插件，用于在处理 Markdown 文件之前转义其中的尖括号。
  */
-export default {
-  // 插件名称
-  name: 'markdown-bracket-escaper',
-  // 插件执行顺序，pre 表示在其他插件之前执行
-  enforce: 'pre',
-  /**
-   * 转换函数，在文件被处理前执行。
-   * @param code - 文件的原始内容。
-   * @param id - 文件的路径。
-   * @returns 转换后的内容，如果不处理则返回 null。
-   */
-  async transform(code: string, id: string) {
-    // 只处理 Markdown 文件，如果不是 Markdown 文件则不处理
-    if (!id.endsWith('.md'))
-      return null
+function markdownBracketEscaper(options: OptionVo): PluginOption {
+  return {
+    // 插件名称
+    name: 'markdown-bracket-escaper',
+    // 插件执行顺序，pre 表示在其他插件之前执行
+    enforce: 'pre',
+    /**
+     * 转换函数，在文件被处理前执行。
+     * @param code - 文件的原始内容。
+     * @param id - 文件的路径。
+     * @returns 转换后的内容，如果不处理则返回 null。
+     */
+    async transform(code: string, id: string) {
+      // 只处理 Markdown 文件 或者 忽略处理exclude包含文件
+      if (options.exclude.some(item => id.includes(item)) || !id.endsWith('.md'))
+        return null
 
-    try {
-      // 读取原始文件内容
-      const rawContent = await fs.promises.readFile(id, 'utf-8')
-      // 转义尖括号
-      const escapedContent = escapeMarkdownBrackets(rawContent)
-      return escapedContent
-    }
-    catch (err) {
-      // 处理文件读取或转义过程中出现的错误
-      console.error('Error processing Markdown file:', err)
-      return code
-    }
-  },
-} as PluginOption
+      try {
+        // 读取原始文件内容
+        const rawContent = await fs.promises.readFile(id, 'utf-8')
+        // 转义尖括号
+        const escapedContent = escapeMarkdownBrackets(rawContent)
+        return escapedContent
+      }
+      catch (err) {
+        // 处理文件读取或转义过程中出现的错误
+        console.error('Error processing Markdown file:', err)
+        return code
+      }
+    },
+  }
+}
+
+export default markdownBracketEscaper
