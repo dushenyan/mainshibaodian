@@ -11,6 +11,20 @@
     ]
   },
   {
+    "name": "nav",
+    "children": [
+      {
+        "name": "data.ts"
+      },
+      {
+        "name": "index.md"
+      },
+      {
+        "name": "index.scss"
+      }
+    ]
+  },
+  {
     "name": "other",
     "children": [
       {
@@ -75,6 +89,9 @@
       },
       {
         "name": "Vue中的$nextTick有什么作用.md"
+      },
+      {
+        "name": "index.md"
       },
       {
         "name": "template 标签为什么不可以使用 v-show？.md"

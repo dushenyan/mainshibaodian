@@ -37,6 +37,9 @@
       "@theme/*": [
         ".vitepress/theme/*"
       ],
+      "@types/*": [
+        ".vitepress/types/*"
+      ],
       "@/*": [
         ".vitepress/*"
       ]
@@ -48,6 +51,7 @@
     "**/*.vue",
     ".vitepress/**/*.tsx",
     ".vitepress/**/*.ts",
+    ".vitepress/**/*.d.ts",
     ".vitepress/**/*.vue"
   ],
   "exclude": [

@@ -10,6 +10,7 @@
     "lint:fix": "eslint --fix"
   },
   "dependencies": {
+    "@mdit-vue/shared": "^2.1.4",
     "@vueuse/core": "^13.5.0",
     "canvas-confetti": "^1.9.3",
     "element-plus": "^2.10.3",

@@ -5,18 +5,19 @@
  */
 export const nav = [
   {
-    text: 'vue',
+    text: '资源导航',
     activeMatch: '/docs/',
-    link: '/docs/other/hello',
+    link: '/docs/nav/index',
   },
   {
-    text: 'typescript',
-    activeMatch: '/docs/',
-    link: '/docs/typescript',
+    text: 'Vue',
+    activeMatch: '/docs/vue',
+    link: '/docs/vue/index',
   },
   {
-    text: 'Playgounds',
-    activeMatch: '/docs/',
-    link: '/docs/other/hello',
+    text: 'TypeScript',
+    activeMatch: '/docs/typescript',
+    link: '/docs/typescript/index',
   },
+
 ]

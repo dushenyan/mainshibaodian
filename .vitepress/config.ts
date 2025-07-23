@@ -1,6 +1,10 @@
 import type MarkdownIt from 'markdown-it'
+import type { Options } from 'markdown-it'
+import type Renderer from 'markdown-it/lib/renderer.mjs'
+import type Token from 'markdown-it/lib/token.mjs'
 import type { UserConfig } from 'vitepress'
 import type { VitePressSidebarOptions } from 'vitepress-sidebar/types'
+import type { pageEnvDataVO } from './types'
 import container from 'markdown-it-container'
 import { defineConfig } from 'vitepress'
 import { renderSandbox } from 'vitepress-plugin-sandpack'
@@ -96,13 +100,15 @@ const vitePressOptions: UserConfig = {
      */
     config: (md: MarkdownIt): void => {
       md.use(PluginTable).use(container, 'sandbox', {
-        render(tokens: any[], idx: number) {
+        render(tokens: Token[], idx: number) {
           return renderSandbox(tokens, idx, 'sandbox')
         },
       })
-      md.renderer.rules.heading_close = (tokens, idx, options, env, slf) => {
-        let htmlResult = slf.renderToken(tokens, idx, options)
-        if (tokens[idx].tag === 'h1')
+      md.renderer.rules.heading_close = (tokens: Token[], idx: number, options: Options, env: pageEnvDataVO, self: Renderer) => {
+        let htmlResult = self.renderToken(tokens, idx, options)
+        // 从 env 中获取当前页面的元数据
+        const { frontmatter } = env
+        if (tokens[idx].tag === 'h1' && !frontmatter?.notArticle)
           htmlResult += `<ArticleMetadata />` // [!code focus]
         return htmlResult
       }
