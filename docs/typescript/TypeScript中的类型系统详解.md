@@ -1,6 +1,6 @@
 ---
 titleTemplate: TS
-
+bracketEscaping: true
 ---
 
 # TypeScript中的类型系统详解

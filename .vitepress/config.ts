@@ -86,6 +86,9 @@ const vitePressOptions: UserConfig = {
     image: {
       lazyLoading: true,
     },
+    vue: {
+      scriptSetup: true,
+    },
     /**
      * 配置 Markdown-it 实例
      *
@@ -115,9 +118,7 @@ const vitePressOptions: UserConfig = {
   // }
   vite: {
     plugins: [
-      markdownBracketEscaper({
-        exclude: ['/index.md'],
-      }),
+      markdownBracketEscaper(),
       runIndexOnStart({
         path: '../../server/index.ts',
       }),

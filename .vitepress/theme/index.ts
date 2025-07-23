@@ -1,17 +1,21 @@
 import type { Theme as ThemeType } from 'vitepress'
-import { useData } from 'vitepress'
 
+import ElementPlus from 'element-plus'
+import { useData } from 'vitepress'
 import vitepressNprogress from 'vitepress-plugin-nprogress'
+
 import { Sandbox } from 'vitepress-plugin-sandpack'
 import DefaultTheme from 'vitepress/theme'
-
 import { h, watch } from 'vue'
 import Layout from '../layout/index.vue'
 import components from './components/index'
 import './styles/index.scss'
 import 'virtual:uno.css'
+
 import 'vitepress-plugin-nprogress/lib/css/index.css'
 import 'vitepress-plugin-sandpack/dist/style.css'
+import 'element-plus/dist/index.css'
+import 'element-plus/theme-chalk/dark/css-vars.css'
 
 let homePageStyle: HTMLStyleElement | undefined
 
@@ -47,6 +51,8 @@ export default {
     DefaultTheme.enhanceApp(ctx)
 
     vitepressNprogress(ctx)
+
+    app.use(ElementPlus)
 
     app.component('Sandbox', Sandbox)
 

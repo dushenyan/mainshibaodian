@@ -2,6 +2,7 @@
 import type { PluginOption } from 'vite'
 // 导入 Node.js 的 fs 模块，用于文件系统操作
 import fs from 'node:fs'
+import matter from 'gray-matter'
 
 // 转义Markdown中的尖括号，但保留代码块内容
 /**
@@ -36,14 +37,13 @@ function escapeMarkdownBrackets(markdownContent: string): string {
 }
 
 interface OptionVo {
-  exclude: string[]
 }
 
 // Vite插件：在Markdown文件被处理前转义尖括号
 /**
  * Vite 插件，用于在处理 Markdown 文件之前转义其中的尖括号。
  */
-function markdownBracketEscaper(options: OptionVo): PluginOption {
+function markdownBracketEscaper(options?: OptionVo): PluginOption {
   return {
     // 插件名称
     name: 'markdown-bracket-escaper',
@@ -57,14 +57,20 @@ function markdownBracketEscaper(options: OptionVo): PluginOption {
      */
     async transform(code: string, id: string) {
       // 只处理 Markdown 文件 或者 忽略处理exclude包含文件
-      if (options.exclude.some(item => id.includes(item)) || !id.endsWith('.md'))
+      if (!id.endsWith('.md'))
         return null
 
       try {
         // 读取原始文件内容
         const rawContent = await fs.promises.readFile(id, 'utf-8')
-        // 转义尖括号
-        const escapedContent = escapeMarkdownBrackets(rawContent)
+        // 解析 Frontmatter
+        const { data } = matter(rawContent)
+        let escapedContent = rawContent
+        // 检查 bracketEscaping 配置 开启<>解析
+        if (data.bracketEscaping) {
+          // 转义尖括号
+          escapedContent = escapeMarkdownBrackets(rawContent)
+        }
         return escapedContent
       }
       catch (err) {
