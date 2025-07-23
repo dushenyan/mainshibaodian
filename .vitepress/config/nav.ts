@@ -6,7 +6,7 @@
 export const nav = [
   {
     text: '资源导航',
-    activeMatch: '/docs/',
+    activeMatch: '/docs/nav',
     link: '/docs/nav/index',
   },
   {

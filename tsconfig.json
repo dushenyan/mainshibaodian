@@ -49,14 +49,11 @@
     "**/*.ts",
     "**/*.d.ts",
     "**/*.vue",
-    ".vitepress/**/*.tsx",
-    ".vitepress/**/*.ts",
-    ".vitepress/**/*.d.ts",
-    ".vitepress/**/*.vue"
+    ".vitepress/**/*"
   ],
   "exclude": [
     "node_modules",
-    ".vitepress/.cache",
+    ".vitepress/cache",
     ".vitepress/dist"
   ]
 }

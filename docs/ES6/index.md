@@ -1,4 +1,5 @@
 ---
+layoutClass: nav-layout
 sidebar: false
 editLink: false
 footer: false
@@ -7,7 +8,7 @@ notArticle: true
 outline: [2, 3, 4]
 ---
 
-<PageTable dirName="vue"/>
+<PageTable  dirName="ES6"/>
 
 <br />
 

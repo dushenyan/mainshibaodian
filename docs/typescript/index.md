@@ -7,7 +7,7 @@ notArticle: true
 outline: [2, 3, 4]
 ---
 
-<PageTable dirName="vue"/>
+<PageTable dirName="typescript"/>
 
 <br />
 

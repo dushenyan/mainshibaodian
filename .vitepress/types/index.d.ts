@@ -41,7 +41,9 @@ export interface PageEnvDataVO {
   }
 }
 
-export interface DocsTreeDataVO {
+export interface EnhancedDocsTreeDataVO {
   title: string
-  items?: DocsTreeDataVO[]
+  metadata?: Record<string, any>
+  link?: string
+  items?: EnhancedDocsTreeDataVO[]
 }
