@@ -1,15 +1,28 @@
 [
   {
-    "title": ".DS_Store",
-    "link": "/docs/.DS_Store"
-  },
-  {
     "title": "ES6",
     "items": [
       {
         "title": "es5和6的区别.md",
         "metadata": {},
         "link": "/docs/ES6/es5和6的区别"
+      },
+      {
+        "title": "index.md",
+        "metadata": {
+          "layoutClass": "nav-layout",
+          "sidebar": false,
+          "editLink": false,
+          "footer": false,
+          "lastUpdated": false,
+          "notArticle": true,
+          "outline": [
+            2,
+            3,
+            4
+          ]
+        },
+        "link": "/docs/ES6/index"
       }
     ],
     "link": "/docs/ES6"
@@ -66,6 +79,23 @@
         "link": "/docs/other/hello"
       },
       {
+        "title": "index.md",
+        "metadata": {
+          "layoutClass": "nav-layout",
+          "sidebar": false,
+          "editLink": false,
+          "footer": false,
+          "lastUpdated": false,
+          "notArticle": true,
+          "outline": [
+            2,
+            3,
+            4
+          ]
+        },
+        "link": "/docs/other/index"
+      },
+      {
         "title": "js-yaml.md",
         "metadata": {},
         "link": "/docs/other/js-yaml"
@@ -90,6 +120,23 @@
         "title": "SearchRow.md",
         "metadata": {},
         "link": "/docs/playgounds/SearchRow"
+      },
+      {
+        "title": "index.md",
+        "metadata": {
+          "layoutClass": "nav-layout",
+          "sidebar": false,
+          "editLink": false,
+          "footer": false,
+          "lastUpdated": false,
+          "notArticle": true,
+          "outline": [
+            2,
+            3,
+            4
+          ]
+        },
+        "link": "/docs/playgounds/index"
       }
     ],
     "link": "/docs/playgounds"
@@ -101,9 +148,26 @@
         "title": "TypeScript中的类型系统详解.md",
         "metadata": {
           "titleTemplate": "TS",
+          "sidebar": false,
           "bracketEscaping": true
         },
         "link": "/docs/typescript/TypeScript中的类型系统详解"
+      },
+      {
+        "title": "index.md",
+        "metadata": {
+          "sidebar": false,
+          "editLink": false,
+          "footer": false,
+          "lastUpdated": false,
+          "notArticle": true,
+          "outline": [
+            2,
+            3,
+            4
+          ]
+        },
+        "link": "/docs/typescript/index"
       }
     ],
     "link": "/docs/typescript"
@@ -118,12 +182,26 @@
       },
       {
         "title": "2.vue组件里写的原生addEventListeners监听事件，要手动去销毁吗？为什么？.md",
-        "metadata": {},
+        "metadata": {
+          "sidebar": false,
+          "outline": [
+            2,
+            3,
+            4
+          ]
+        },
         "link": "/docs/vue/2.vue组件里写的原生addEventListeners监听事件，要手动去销毁吗？为什么？"
       },
       {
         "title": "Pinia 有哪些使用场景？.md",
-        "metadata": {},
+        "metadata": {
+          "sidebar": false,
+          "outline": [
+            2,
+            3,
+            4
+          ]
+        },
         "link": "/docs/vue/Pinia 有哪些使用场景？"
       },
       {
@@ -154,10 +232,11 @@
       {
         "title": "index.md",
         "metadata": {
-          "layoutClass": "nav-layout",
           "sidebar": false,
           "editLink": false,
+          "aside": false,
           "footer": false,
+          "lastUpdated": false,
           "notArticle": true,
           "outline": [
             2,

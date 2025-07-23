@@ -28,6 +28,9 @@
       "@config/*": [
         ".vitepress/config/*"
       ],
+      "@dist/*": [
+        ".vitepress/dist/*"
+      ],
       "@layout/*": [
         ".vitepress/layout/*"
       ],

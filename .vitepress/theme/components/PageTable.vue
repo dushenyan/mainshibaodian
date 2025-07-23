@@ -1,6 +1,5 @@
 <script setup lang="ts" name="PageTable">
 import { useDocsTreeData } from '@theme/hooks/useDocsTreeData'
-
 import { useRouter } from 'vitepress'
 import { computed } from 'vue'
 
@@ -13,10 +12,8 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const tree = useDocsTreeData(props.dirName)
-
 const router = useRouter()
 
-// 定义跳转函数
 function navigateToPage(path: string) {
   router.go(path)
 }
@@ -28,22 +25,63 @@ const computedTree = computed(() => {
 
 <template>
   <h1>Vue集合</h1>
-  <ul>
-    <li v-for="item in computedTree" :key="item.title">
-      <span @click="navigateToPage(item.link)">{{ item.title }}</span>
+  <ul class="page-table-list">
+    <li v-for="item in computedTree" :key="item.title" class="page-table-item" tabindex="0" @click="navigateToPage(item.link)">
+      <span class="title" :title="item.title">{{ item.title }}</span>
     </li>
   </ul>
 </template>
 
 <style>
-ul {
+.page-table-list {
   margin: 8px 0;
+  padding: 0 !important;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
-li {
-  margin: 0;
+.page-table-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 14px;
+  border: 1px solid var(--vp-c-bg-soft);
+  border-radius: 8px;
+  background-color: var(--vp-c-bg-alt);
+  cursor: pointer;
+  transition: all 0.25s;
+  user-select: none;
+  outline: none;
 }
-.VPDocFooter{
+
+.page-table-item:hover,
+.page-table-item:focus {
+  background-color: var(--vp-c-bg);
+  border-color: var(--vp-c-brand);
+  box-shadow: var(--vp-shadow-2);
+}
+
+.icon-placeholder {
+  width: 24px;
+  height: 24px;
+  margin-right: 12px;
+  background-color: var(--vp-c-default-soft);
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.title {
+  flex-grow: 1;
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--vp-c-text-1);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.VPDocFooter {
   display: none;
 }
 </style>
