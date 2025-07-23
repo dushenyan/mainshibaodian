@@ -1,22 +1,20 @@
+import type { DocsTreeDataVO } from '../types/index'
 import fs from 'node:fs'
 import path from 'node:path'
 
-interface C {
-  name: string
-  children?: C[]
-}
-
-export function getTree(dirPath: string): C[] {
+export function getTree(dirPath: string): DocsTreeDataVO[] {
   const items = fs.readdirSync(dirPath, { withFileTypes: true })
   return items.map((item) => {
     if (item.isDirectory()) {
       return {
-        name: item.name,
-        children: getTree(path.join(dirPath, item.name)),
+        title: item.name,
+        items: getTree(path.join(dirPath, item.name)),
       }
     }
     else {
-      return { name: item.name }
+      return {
+        title: item.name,
+      }
     }
   })
 }

@@ -4,7 +4,7 @@ import type Renderer from 'markdown-it/lib/renderer.mjs'
 import type Token from 'markdown-it/lib/token.mjs'
 import type { UserConfig } from 'vitepress'
 import type { VitePressSidebarOptions } from 'vitepress-sidebar/types'
-import type { pageEnvDataVO } from './types'
+import type { PageEnvDataVO } from './types'
 import container from 'markdown-it-container'
 import { defineConfig } from 'vitepress'
 import { renderSandbox } from 'vitepress-plugin-sandpack'
@@ -104,7 +104,7 @@ const vitePressOptions: UserConfig = {
           return renderSandbox(tokens, idx, 'sandbox')
         },
       })
-      md.renderer.rules.heading_close = (tokens: Token[], idx: number, options: Options, env: pageEnvDataVO, self: Renderer) => {
+      md.renderer.rules.heading_close = (tokens: Token[], idx: number, options: Options, env: PageEnvDataVO, self: Renderer) => {
         let htmlResult = self.renderToken(tokens, idx, options)
         // 从 env 中获取当前页面的元数据
         const { frontmatter } = env

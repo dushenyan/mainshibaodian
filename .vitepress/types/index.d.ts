@@ -9,7 +9,7 @@ export interface NavLink {
   link: string
 }
 
-export interface pageEnvDataVO {
+export interface PageEnvDataVO {
   path: string
   title: string
   relativePath: string
@@ -39,4 +39,9 @@ export interface pageEnvDataVO {
     bracketEscaping: boolean
     [key: string]: any
   }
+}
+
+export interface DocsTreeDataVO {
+  title: string
+  items?: DocsTreeDataVO[]
 }
