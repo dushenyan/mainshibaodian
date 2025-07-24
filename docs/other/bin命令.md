@@ -119,4 +119,4 @@ Hello, Trae!
 console.log('hello world');
 ```
 
-![alt text](/image.png)
+![image](https://cdn.jsdelivr.net/gh/dushenyan/picx-images-hosting@master/mainsibaodian/image.2h8lvxkfxc.webp)

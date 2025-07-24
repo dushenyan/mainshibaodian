@@ -40,7 +40,7 @@ function getType(target: unknown): string {
 
 ## 静态资源
 
-![](/bug.jpg)
+![bug](https://cdn.jsdelivr.net/gh/dushenyan/picx-images-hosting@master/mainsibaodian/bug.58ho403o06.webp)
 
 ## 表格示例
 

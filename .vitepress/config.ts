@@ -20,7 +20,7 @@ const vitePressOptions: UserConfig = {
   lang: 'zh-CN',
   base: '/',
   head: [
-    ['link', { rel: 'icon', type: 'image/png', href: '/logo.png' },
+    ['link', { rel: 'icon', type: 'image/png', href: '/logo_cc.png' },
     ],
     ['link', { rel: 'manifest', href: '/manifest.webmanifest' },
     ], // chrome pwa
