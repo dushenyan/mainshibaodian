@@ -143,28 +143,12 @@ Vue.observable的实现基于Vue内部的响应式系统。当我们调用Vue.ob
 
 ## 可运行完整示例
 
-::: sandbox {template=static showConsole autorun=false}
+::: sandbox {template=static showConsole=false autorun=false}
 ```html index.html [active]
 <meta charset="UTF-8">
 <title>Vue.observable示例</title>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
-<style>
-  .container {
-    margin: 20px;
-    padding: 10px;
-    border: 1px solid #ccc;
-  }
-
-  .counter {
-    font-size: 24px;
-    margin: 10px 0;
-  }
-
-  button {
-    padding: 5px 10px;
-    margin-right: 5px;
-  }
-</style>
+<link rel="stylesheet" href="./style.css">
 
 <div id="app">
   <div class="container">
@@ -186,9 +170,11 @@ Vue.observable的实现基于Vue内部的响应式系统。当我们调用Vue.ob
     </div>
   </div>
 </div>
+<script src="./main.js"></script>
+```
 
-<script>
-  // 在组件外部创建可观察状态
+```javascript main.js
+// 在组件外部创建可观察状态
   const counterState = Vue.observable({
     count: 0
   })
@@ -237,7 +223,23 @@ Vue.observable的实现基于Vue内部的响应式系统。当我们调用Vue.ob
       }
     }
   })
-</script>
+```
+```css style.css
+  .container {
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+
+  .counter {
+    font-size: 24px;
+    margin: 10px 0;
+  }
+
+  button {
+    padding: 5px 10px;
+    margin-right: 5px;
+  }
 ```
 :::
 
