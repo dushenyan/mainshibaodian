@@ -88,7 +88,6 @@ if (inBrowser) {
 
 onMounted(async () => {
   const skipLock = wsCache.get(skipLockKey)
-  console.log(skipLock)
   if (!skipLock) {
     // 如果没有跳过标记，检查密码并锁定屏幕
     checkPasswordExpiration()
@@ -146,6 +145,7 @@ defineExpose({
   padding: 20px;
   border-radius: 8px;
   text-align: center;
+  margin-top: -100px;
 }
 
 .lock-screen-content input {

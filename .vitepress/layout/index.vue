@@ -67,17 +67,14 @@ if (inBrowser) {
 </script>
 
 <template>
-  <Layout v-bind="$attrs">
-    <LockScreen />
-    <template #layout-top>
-      <el-backtop>
-        <svg-icon name="zujian" class="text-2xl text-blue-500" />
-      </el-backtop>
-    </template>
-    <template #doc-before>
-      <DocBefore />
-    </template>
-  </Layout>
+  <Suspense>
+    <Layout v-bind="$attrs">
+      <template #layout-top>
+        <!-- <LockScreen /> -->
+        <el-backtop />
+      </template>
+    </Layout>
+  </Suspense>
 </template>
 
 <style lang="scss">
