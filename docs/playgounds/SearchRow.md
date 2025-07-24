@@ -1,3 +1,8 @@
+---
+sidebar: false
+outline: [2, 3, 4]
+---
+
 # SearchRow 搜索表单组件
 
 ### 文档目录

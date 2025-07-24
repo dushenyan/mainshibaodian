@@ -1,3 +1,8 @@
+---
+sidebar: false
+outline: [2, 3, 4]
+---
+
 # welcome
 
 ## 欢迎使用

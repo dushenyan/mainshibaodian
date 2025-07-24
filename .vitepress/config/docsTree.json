@@ -3,185 +3,114 @@
     "title": "ES6",
     "items": [
       {
-        "title": "es5和6的区别.md",
+        "title": "es5和6的区别",
         "metadata": {},
-        "link": "/docs/ES6/es5和6的区别"
-      },
-      {
-        "title": "index.md",
-        "metadata": {
-          "layoutClass": "nav-layout",
-          "sidebar": false,
-          "editLink": false,
-          "footer": false,
-          "lastUpdated": false,
-          "notArticle": true,
-          "outline": [
-            2,
-            3,
-            4
-          ]
-        },
-        "link": "/docs/ES6/index"
+        "link": "%2Fdocs%2FES6%2Fes5%E5%92%8C6%E7%9A%84%E5%8C%BA%E5%88%AB",
+        "fileExtension": ".md"
       }
     ],
-    "link": "/docs/ES6"
+    "link": "%2Fdocs%2FES6"
   },
   {
     "title": "nav",
     "items": [
       {
-        "title": "data.ts",
-        "link": "/docs/nav/data"
+        "title": "data",
+        "link": "%2Fdocs%2Fnav%2Fdata",
+        "fileExtension": ".ts"
       },
       {
-        "title": "index.md",
-        "metadata": {
-          "layoutClass": "nav-layout",
-          "sidebar": false,
-          "editLink": false,
-          "footer": false,
-          "notArticle": true,
-          "outline": [
-            2,
-            3,
-            4
-          ]
-        },
-        "link": "/docs/nav/index"
-      },
-      {
-        "title": "index.scss",
-        "link": "/docs/nav/index"
+        "title": "index",
+        "link": "%2Fdocs%2Fnav%2Findex",
+        "fileExtension": ".scss"
       }
     ],
-    "link": "/docs/nav"
+    "link": "%2Fdocs%2Fnav"
   },
   {
     "title": "other",
     "items": [
       {
-        "title": "README.md",
+        "title": "README",
         "metadata": {},
-        "link": "/docs/other/README"
+        "link": "%2Fdocs%2Fother%2FREADME",
+        "fileExtension": ".md"
       },
       {
-        "title": "bin命令.md",
+        "title": "bin命令",
         "metadata": {
           "title": "项目记录文档示范 — pp CLI 工具",
           "editLink": true
         },
-        "link": "/docs/other/bin命令"
+        "link": "%2Fdocs%2Fother%2Fbin%E5%91%BD%E4%BB%A4",
+        "fileExtension": ".md"
       },
       {
-        "title": "hello.md",
+        "title": "hello",
         "metadata": {},
-        "link": "/docs/other/hello"
+        "link": "%2Fdocs%2Fother%2Fhello",
+        "fileExtension": ".md"
       },
       {
-        "title": "index.md",
-        "metadata": {
-          "layoutClass": "nav-layout",
-          "sidebar": false,
-          "editLink": false,
-          "footer": false,
-          "lastUpdated": false,
-          "notArticle": true,
-          "outline": [
-            2,
-            3,
-            4
-          ]
-        },
-        "link": "/docs/other/index"
-      },
-      {
-        "title": "js-yaml.md",
+        "title": "js-yaml",
         "metadata": {},
-        "link": "/docs/other/js-yaml"
+        "link": "%2Fdocs%2Fother%2Fjs-yaml",
+        "fileExtension": ".md"
       },
       {
-        "title": "welcome.md",
+        "title": "welcome",
         "metadata": {},
-        "link": "/docs/other/welcome"
+        "link": "%2Fdocs%2Fother%2Fwelcome",
+        "fileExtension": ".md"
       },
       {
-        "title": "手动覆写方法.md",
+        "title": "手动覆写方法",
         "metadata": {},
-        "link": "/docs/other/手动覆写方法"
+        "link": "%2Fdocs%2Fother%2F%E6%89%8B%E5%8A%A8%E8%A6%86%E5%86%99%E6%96%B9%E6%B3%95",
+        "fileExtension": ".md"
       }
     ],
-    "link": "/docs/other"
+    "link": "%2Fdocs%2Fother"
   },
   {
     "title": "playgounds",
     "items": [
       {
-        "title": "SearchRow.md",
+        "title": "SearchRow",
         "metadata": {},
-        "link": "/docs/playgounds/SearchRow"
-      },
-      {
-        "title": "index.md",
-        "metadata": {
-          "layoutClass": "nav-layout",
-          "sidebar": false,
-          "editLink": false,
-          "footer": false,
-          "lastUpdated": false,
-          "notArticle": true,
-          "outline": [
-            2,
-            3,
-            4
-          ]
-        },
-        "link": "/docs/playgounds/index"
+        "link": "%2Fdocs%2Fplaygounds%2FSearchRow",
+        "fileExtension": ".md"
       }
     ],
-    "link": "/docs/playgounds"
+    "link": "%2Fdocs%2Fplaygounds"
   },
   {
     "title": "typescript",
     "items": [
       {
-        "title": "TypeScript中的类型系统详解.md",
+        "title": "TypeScript中的类型系统详解",
         "metadata": {
           "titleTemplate": "TS",
           "sidebar": false,
           "bracketEscaping": true
         },
-        "link": "/docs/typescript/TypeScript中的类型系统详解"
-      },
-      {
-        "title": "index.md",
-        "metadata": {
-          "sidebar": false,
-          "editLink": false,
-          "footer": false,
-          "lastUpdated": false,
-          "notArticle": true,
-          "outline": [
-            2,
-            3,
-            4
-          ]
-        },
-        "link": "/docs/typescript/index"
+        "link": "%2Fdocs%2Ftypescript%2FTypeScript%E4%B8%AD%E7%9A%84%E7%B1%BB%E5%9E%8B%E7%B3%BB%E7%BB%9F%E8%AF%A6%E8%A7%A3",
+        "fileExtension": ".md"
       }
     ],
-    "link": "/docs/typescript"
+    "link": "%2Fdocs%2Ftypescript"
   },
   {
     "title": "vue",
     "items": [
       {
-        "title": "1.什么是虚拟DOM.md",
+        "title": "1.什么是虚拟DOM",
         "metadata": {},
-        "link": "/docs/vue/1.什么是虚拟DOM"
+        "link": "%2Fdocs%2Fvue%2F1.%E4%BB%80%E4%B9%88%E6%98%AF%E8%99%9A%E6%8B%9FDOM",
+        "fileExtension": ".md"
       },
       {
-        "title": "2.vue组件里写的原生addEventListeners监听事件，要手动去销毁吗？为什么？.md",
+        "title": "2.vue组件里写的原生addEventListeners监听事件，要手动去销毁吗？为什么？",
         "metadata": {
           "sidebar": false,
           "outline": [
@@ -190,10 +119,11 @@
             4
           ]
         },
-        "link": "/docs/vue/2.vue组件里写的原生addEventListeners监听事件，要手动去销毁吗？为什么？"
+        "link": "%2Fdocs%2Fvue%2F2.vue%E7%BB%84%E4%BB%B6%E9%87%8C%E5%86%99%E7%9A%84%E5%8E%9F%E7%94%9FaddEventListeners%E7%9B%91%E5%90%AC%E4%BA%8B%E4%BB%B6%EF%BC%8C%E8%A6%81%E6%89%8B%E5%8A%A8%E5%8E%BB%E9%94%80%E6%AF%81%E5%90%97%EF%BC%9F%E4%B8%BA%E4%BB%80%E4%B9%88%EF%BC%9F",
+        "fileExtension": ".md"
       },
       {
-        "title": "Pinia 有哪些使用场景？.md",
+        "title": "Pinia 有哪些使用场景？",
         "metadata": {
           "sidebar": false,
           "outline": [
@@ -202,92 +132,89 @@
             4
           ]
         },
-        "link": "/docs/vue/Pinia 有哪些使用场景？"
+        "link": "%2Fdocs%2Fvue%2FPinia%20%E6%9C%89%E5%93%AA%E4%BA%9B%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF%EF%BC%9F",
+        "fileExtension": ".md"
       },
       {
-        "title": "Proxy 和 Object.defineProperty 的区别是啥？.md",
+        "title": "Proxy 和 Object.defineProperty 的区别是啥？",
         "metadata": {},
-        "link": "/docs/vue/Proxy 和 Object.defineProperty 的区别是啥？"
+        "link": "%2Fdocs%2Fvue%2FProxy%20%E5%92%8C%20Object.defineProperty%20%E7%9A%84%E5%8C%BA%E5%88%AB%E6%98%AF%E5%95%A5%EF%BC%9F",
+        "fileExtension": ".md"
       },
       {
-        "title": "Vue 双向绑定实现.md",
+        "title": "Vue 双向绑定实现",
         "metadata": {},
-        "link": "/docs/vue/Vue 双向绑定实现"
+        "link": "%2Fdocs%2Fvue%2FVue%20%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A%E5%AE%9E%E7%8E%B0",
+        "fileExtension": ".md"
       },
       {
-        "title": "Vue.observable是什么.md",
+        "title": "Vue.observable是什么",
         "metadata": {},
-        "link": "/docs/vue/Vue.observable是什么"
+        "link": "%2Fdocs%2Fvue%2FVue.observable%E6%98%AF%E4%BB%80%E4%B9%88",
+        "fileExtension": ".md"
       },
       {
-        "title": "Vue中为什么不建议v-if和v-for一起使用.md",
+        "title": "Vue中为什么不建议v-if和v-for一起使用",
         "metadata": {},
-        "link": "/docs/vue/Vue中为什么不建议v-if和v-for一起使用"
+        "link": "%2Fdocs%2Fvue%2FVue%E4%B8%AD%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E5%BB%BA%E8%AE%AEv-if%E5%92%8Cv-for%E4%B8%80%E8%B5%B7%E4%BD%BF%E7%94%A8",
+        "fileExtension": ".md"
       },
       {
-        "title": "Vue中的$nextTick有什么作用.md",
+        "title": "Vue中的$nextTick有什么作用",
         "metadata": {},
-        "link": "/docs/vue/Vue中的$nextTick有什么作用"
+        "link": "%2Fdocs%2Fvue%2FVue%E4%B8%AD%E7%9A%84%24nextTick%E6%9C%89%E4%BB%80%E4%B9%88%E4%BD%9C%E7%94%A8",
+        "fileExtension": ".md"
       },
       {
-        "title": "index.md",
-        "metadata": {
-          "sidebar": false,
-          "editLink": false,
-          "aside": false,
-          "footer": false,
-          "lastUpdated": false,
-          "notArticle": true,
-          "outline": [
-            2,
-            3,
-            4
-          ]
-        },
-        "link": "/docs/vue/index"
-      },
-      {
-        "title": "template 标签为什么不可以使用 v-show？.md",
+        "title": "template 标签为什么不可以使用 v-show？",
         "metadata": {},
-        "link": "/docs/vue/template 标签为什么不可以使用 v-show？"
+        "link": "%2Fdocs%2Fvue%2Ftemplate%20%E6%A0%87%E7%AD%BE%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E5%8F%AF%E4%BB%A5%E4%BD%BF%E7%94%A8%20v-show%EF%BC%9F",
+        "fileExtension": ".md"
       },
       {
-        "title": "使用 const 定义函数和直接用 function 声明的区别.md",
+        "title": "使用 const 定义函数和直接用 function 声明的区别",
         "metadata": {},
-        "link": "/docs/vue/使用 const 定义函数和直接用 function 声明的区别"
+        "link": "%2Fdocs%2Fvue%2F%E4%BD%BF%E7%94%A8%20const%20%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0%E5%92%8C%E7%9B%B4%E6%8E%A5%E7%94%A8%20function%20%E5%A3%B0%E6%98%8E%E7%9A%84%E5%8C%BA%E5%88%AB",
+        "fileExtension": ".md"
       },
       {
-        "title": "原型、构造函数、实例、原型链之间的关系.md",
+        "title": "原型、构造函数、实例、原型链之间的关系",
         "metadata": {},
-        "link": "/docs/vue/原型、构造函数、实例、原型链之间的关系"
+        "link": "%2Fdocs%2Fvue%2F%E5%8E%9F%E5%9E%8B%E3%80%81%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E3%80%81%E5%AE%9E%E4%BE%8B%E3%80%81%E5%8E%9F%E5%9E%8B%E9%93%BE%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB",
+        "fileExtension": ".md"
       },
       {
-        "title": "响应defineProperty的缺陷.md",
+        "title": "响应defineProperty的缺陷",
         "metadata": {},
-        "link": "/docs/vue/响应defineProperty的缺陷"
+        "link": "%2Fdocs%2Fvue%2F%E5%93%8D%E5%BA%94defineProperty%E7%9A%84%E7%BC%BA%E9%99%B7",
+        "fileExtension": ".md"
       },
       {
-        "title": "如果你有一个业务组件库，希望打包输出为 esm + cjs + dts，有什么思路？.md",
+        "title": "如果你有一个业务组件库，希望打包输出为 esm + cjs + dts，有什么思路？",
         "metadata": {},
-        "link": "/docs/vue/如果你有一个业务组件库，希望打包输出为 esm + cjs + dts，有什么思路？"
+        "link": "%2Fdocs%2Fvue%2F%E5%A6%82%E6%9E%9C%E4%BD%A0%E6%9C%89%E4%B8%80%E4%B8%AA%E4%B8%9A%E5%8A%A1%E7%BB%84%E4%BB%B6%E5%BA%93%EF%BC%8C%E5%B8%8C%E6%9C%9B%E6%89%93%E5%8C%85%E8%BE%93%E5%87%BA%E4%B8%BA%20esm%20%2B%20cjs%20%2B%20dts%EF%BC%8C%E6%9C%89%E4%BB%80%E4%B9%88%E6%80%9D%E8%B7%AF%EF%BC%9F",
+        "fileExtension": ".md"
       },
       {
-        "title": "能详细讲讲你在Vue项目中如何处理组件通信.md",
+        "title": "能详细讲讲你在Vue项目中如何处理组件通信",
         "metadata": {},
-        "link": "/docs/vue/能详细讲讲你在Vue项目中如何处理组件通信"
+        "link": "%2Fdocs%2Fvue%2F%E8%83%BD%E8%AF%A6%E7%BB%86%E8%AE%B2%E8%AE%B2%E4%BD%A0%E5%9C%A8Vue%E9%A1%B9%E7%9B%AE%E4%B8%AD%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1",
+        "fileExtension": ".md"
       },
       {
-        "title": "自定义指令是什么？有哪些应用场景.md",
+        "title": "自定义指令是什么？有哪些应用场景",
         "metadata": {},
-        "link": "/docs/vue/自定义指令是什么？有哪些应用场景"
+        "link": "%2Fdocs%2Fvue%2F%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8C%87%E4%BB%A4%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E6%9C%89%E5%93%AA%E4%BA%9B%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF",
+        "fileExtension": ".md"
       },
       {
-        "title": "说说你对Vue中keep-alive的理解.md",
+        "title": "说说你对Vue中keep-alive的理解",
         "metadata": {},
-        "link": "/docs/vue/说说你对Vue中keep-alive的理解"
+        "link": "%2Fdocs%2Fvue%2F%E8%AF%B4%E8%AF%B4%E4%BD%A0%E5%AF%B9Vue%E4%B8%ADkeep-alive%E7%9A%84%E7%90%86%E8%A7%A3",
+        "fileExtension": ".md"
       },
       {
-        "title": "说说你对高阶函数的理解.md",
+        "title": "说说你对高阶函数的理解",
         "metadata": {
           "layoutClass": "nav-layout",
           "sidebar": false,
@@ -300,9 +227,10 @@
             4
           ]
         },
-        "link": "/docs/vue/说说你对高阶函数的理解"
+        "link": "%2Fdocs%2Fvue%2F%E8%AF%B4%E8%AF%B4%E4%BD%A0%E5%AF%B9%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E7%9A%84%E7%90%86%E8%A7%A3",
+        "fileExtension": ".md"
       }
     ],
-    "link": "/docs/vue"
+    "link": "%2Fdocs%2Fvue"
   }
 ]

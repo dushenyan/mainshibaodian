@@ -45,5 +45,6 @@ export interface EnhancedDocsTreeDataVO {
   title: string
   metadata?: Record<string, any>
   link?: string
+  fileExtension?: string
   items?: EnhancedDocsTreeDataVO[]
 }

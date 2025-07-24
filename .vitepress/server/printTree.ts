@@ -30,17 +30,28 @@ function generateLink(baseDir: string, filePath: string): string {
     linkPath = `/docs/${linkPath.replace(/^\/+/, '')}`
   }
 
-  return linkPath
+  // 对链接进行编码
+  return encodeURIComponent(linkPath)
 }
 
 export function getTree(dirPath: string, baseDir = dirPath): EnhancedDocsTreeDataVO[] {
   const items = fs.readdirSync(dirPath, { withFileTypes: true })
-  return items.map((item) => {
+  return items.filter((item) => {
+    const fileName = item.name
+    const filterFileName = ['index.md', '.DS_Store']
+    // 过滤掉 index.md 和 .DS_Store 文件
+    if (item.isFile() && filterFileName.includes(fileName)) {
+      return false
+    }
+    return true
+  }).map((item) => {
     const fullPath = path.join(dirPath, item.name)
-    console.log('fullPath', fullPath)
+    const extname = path.extname(item.name)
+    const titleWithoutExtension = item.name.replace(extname, '')
+
     if (item.isDirectory()) {
       return {
-        title: item.name,
+        title: titleWithoutExtension,
         items: getTree(fullPath, baseDir),
         link: generateLink(baseDir, fullPath),
       }
@@ -48,9 +59,10 @@ export function getTree(dirPath: string, baseDir = dirPath): EnhancedDocsTreeDat
     else {
       const metadata = getFileMetadata(fullPath)
       return {
-        title: item.name,
+        title: titleWithoutExtension,
         metadata,
         link: generateLink(baseDir, fullPath),
+        fileExtension: extname,
       }
     }
   })
