@@ -1,10 +1,13 @@
 <script setup lang="ts">
 import type { Zoom } from 'medium-zoom'
+import type { SandpackPredefinedTemplate } from '../types'
+import { sandpackTemplateOptions } from '@config/index'
 import HomeUnderline from '@theme/components/HomeUnderline'
 import LockScreen from '@theme/components/LockScreen.vue'
 import confetti from 'canvas-confetti'
 import mediumZoom from 'medium-zoom'
 import { inBrowser, onContentUpdated, useData } from 'vitepress'
+import { Sandbox } from 'vitepress-plugin-sandpack'
 import Theme from 'vitepress/theme'
 // 具体使用参见：https://vitepress.vuejs.org/guide/theme-introduction#extending-the-default-theme
 import { createApp, nextTick, onBeforeMount, ref, watch } from 'vue'
@@ -70,9 +73,11 @@ const drawer = ref(false)
 
 function handleClick(e: MouseEvent) {
   e.preventDefault()
-  drawer.value = true
+  drawer.value = !drawer.value
   console.log('点击事件已触发，但不回顶')
 }
+
+const sandpackTemplateValue = ref<SandpackPredefinedTemplate>('vite')
 </script>
 
 <template>
@@ -82,8 +87,31 @@ function handleClick(e: MouseEvent) {
         <div v-show="isVisible" class="fixed-edit-btn" @click="handleClick">
           Edit
         </div>
-        <el-drawer v-model="drawer" title="I am the title" :with-header="false">
-          <span>Hi there!</span>
+        <el-drawer
+          v-model="drawer" title="I am the title" :with-header="false" append-to-body
+          :close-on-click-modal="false" size="100%"
+        >
+          <div class="sandbox-container">
+            <div class="sandbox-title">
+              在线编辑
+
+              <el-select v-model="sandpackTemplateValue" placeholder="Select" style="width: 240px">
+                <el-option v-for="(item, index) in sandpackTemplateOptions" :key="index" :label="item" :value="item">
+                  {{ item }}
+                </el-option>
+              </el-select>
+            </div>
+            <div class="sandbox-content">
+              <div class="sandbox">
+                <ClientOnly>
+                  <Sandbox
+                    :template="sandpackTemplateValue" :autorun="false" show-line-numbers show-refresh-button
+                    show-console-button
+                  />
+                </ClientOnly>
+              </div>
+            </div>
+          </div>
         </el-drawer>
       </template>
       <template #layout-top>
@@ -116,5 +144,12 @@ function handleClick(e: MouseEvent) {
   color: #1989fa;
   cursor: pointer;
   z-index: 9999;
+}
+
+.sandbox-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
 }
 </style>

@@ -1,3 +1,5 @@
+import { sandpackTemplateOptions } from '@config/index'
+
 export interface NavLink {
   /** 站点图标 */
   icon?: string | { svg: string }
@@ -48,3 +50,9 @@ export interface EnhancedDocsTreeDataVO {
   fileExtension?: string
   items?: EnhancedDocsTreeDataVO[]
 }
+
+// 定义只读数组
+const SANDBOX_TEMPLATES = sandpackTemplateOptions
+
+// 从数组中提取联合类型
+export type SandpackPredefinedTemplate = typeof SANDBOX_TEMPLATES[number]
