@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Zoom } from 'medium-zoom'
 import type { SandpackPredefinedTemplate } from '../types'
-import { sandpackTemplateOptions } from '@config/index'
+import { sandpackTemplateOptions } from '@config/emnus'
 import HomeUnderline from '@theme/components/HomeUnderline'
 import LockScreen from '@theme/components/LockScreen.vue'
 import confetti from 'canvas-confetti'

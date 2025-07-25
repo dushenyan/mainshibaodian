@@ -1,4 +1,4 @@
-import { sandpackTemplateOptions } from '@config/index'
+import { sandpackTemplateOptions } from '@config/emnus'
 
 export interface NavLink {
   /** 站点图标 */
