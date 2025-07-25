@@ -7,7 +7,7 @@ import mediumZoom from 'medium-zoom'
 import { inBrowser, onContentUpdated, useData } from 'vitepress'
 import Theme from 'vitepress/theme'
 // 具体使用参见：https://vitepress.vuejs.org/guide/theme-introduction#extending-the-default-theme
-import { createApp, nextTick, onBeforeMount, watch } from 'vue'
+import { createApp, nextTick, onBeforeMount, ref, watch } from 'vue'
 
 // export const injectKey = Symbol('Layout')
 
@@ -64,11 +64,28 @@ if (inBrowser) {
     origin: { y: 0.6 },
   })
 }
+
+const isVisible = ref(true)
+const drawer = ref(false)
+
+function handleClick(e: MouseEvent) {
+  e.preventDefault()
+  drawer.value = true
+  console.log('点击事件已触发，但不回顶')
+}
 </script>
 
 <template>
   <Suspense>
     <Layout v-bind="$attrs">
+      <template #doc-top>
+        <div v-show="isVisible" class="fixed-edit-btn" @click="handleClick">
+          Edit
+        </div>
+        <el-drawer v-model="drawer" title="I am the title" :with-header="false">
+          <span>Hi there!</span>
+        </el-drawer>
+      </template>
       <template #layout-top>
         <!-- <LockScreen /> -->
         <el-backtop />
@@ -84,5 +101,20 @@ if (inBrowser) {
 
 .medium-zoom-image {
   z-index: 2000
+}
+
+.fixed-edit-btn {
+  position: fixed;
+  right: 40px;
+  bottom: 100px;
+  height: 40px;
+  width: 40px;
+  background-color: var(--el-bg-color-overlay);
+  box-shadow: var(--el-box-shadow-lighter);
+  text-align: center;
+  line-height: 40px;
+  color: #1989fa;
+  cursor: pointer;
+  z-index: 9999;
 }
 </style>
