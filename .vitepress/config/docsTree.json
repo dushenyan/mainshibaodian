@@ -19,6 +19,11 @@
     "link": "%2Fdocs%2FES6"
   },
   {
+    "title": "JavaScript",
+    "items": [],
+    "link": "%2Fdocs%2FJavaScript"
+  },
+  {
     "title": "nav",
     "items": [
       {
