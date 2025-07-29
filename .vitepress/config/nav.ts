@@ -13,6 +13,11 @@ export const nav = [
     text: '技术集合',
     items: [
       {
+        text: 'JavaScript',
+        activeMatch: '/docs/JavaScript',
+        link: '/docs/JavaScript/index',
+      },
+      {
         text: 'Vue',
         activeMatch: '/docs/vue',
         link: '/docs/vue/index',
