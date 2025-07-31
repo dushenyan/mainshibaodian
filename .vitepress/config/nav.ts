@@ -19,13 +19,13 @@ export const nav = [
       },
       {
         text: 'Vue',
-        activeMatch: '/docs/vue',
-        link: '/docs/vue/index',
+        activeMatch: '/docs/Vue',
+        link: '/docs/Vue/index',
       },
       {
         text: 'TypeScript',
-        activeMatch: '/docs/typescript',
-        link: '/docs/typescript/index',
+        activeMatch: '/docs/TypeScript',
+        link: '/docs/TypeScript/index',
       },
       {
         text: 'ES6',
@@ -33,9 +33,9 @@ export const nav = [
         link: '/docs/ES6/index',
       },
       {
-        text: 'playgounds',
-        activeMatch: '/docs/playgounds',
-        link: '/docs/playgounds/index',
+        text: 'PlayGrounds',
+        activeMatch: '/docs/PlayGrounds',
+        link: '/docs/PlayGrounds/index',
       },
       {
         text: '其他',
