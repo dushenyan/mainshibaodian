@@ -9,7 +9,7 @@ prev: false
 next: false
 ---
 
-<PageTable dirName="playgrounds"/>
+<PageTable dirName="PlayGounds"/>
 
 <br />
 

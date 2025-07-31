@@ -137,15 +137,15 @@ attrBtn.addEventListener('click', () => {
 
 配置对象可以包含以下属性：
 
-| 属性 | 类型 | 描述 |
-|------|------|------|
-| `childList` | Boolean | 是否观察子节点的添加/删除 |
-| `attributes` | Boolean | 是否观察属性变化 |
-| `attributeFilter` | Array | 指定要观察的属性名数组 |
-| `attributeOldValue` | Boolean | 是否记录属性变化前的值 |
-| `characterData` | Boolean | 是否观察文本内容变化 |
-| `characterDataOldValue` | Boolean | 是否记录文本变化前的值 |
-| `subtree` | Boolean | 是否观察所有后代节点的变化 |
+| 属性                    | 类型    | 描述                       |
+| ----------------------- | ------- | -------------------------- |
+| `childList`             | Boolean | 是否观察子节点的添加/删除  |
+| `attributes`            | Boolean | 是否观察属性变化           |
+| `attributeFilter`       | Array   | 指定要观察的属性名数组     |
+| `attributeOldValue`     | Boolean | 是否记录属性变化前的值     |
+| `characterData`         | Boolean | 是否观察文本内容变化       |
+| `characterDataOldValue` | Boolean | 是否记录文本变化前的值     |
+| `subtree`               | Boolean | 是否观察所有后代节点的变化 |
 
 ### 6. 高级用法
 
@@ -211,25 +211,53 @@ function observeOnce(target, callback) {
 ```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MutationObserver 完整示例</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 20px; }
-    #target { border: 2px solid #ddd; padding: 10px; margin: 10px 0; min-height: 50px; }
-    button { margin-right: 5px; padding: 5px 10px; }
-    .log { margin-top: 20px; border: 1px solid #ccc; padding: 10px; max-height: 200px; overflow-y: auto; }
-    .log-entry { margin: 5px 0; padding: 5px; background: #f5f5f5; border-radius: 3px; }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    #target {
+      border: 2px solid #ddd;
+      padding: 10px;
+      margin: 10px 0;
+      min-height: 50px;
+    }
+
+    button {
+      margin-right: 5px;
+      padding: 5px 10px;
+    }
+
+    .log {
+      margin-top: 20px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+
+    .log-entry {
+      margin: 5px 0;
+      padding: 5px;
+      background: #f5f5f5;
+      border-radius: 3px;
+    }
   </style>
 </head>
+
 <body>
   <h1>MutationObserver 演示</h1>
-  
+
   <div id="target">
     <p>初始子元素</p>
   </div>
-  
+
   <div>
     <button id="addBtn">添加元素</button>
     <button id="removeBtn">移除元素</button>
@@ -237,14 +265,43 @@ function observeOnce(target, callback) {
     <button id="textBtn">修改文本</button>
     <button id="disconnectBtn">停止观察</button>
   </div>
-  
+
   <h3>变化日志：</h3>
   <div id="log" class="log"></div>
-  
+
   <script>
+    /**
+      * 日期格式化函数
+      * @param {Date} date - 日期对象
+      * @param {string} format - 格式字符串，例如 'YYYY-MM-DD hh:mm:ss'
+      * @returns {string} 格式化后的日期字符串
+      */
+    function formatDate(date, format = 'YYYY-MM-DD') {
+      const year = date.getFullYear();
+      const month = String(date.getMonth() + 1).padStart(2, '0');
+      const day = String(date.getDate()).padStart(2, '0');
+      const hours = String(date.getHours()).padStart(2, '0');
+      const minutes = String(date.getMinutes()).padStart(2, '0');
+      const seconds = String(date.getSeconds()).padStart(2, '0');
+
+      return format
+        .replace(/YYYY/g, year)
+        .replace(/YY/g, String(year).slice(-2))
+        .replace(/MM/g, month)
+        .replace(/M/g, date.getMonth() + 1)
+        .replace(/DD/g, day)
+        .replace(/D/g, date.getDate())
+        .replace(/hh/g, hours)
+        .replace(/h/g, date.getHours())
+        .replace(/mm/g, minutes)
+        .replace(/m/g, date.getMinutes())
+        .replace(/ss/g, seconds)
+        .replace(/s/g, date.getSeconds());
+    }
+
     const target = document.getElementById('target');
     const log = document.getElementById('log');
-    
+
     // 记录日志
     function addLog(message) {
       const entry = document.createElement('div');
@@ -253,13 +310,13 @@ function observeOnce(target, callback) {
       log.appendChild(entry);
       log.scrollTop = log.scrollHeight;
     }
-    
+
     // 创建观察者
     const observer = new MutationObserver((mutations) => {
       addLog(`检测到 ${mutations.length} 处变化`);
-      
+
       mutations.forEach(mutation => {
-        switch(mutation.type) {
+        switch (mutation.type) {
           case 'childList':
             if (mutation.addedNodes.length > 0) {
               addLog(`添加了 ${mutation.addedNodes.length} 个节点`);
@@ -268,20 +325,20 @@ function observeOnce(target, callback) {
               addLog(`移除了 ${mutation.removedNodes.length} 个节点`);
             }
             break;
-            
+
           case 'attributes':
             addLog(`属性 "${mutation.attributeName}" 变化: 
                   旧值="${mutation.oldValue}", 
                   新值="${mutation.target.getAttribute(mutation.attributeName)}"`);
             break;
-            
+
           case 'characterData':
             addLog(`文本内容变化: 旧值="${mutation.oldValue}"`);
             break;
         }
       });
     });
-    
+
     // 开始观察
     observer.observe(target, {
       attributes: true,
@@ -291,16 +348,16 @@ function observeOnce(target, callback) {
       characterData: true,
       characterDataOldValue: true
     });
-    
+
     addLog('开始观察 target 元素的变化');
-    
+
     // 按钮事件
     document.getElementById('addBtn').addEventListener('click', () => {
       const newElement = document.createElement('div');
-      newElement.textContent = '新元素 ' + Date.now();
+      newElement.textContent = '新元素 ' + formatDate(new Date(), 'YYYY-MM-DD hh:mm:ss');
       target.appendChild(newElement);
     });
-    
+
     document.getElementById('removeBtn').addEventListener('click', () => {
       if (target.children.length > 0) {
         target.removeChild(target.children[target.children.length - 1]);
@@ -308,27 +365,28 @@ function observeOnce(target, callback) {
         addLog('没有子元素可移除');
       }
     });
-    
+
     document.getElementById('attrBtn').addEventListener('click', () => {
       const currentValue = target.getAttribute('data-demo') || '0';
       target.setAttribute('data-demo', parseInt(currentValue) + 1);
     });
-    
+
     document.getElementById('textBtn').addEventListener('click', () => {
       if (target.firstChild && target.firstChild.nodeType === Node.TEXT_NODE) {
-        target.firstChild.textContent = '修改文本 ' + Date.now();
+        target.firstChild.textContent = '修改文本 ' + formatDate(new Date(), 'YYYY-MM-DD hh:mm:ss');
       } else {
-        const textNode = document.createTextNode('新文本 ' + Date.now());
+        const textNode = document.createTextNode('新文本 ' + formatDate(new Date(), 'YYYY-MM-DD hh:mm:ss'));
         target.prepend(textNode);
       }
     });
-    
+
     document.getElementById('disconnectBtn').addEventListener('click', () => {
       observer.disconnect();
       addLog('已停止观察');
     });
   </script>
 </body>
+
 </html>
 ```
 

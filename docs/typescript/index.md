@@ -9,5 +9,5 @@ prev: false
 next: false
 ---
 
-<PageTable dirName="typescript"/>
+<PageTable dirName="TypeScript"/>
 
