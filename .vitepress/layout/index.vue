@@ -78,6 +78,12 @@ function handleClick(e: MouseEvent) {
 }
 
 const sandpackTemplateValue = ref<SandpackPredefinedTemplate>('vite')
+
+function handleBackHome() {
+  if (inBrowser) {
+    window.history.back()
+  }
+}
 </script>
 
 <template>
@@ -86,6 +92,9 @@ const sandpackTemplateValue = ref<SandpackPredefinedTemplate>('vite')
       <template #doc-top>
         <div v-show="isVisible" class="fixed-edit-btn" @click="handleClick">
           Edit
+        </div>
+        <div v-show="isVisible" class="fixed-edit-btn" style="bottom:160px;" @click="handleBackHome">
+          Back
         </div>
         <el-drawer
           v-model="drawer" title="I am the title" :with-header="false" append-to-body
