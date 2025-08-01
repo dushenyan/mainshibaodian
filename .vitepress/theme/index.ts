@@ -55,7 +55,6 @@ export default {
     app.use(ElementPlus)
 
     app.component('Sandbox', Sandbox)
-
     app.use(components)
 
     if (typeof window !== 'undefined') {

@@ -1,3 +1,26 @@
+import docsTree from './docsTree.json'
+
+interface NavItem {
+  text: string
+  activeMatch: string
+  link: string
+}
+
+function getJiShuJiHe(): NavItem[] {
+  const arr: NavItem[] = []
+  docsTree.forEach((item) => {
+    // 过滤项
+    if (['nav'].includes(item.title))
+      return
+    arr.push({
+      text: item.title,
+      activeMatch: `/docs/index?name=${item.title}`,
+      link: `/docs/index?name=${item.title}`,
+    })
+  })
+  return arr
+}
+
 /**
  * 顶部导航栏菜单
  *
@@ -11,37 +34,6 @@ export const nav = [
   },
   {
     text: '技术集合',
-    items: [
-      {
-        text: 'JavaScript',
-        activeMatch: '/docs/JavaScript',
-        link: '/docs/JavaScript/index',
-      },
-      {
-        text: 'Vue',
-        activeMatch: '/docs/Vue',
-        link: '/docs/Vue/index',
-      },
-      {
-        text: 'TypeScript',
-        activeMatch: '/docs/TypeScript',
-        link: '/docs/TypeScript/index',
-      },
-      {
-        text: 'ES6',
-        activeMatch: '/docs/ES6',
-        link: '/docs/ES6/index',
-      },
-      {
-        text: 'PlayGrounds',
-        activeMatch: '/docs/PlayGrounds',
-        link: '/docs/PlayGrounds/index',
-      },
-      {
-        text: '其他',
-        activeMatch: '/docs/other',
-        link: '/docs/other/index',
-      },
-    ],
+    items: getJiShuJiHe(),
   },
 ]
