@@ -11,7 +11,7 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 interface Props {
-  data: any[]
+  data?: any[]
   dirName: string
 }
 
