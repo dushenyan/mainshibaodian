@@ -1,5 +1,5 @@
 ---
-sidebar: false
+sidebar: true
 outline: [2, 3, 4]
 ---
 

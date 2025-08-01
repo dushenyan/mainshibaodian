@@ -1,8 +1,3 @@
----
-sidebar: false
-outline: [2, 3, 4]
----
-
 # Vue中的$nextTick有什么作用?
 
 ## 可用环境代码

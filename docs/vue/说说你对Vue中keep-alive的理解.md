@@ -1,8 +1,3 @@
----
-sidebar: false
-outline: [2, 3, 4]
----
-
 # 说说你对Vue中keep-alive的理解
 
 ## 可用环境代码

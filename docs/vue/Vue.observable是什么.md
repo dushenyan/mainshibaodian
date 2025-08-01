@@ -1,8 +1,3 @@
----
-sidebar: false
-outline: [2, 3, 4]
----
-
 # Vue.observable是什么?
 
 面试官您好，关于Vue.observable是什么这个问题，我想从它的概念、用途和实现原理几个方面来回答。

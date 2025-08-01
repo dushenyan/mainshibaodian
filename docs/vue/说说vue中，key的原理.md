@@ -1,8 +1,3 @@
----
-sidebar: false
-outline: [2, 3, 4]
----
-
 # Vue 中 key 的原理
 
 ## 可用环境代码

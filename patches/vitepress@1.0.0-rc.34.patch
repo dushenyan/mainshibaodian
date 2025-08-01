@@ -1,0 +1,14 @@
+diff --git a/dist/client/theme-default/composables/sidebar.js b/dist/client/theme-default/composables/sidebar.js
+index 9447a885913b5279b3d72e72fb8036713a9a1e2b..113213bab92699355ac08b3929d4626abdd46e31 100644
+--- a/dist/client/theme-default/composables/sidebar.js
++++ b/dist/client/theme-default/composables/sidebar.js
+@@ -18,7 +18,8 @@ export function useSidebar() {
+             sidebar.value = _sidebar.value;
+     });
+     const hasSidebar = computed(() => {
+-        return (frontmatter.value.sidebar !== false &&
++        console.log('需要Doc页面填写sidebar：true才显示侧边栏')
++        return (frontmatter.value.sidebar == true &&
+             sidebar.value.length > 0 &&
+             frontmatter.value.layout !== 'home');
+     });

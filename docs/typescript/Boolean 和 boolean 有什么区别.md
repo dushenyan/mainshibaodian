@@ -1,8 +1,3 @@
----
-sidebar: false
-outline: [2, 3, 4]
----
-
 # Boolean 和 boolean 有什么区别
 
 在 TypeScript 中，`Boolean` 和 `boolean` 看起来非常相似，但它们实际上代表完全不同的概念，有着重要的区别：

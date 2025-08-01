@@ -1,8 +1,3 @@
----
-sidebar: false
-outline: [2, 3, 4]
----
-
 ## 💬 介绍
 
 [Vitepress](https://vitepress.vuejs.org) 模板，快速搭建你的静态网站和博客。

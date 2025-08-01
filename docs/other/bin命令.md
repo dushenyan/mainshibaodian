@@ -1,7 +1,6 @@
 ---
 title: 项目记录文档示范 — pp CLI 工具
 editLink: true
-sidebar: false
 ---
 
 # {{ $frontmatter.title }}

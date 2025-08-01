@@ -1,7 +1,4 @@
----
-sidebar: false
-outline: [2, 3, 4]
----
+ 
 
 # Vue 实例挂载过程详解
 

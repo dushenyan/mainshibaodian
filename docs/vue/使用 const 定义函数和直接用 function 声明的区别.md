@@ -1,8 +1,3 @@
----
-sidebar: false
-outline: [2, 3, 4]
----
-
 # 使用 const 定义函数和直接用 function 声明的区别
 
 ## 可用环境代码

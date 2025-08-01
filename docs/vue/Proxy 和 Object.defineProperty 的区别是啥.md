@@ -1,8 +1,3 @@
----
-sidebar: false
-outline: [2, 3, 4]
----
-
 # 面试官: 能详细讲讲 Proxy 和 Object.defineProperty 的区别吗?
 
 作为有5年前端经验的开发者，我在Vue 2和Vue 3的响应式原理实现中都深入使用过这两种技术。我来详细分析它们的区别：

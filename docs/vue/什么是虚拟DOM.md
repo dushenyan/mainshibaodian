@@ -1,9 +1,4 @@
----
-sidebar: false
-outline: [2, 3, 4]
----
-
-# 什么是虚拟DOM？
+  什么是虚拟DOM？
 
 ## 可用环境代码
 

@@ -1,16 +1,6 @@
----
-sidebar: false
-outline: [2, 3, 4]
----
-
-![alt text](https://dushenyan.github.io/picx-images-hosting/%E8%95%89%E5%A4%AA%E7%8B%BC%E7%89%88%E7%81%B0%E5%A4%AA%E7%8B%BC_1_%E4%BB%94%E9%B1%BC_%E6%9D%A5%E8%87%AA%E5%B0%8F%E7%BA%A2%E4%B9%A6%E7%BD%91%E9%A1%B5%E7%89%88.83ac9mnusd.webp)
-
-
 # 在 Vue 组件中使用原生 `addEventListener` 监听事件时，需要手动销毁吗？为什么？
 
 **我**（5年经验开发者）：这个问题可以从三个方面来深入分析，我结合具体代码示例说明：
-
----
 
 ### **1. 内存泄漏演示**
 ```javascript
@@ -100,3 +90,5 @@ export default {
    - **原生 DOM 事件**：需要自己联系物业（手动销毁）
 
 （停顿）需要我演示具体的内存泄漏检测方法吗？
+
+![alt text](https://dushenyan.github.io/picx-images-hosting/%E8%95%89%E5%A4%AA%E7%8B%BC%E7%89%88%E7%81%B0%E5%A4%AA%E7%8B%BC_1_%E4%BB%94%E9%B1%BC_%E6%9D%A5%E8%87%AA%E5%B0%8F%E7%BA%A2%E4%B9%A6%E7%BD%91%E9%A1%B5%E7%89%88.83ac9mnusd.webp)

@@ -1,8 +1,3 @@
----
-sidebar: false
-outline: [2, 3, 4]
----
-
 # Vue中为什么不建议v-if和v-for一起使用
 
 ## 可用环境代码
