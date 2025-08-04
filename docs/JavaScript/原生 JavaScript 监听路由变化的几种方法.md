@@ -22,6 +22,7 @@ document.getElementById('changeHashBtn').addEventListener('click', () => {
 ## 2. 监听 `popstate` 事件（适用于HTML5 History API）
 
 ```javascript
+// 该事件只有在浏览器的历史记录发生“回退”或“前进”操作时才会触发
 window.addEventListener('popstate', function(event) {
   console.log('路由变化:', window.location.pathname);
   console.log('状态对象:', event.state);
@@ -117,7 +118,7 @@ setInterval(() => {
       log(`History变化: ${window.location.pathname}, 状态: ${JSON.stringify(event.state)}`);
     });
     
-    // 3. 重写History方法
+    // 3. **重写History法**
     const originalPushState = history.pushState;
     const originalReplaceState = history.replaceState;
     

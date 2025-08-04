@@ -220,7 +220,8 @@ for (let [index, value] of arr.entries()) {
 </html>
 ```
 
-![alt text](image.png)
+![alt text]([image.png](https://github.com/dushenyan/picx-images-hosting/raw/master/mainsibaodian/image.9gwvtlb55g.webp))
+
 
 ## 通俗易懂的总结
 
