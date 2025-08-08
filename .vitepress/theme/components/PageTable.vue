@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { useDocsTreeData } from '@theme/hooks/useDocsTreeData'
+import type { DocsTreeData } from '@theme/hooks/useDocsTreeData'
+import { getTitleSet, useDocsTreeData } from '@theme/hooks/useDocsTreeData'
 import { useRouter } from 'vitepress'
-import { computed } from 'vue'
+import { ref, watch } from 'vue'
 
 defineOptions({
   name: 'PageTable',
@@ -15,20 +16,29 @@ interface Props {
   dirName: string
 }
 
-const tree = useDocsTreeData(props.dirName)
 const router = useRouter()
 
-function navigateToPage(path: string) {
-  router.go(decodeURIComponent(path))
+function navigateToPage(path?: string) {
+  router.go(decodeURIComponent(path ?? ''))
 }
 
-const computedTree = computed(() => {
-  return tree.value || props.data
+const titleSet = getTitleSet()
+const activeName = ref('ES6')
+const computedTree = ref<DocsTreeData>(undefined)
+
+watch(() => activeName.value, () => {
+  computedTree.value = useDocsTreeData(activeName.value)
+}, {
+  immediate: true,
+  deep: true,
 })
 </script>
 
 <template>
   <div class="page-table">
+    <el-tabs v-model="activeName">
+      <el-tab-pane v-for="name in titleSet" :key="name" :label="name" :name="name" />
+    </el-tabs>
     <h1>{{ props.dirName }}</h1>
     <ul class="page-table-list">
       <li
@@ -36,6 +46,11 @@ const computedTree = computed(() => {
         @click="navigateToPage(item.link)"
       >
         <span class="title" :title="item.title">{{ item.title }}</span>
+        <div v-if="item.metadata && item.metadata.tags" class="tag-group">
+          <span v-for="tag in item.metadata.tags" :key="tag" :type="tag" class="tag-flag">
+            {{ tag }}
+          </span>
+        </div>
       </li>
     </ul>
   </div>
@@ -44,7 +59,7 @@ const computedTree = computed(() => {
 <style scoped lang="scss">
 .page-table {
   width: 80vw;
-  margin: 30px auto 60px;
+  margin: 15px auto 60px;
 
   h1 {
     font-size: 24px;
@@ -63,7 +78,8 @@ const computedTree = computed(() => {
 
     .page-table-item {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
+      flex-direction: column;
       padding: 10px 14px;
       border: 1px solid var(--vp-c-bg-soft);
       border-radius: 8px;
@@ -81,6 +97,23 @@ const computedTree = computed(() => {
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+      }
+
+      .tag-group {
+        margin-top: 8px;
+
+        .tag-flag {
+          margin-right: 8px;
+          padding: 2px 4px;
+          border-radius: 4px;
+          font-size: 12px;
+          font-weight: 500;
+          border: 1px solid var(--vp-c-bg-soft);
+          transition: all 0.25s;
+          color: var(--vp-c-brand);
+          background-color: var(--vp-c-bg);
+          border-color: var(--vp-c-brand);
+        }
       }
     }
   }

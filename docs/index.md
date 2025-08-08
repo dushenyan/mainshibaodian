@@ -23,5 +23,5 @@ const renderKey = ref(0);
 renderKey.value += 1;
 </script>
 
-<!-- 使用 key 属性强制重新渲染 -->
 <PageTable :dirName="name" :key="renderKey" />
+

@@ -45,7 +45,10 @@ export interface PageEnvDataVO {
 
 export interface EnhancedDocsTreeDataVO {
   title: string
-  metadata?: Record<string, any>
+  metadata?: Record<string, any> & {
+    // 可选的标签数组，元素类型为字符串
+    tags?: string[]
+  }
   link?: string
   fileExtension?: string
   items?: EnhancedDocsTreeDataVO[]

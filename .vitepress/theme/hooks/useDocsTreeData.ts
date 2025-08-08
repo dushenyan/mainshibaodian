@@ -8,18 +8,20 @@ function isDocsTreeArray(data: unknown): data is EnhancedDocsTreeDataVO[] {
   return Array.isArray(data)
 }
 
+export type DocsTreeData = EnhancedDocsTreeDataVO[] | undefined
+
 /**
  * 根据目录名称获取对应的文档树数据。
  * @param dirName - 要查找的目录名称。
  * @returns 匹配目录名称的子文档树数据，如果未找到则返回 undefined。
  */
-export function useDocsTreeData(dirName: string): Ref<EnhancedDocsTreeDataVO[] | undefined> {
-  const tree: Ref<EnhancedDocsTreeDataVO[] | undefined> = ref(undefined)
+export function useDocsTreeData(dirName: string): DocsTreeData {
+  let tree: DocsTreeData
 
   try {
     // 验证 docsTree 是否为数组
     if (isDocsTreeArray(docsTree)) {
-      tree.value = docsTree.find(item => item.title === dirName)?.items
+      tree = docsTree.find(item => item.title === dirName)?.items
     }
     else {
       console.error('docsTree 不是有效的数组类型', docsTree)
@@ -30,4 +32,17 @@ export function useDocsTreeData(dirName: string): Ref<EnhancedDocsTreeDataVO[] |
   }
 
   return tree
+}
+
+/**
+ * 获取title为集合
+ * @param tree - 文档树数据。
+ * @returns 包含所有文档路径的数组。
+ */
+export function getTitleSet(): Set<string> {
+  const titleSet = new Set<string>()
+  docsTree.forEach((item) => {
+    titleSet.add(item.title)
+  })
+  return titleSet
 }
