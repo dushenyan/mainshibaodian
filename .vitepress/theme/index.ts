@@ -12,11 +12,6 @@ import components from './components/index'
 import './styles/index.scss'
 import 'virtual:uno.css'
 
-import 'vitepress-plugin-nprogress/lib/css/index.css'
-import 'vitepress-plugin-sandpack/dist/style.css'
-import 'element-plus/dist/index.css'
-import 'element-plus/theme-chalk/dark/css-vars.css'
-
 let homePageStyle: HTMLStyleElement | undefined
 
 export default {

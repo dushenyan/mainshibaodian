@@ -1,6 +1,4 @@
-import type { Ref } from 'vue'
 import type { EnhancedDocsTreeDataVO } from '../../types/index'
-import { ref } from 'vue'
 import docsTree from '@/config/docsTree.json'
 
 // 定义一个类型守卫函数，用于验证 docsTree 是否为数组
@@ -42,6 +40,9 @@ export function useDocsTreeData(dirName: string): DocsTreeData {
 export function getTitleSet(): Set<string> {
   const titleSet = new Set<string>()
   docsTree.forEach((item) => {
+    // 过滤项
+    if (['nav'].includes(item.title))
+      return
     titleSet.add(item.title)
   })
   return titleSet

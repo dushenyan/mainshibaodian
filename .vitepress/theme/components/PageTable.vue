@@ -13,7 +13,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 interface Props {
   data?: any[]
-  dirName: string
+  dirName?: string
 }
 
 const router = useRouter()
@@ -23,7 +23,7 @@ function navigateToPage(path?: string) {
 }
 
 const titleSet = getTitleSet()
-const activeName = ref('ES6')
+const activeName = ref([...titleSet][0])
 const computedTree = ref<DocsTreeData>(undefined)
 
 watch(() => activeName.value, () => {
@@ -37,9 +37,8 @@ watch(() => activeName.value, () => {
 <template>
   <div class="page-table">
     <el-tabs v-model="activeName">
-      <el-tab-pane v-for="name in titleSet" :key="name" :label="name" :name="name" />
+      <el-tab-pane v-for="name in titleSet" :key="name" :label="name.toUpperCase()" :name="name" />
     </el-tabs>
-    <h1>{{ props.dirName }}</h1>
     <ul class="page-table-list">
       <li
         v-for="item in computedTree" :key="item.title" class="page-table-item" tabindex="0"
