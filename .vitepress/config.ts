@@ -7,6 +7,7 @@ import type { VitePressSidebarOptions } from 'vitepress-sidebar/types'
 import type { PageEnvDataVO } from './types'
 import container from 'markdown-it-container'
 import { defineConfig } from 'vitepress'
+import { withMermaid } from 'vitepress-plugin-mermaid'
 import { renderSandbox } from 'vitepress-plugin-sandpack'
 import { withSidebar } from 'vitepress-sidebar'
 import { nav } from './config/nav'
@@ -15,7 +16,7 @@ import markdownBracketEscaper from './theme/plugin/markdownBracketEscaper'
 import { PluginTable } from './theme/plugin/pluginTable'
 import runIndexOnStart from './theme/plugin/runIndexOnStart'
 
-const vitePressOptions: UserConfig = {
+const vitePressOptions: UserConfig = withMermaid({
   title: 'shenyan′资源集合',
   lang: 'zh-CN',
   base: '/',
@@ -25,19 +26,14 @@ const vitePressOptions: UserConfig = {
     ['link', { rel: 'manifest', href: '/manifest.webmanifest' },
     ], // chrome pwa
   ],
-
   cacheDir: './node_modules/cache',
-
   cleanUrls: true,
   rewrites: {
     '/docs/:page': '/:page',
   },
-
   metaChunk: true,
-
   lastUpdated: true,
   appearance: true,
-
   themeConfig: {
     logo: '/logo.png',
     lastUpdatedText: '最后更新时间',
@@ -130,7 +126,7 @@ const vitePressOptions: UserConfig = {
       }),
     ],
   },
-}
+})
 
 const vitePressSidebarOptions: VitePressSidebarOptions = {
   documentRootPath: '/',
