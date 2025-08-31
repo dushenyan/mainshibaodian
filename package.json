@@ -41,6 +41,7 @@
     "eslint": "^9.31.0",
     "markdown-it-container": "^4.0.0",
     "mermaid": "^11.9.0",
+    "mitt": "^3.0.1",
     "sass": "^1.66.1",
     "tsx": "^4.19.4",
     "unocss": "^66.3.3",

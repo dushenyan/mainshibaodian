@@ -1,33 +1,55 @@
 <script setup lang="ts">
 import type { DocsTreeData } from '@theme/hooks/useDocsTreeData'
 import { getTitleSet, useDocsTreeData } from '@theme/hooks/useDocsTreeData'
+import { EmitType, useEmits } from '@theme/hooks/useEmits'
 import { useRouter } from 'vitepress'
-import { ref, watch } from 'vue'
+import { computed, ref, watch } from 'vue'
 
 defineOptions({
   name: 'PageTable',
 })
 
 const props = withDefaults(defineProps<Props>(), {
+  activeName: undefined,
 })
 
 interface Props {
   data?: any[]
   dirName?: string
+  activeName?: string
 }
 
 const router = useRouter()
 
 function navigateToPage(path?: string) {
+  useEmits().emit(EmitType.ListDrawerClose, { a: 1 })
   router.go(decodeURIComponent(path ?? ''))
 }
 
 const titleSet = getTitleSet()
-const activeName = ref([...titleSet][0])
+const _activeName = ref<string | undefined>([...titleSet][0])
 const computedTree = ref<DocsTreeData>(undefined)
 
-watch(() => activeName.value, () => {
-  computedTree.value = useDocsTreeData(activeName.value)
+watch(() => props.activeName, (val) => {
+  console.log('props.activeName', props.activeName)
+  if (!props.activeName) {
+    return
+  }
+  _activeName.value = val
+  console.log(_activeName.value)
+}, {
+  immediate: true,
+})
+
+// 外部携带的 activeName 不需要展示tab
+const showTabs = computed(() => {
+  // 1.activeName 没赋值 可以显示
+  // 2.赋值了但是不等于undefined 单显示状态 不用显示
+  return !props.activeName
+})
+
+watch(() => _activeName.value, () => {
+  computedTree.value = useDocsTreeData(_activeName.value as string)
 }, {
   immediate: true,
   deep: true,
@@ -36,7 +58,7 @@ watch(() => activeName.value, () => {
 
 <template>
   <div class="page-table">
-    <el-tabs v-model="activeName">
+    <el-tabs v-if="showTabs" v-model="_activeName">
       <el-tab-pane v-for="name in titleSet" :key="name" :label="name.toUpperCase()" :name="name" />
     </el-tabs>
     <ul class="page-table-list">
@@ -57,7 +79,7 @@ watch(() => activeName.value, () => {
 
 <style scoped lang="scss">
 .page-table {
-  width: 80vw;
+  width: 100%;
   margin: 15px auto 60px;
 
   h1 {

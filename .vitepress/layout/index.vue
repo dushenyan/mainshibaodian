@@ -4,6 +4,7 @@ import type { SandpackPredefinedTemplate } from '../types'
 import { sandpackTemplateOptions } from '@config/emnus'
 import HomeUnderline from '@theme/components/HomeUnderline'
 import LockScreen from '@theme/components/LockScreen.vue'
+import { EmitType, useEmits } from '@theme/hooks/useEmits'
 import confetti from 'canvas-confetti'
 import mediumZoom from 'medium-zoom'
 import { inBrowser, onContentUpdated, useData } from 'vitepress'
@@ -68,42 +69,52 @@ if (inBrowser) {
   })
 }
 
-const isVisible = ref(true)
-const drawer = ref(false)
+const showEditDrawer = ref(false)
 
-function handleClick(e: MouseEvent) {
+const showListDrawer = ref(false)
+
+function handleClick(e: MouseEvent, type: string) {
   e.preventDefault()
-  drawer.value = !drawer.value
-  console.log('点击事件已触发，但不回顶')
+  if (type === 'list') {
+    showListDrawer.value = !showListDrawer.value
+    useEmits({
+      name: EmitType.ListDrawerClose,
+      onCallback: (val: any) => {
+        console.log(val)
+        showListDrawer.value = !showListDrawer.value
+      },
+    })
+  }
+  else if (type === 'edit') {
+    showEditDrawer.value = !showEditDrawer.value
+  }
+  else if (type === 'back') {
+    if (inBrowser) {
+      window.history.back()
+    }
+  }
 }
 
 const sandpackTemplateValue = ref<SandpackPredefinedTemplate>('vite')
-
-function handleBackHome() {
-  if (inBrowser) {
-    window.history.back()
-  }
-}
 </script>
 
 <template>
   <Suspense>
     <Layout v-bind="$attrs">
       <template #doc-top>
-        <div v-show="isVisible" class="fixed-edit-btn" @click="handleClick">
+        <div class="fixed-edit-btn" style="bottom: 160px;" @click="handleClick($event, 'list')">
+          List
+        </div>
+        <div class="fixed-edit-btn" @click="handleClick($event, 'edit')">
           Edit
         </div>
-        <div v-show="isVisible" class="fixed-edit-btn" style="bottom:160px;" @click="handleBackHome">
-          Back
-        </div>
         <el-drawer
-          v-model="drawer" title="I am the title" :with-header="false" append-to-body
+          v-model="showEditDrawer" :with-header="false" append-to-body
           :close-on-click-modal="false" size="100%"
         >
           <div class="sandbox-container">
             <div class="sandbox-title">
               在线编辑
-
               <el-select v-model="sandpackTemplateValue" placeholder="Select" style="width: 240px">
                 <el-option v-for="(item, index) in sandpackTemplateOptions" :key="index" :label="item" :value="item">
                   {{ item }}
@@ -120,6 +131,14 @@ function handleBackHome() {
                 </ClientOnly>
               </div>
             </div>
+          </div>
+        </el-drawer>
+        <el-drawer
+          v-model="showListDrawer" :with-header="false" append-to-body
+          size="60%"
+        >
+          <div class="list-container">
+            <PageTable active-name="typescript" />
           </div>
         </el-drawer>
       </template>
