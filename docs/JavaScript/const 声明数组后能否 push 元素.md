@@ -1,3 +1,8 @@
+---
+tags: ['ES5', 'ES6']
+progress: 40
+---
+
 # const 声明数组后能否 push 元素
 
 ## 直接回答

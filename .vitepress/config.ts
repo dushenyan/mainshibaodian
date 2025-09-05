@@ -12,9 +12,9 @@ import { renderSandbox } from 'vitepress-plugin-sandpack'
 import { withSidebar } from 'vitepress-sidebar'
 import { nav } from './config/nav'
 import { sidebar } from './config/sidebar'
+import docsTreePlugin from './theme/plugin/docsTreePlugin'
 import markdownBracketEscaper from './theme/plugin/markdownBracketEscaper'
 import { PluginTable } from './theme/plugin/pluginTable'
-import runIndexOnStart from './theme/plugin/runIndexOnStart'
 
 const vitePressOptions: UserConfig = withMermaid({
   title: 'shenyan′资源集合',
@@ -121,8 +121,9 @@ const vitePressOptions: UserConfig = withMermaid({
   vite: {
     plugins: [
       markdownBracketEscaper(),
-      runIndexOnStart({
-        path: '../../server/index.ts',
+      docsTreePlugin({
+        path: '/.vitepress/server/index.ts',
+        watchAll: false,
       }),
     ],
   },

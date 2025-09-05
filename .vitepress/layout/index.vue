@@ -7,11 +7,13 @@ import LockScreen from '@theme/components/LockScreen.vue'
 import { EmitType, useEmits } from '@theme/hooks/useEmits'
 import confetti from 'canvas-confetti'
 import mediumZoom from 'medium-zoom'
-import { inBrowser, onContentUpdated, useData } from 'vitepress'
+import { inBrowser, onContentUpdated, useData, useRoute } from 'vitepress'
 import { Sandbox } from 'vitepress-plugin-sandpack'
 import Theme from 'vitepress/theme'
 // 具体使用参见：https://vitepress.vuejs.org/guide/theme-introduction#extending-the-default-theme
-import { createApp, nextTick, onBeforeMount, ref, watch } from 'vue'
+import { computed, createApp, nextTick, onBeforeMount, ref, watch } from 'vue'
+
+import { useAppStore } from '@/stores'
 
 // export const injectKey = Symbol('Layout')
 
@@ -81,7 +83,7 @@ function handleClick(e: MouseEvent, type: string) {
       name: EmitType.ListDrawerClose,
       onCallback: (val: any) => {
         console.log(val)
-        showListDrawer.value = !showListDrawer.value
+        showListDrawer.value = false
       },
     })
   }
@@ -94,6 +96,10 @@ function handleClick(e: MouseEvent, type: string) {
     }
   }
 }
+
+const appStore = useAppStore()
+
+const activeName = computed(() => appStore.getActiveName)
 
 const sandpackTemplateValue = ref<SandpackPredefinedTemplate>('vite')
 </script>
@@ -109,8 +115,8 @@ const sandpackTemplateValue = ref<SandpackPredefinedTemplate>('vite')
           Edit
         </div>
         <el-drawer
-          v-model="showEditDrawer" :with-header="false" append-to-body
-          :close-on-click-modal="false" size="100%"
+          v-model="showEditDrawer" :with-header="false" append-to-body :close-on-click-modal="false"
+          size="100%"
         >
           <div class="sandbox-container">
             <div class="sandbox-title">
@@ -133,12 +139,9 @@ const sandpackTemplateValue = ref<SandpackPredefinedTemplate>('vite')
             </div>
           </div>
         </el-drawer>
-        <el-drawer
-          v-model="showListDrawer" :with-header="false" append-to-body
-          size="60%"
-        >
+        <el-drawer v-model="showListDrawer" :with-header="false" append-to-body size="60%">
           <div class="list-container">
-            <PageTable active-name="typescript" />
+            <PageTable :active-name="activeName" />
           </div>
         </el-drawer>
       </template>

@@ -7,9 +7,11 @@ import vitepressNprogress from 'vitepress-plugin-nprogress'
 import { Sandbox } from 'vitepress-plugin-sandpack'
 import DefaultTheme from 'vitepress/theme'
 import { h, watch } from 'vue'
+import { pinia } from '@/stores'
 import Layout from '../layout/index.vue'
 import components from './components/index'
 import './styles/index.scss'
+
 import 'virtual:uno.css'
 
 let homePageStyle: HTMLStyleElement | undefined
@@ -48,6 +50,8 @@ export default {
     vitepressNprogress(ctx)
 
     app.use(ElementPlus)
+
+    app.use(pinia)
 
     app.component('Sandbox', Sandbox)
     app.use(components)

@@ -34,8 +34,14 @@
       "@layout/*": [
         ".vitepress/layout/*"
       ],
+      "@request/*": [
+        ".vitepress/request/*"
+      ],
       "@server/*": [
         ".vitepress/server/*"
+      ],
+      "@stores/*": [
+        ".vitepress/stores/*"
       ],
       "@theme/*": [
         ".vitepress/theme/*"

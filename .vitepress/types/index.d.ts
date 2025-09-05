@@ -48,6 +48,10 @@ export interface EnhancedDocsTreeDataVO {
   metadata?: Record<string, any> & {
     // 可选的标签数组，元素类型为字符串
     tags?: string[]
+    /**
+     * 进度
+     */
+    progress?: number
   }
   link?: string
   fileExtension?: string

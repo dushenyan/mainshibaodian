@@ -20,7 +20,7 @@ function runIndexOnStart(options: OptionVo): PluginOption {
       if (config.command === 'serve' || config.command === 'build') {
         (async () => {
           try {
-          // 定位 index.ts 文件
+            // 定位 index.ts 文件
             const indexTsPath = path.resolve(__dirname, options.path)
 
             // 使用 tsx 直接运行 TypeScript 文件
