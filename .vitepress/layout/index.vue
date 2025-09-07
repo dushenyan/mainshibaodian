@@ -172,7 +172,7 @@ const sandpackTemplateValue = ref<SandpackPredefinedTemplate>('vite')
   box-shadow: var(--el-box-shadow-lighter);
   text-align: center;
   line-height: 40px;
-  color: #1989fa;
+  color: var(--vp-c-brand);
   cursor: pointer;
   z-index: 9999;
 }
