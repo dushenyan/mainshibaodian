@@ -239,7 +239,7 @@ declare const enum Direction {
 - 性能敏感区域使用常量枚举
 - 需要灵活性的场景用常规枚举
 
-## 完整可运行示例
+**完整实例**
 
 ```typescript
 // 常规枚举示例
@@ -284,3 +284,65 @@ var Color;
 console.log(getSizeLabel("M")); // "M"
 */
 ```
+
+## EP01 反向枚举扩展
+
+
+你代码中定义的 `NumericEnum` 是一个**字符串枚举**：
+
+```typescript
+enum NumericEnum {
+  A = 'ADMIN', B = 'blin', C = 'CLass'
+}
+```
+
+字符串枚举在 TypeScript 中**不支持反向映射**，也就是说：
+
+```typescript
+console.log(NumericEnum[NumericEnum.A]); // 这里会输出 undefined，而不是 "A"
+```
+
+因为 `NumericEnum.A` 是字符串 `'ADMIN'`，`NumericEnum['ADMIN']` 并不存在。
+
+------
+
+#### 反向映射只支持数字枚举
+
+例如：
+
+```typescript
+enum NumericEnum {
+  A, B, C
+}
+console.log(NumericEnum[NumericEnum.A]); // 输出 "A"
+```
+
+这是因为数字枚举的值是数字，TypeScript 会自动生成反向映射。
+
+------
+#### 如果你想实现字符串枚举的反向映射，可以手动写一个映射对象，例如：
+
+```typescript
+enum StringEnum {
+  A = 'ADMIN',
+  B = 'blin',
+  C = 'CLass'
+}
+
+const reverseMap: Record<string, keyof typeof StringEnum> = {};
+for (const key in StringEnum) {
+  const value = StringEnum[key as keyof typeof StringEnum];
+  reverseMap[value] = key as keyof typeof StringEnum;
+}
+
+console.log(reverseMap['ADMIN']); // 输出 "A"
+```
+
+这样你就可以通过字符串值反查对应的枚举键。
+
+------
+
+总结：
+
+- **数字枚举支持自动反向映射**
+- **字符串枚举不支持自动反向映射，需要手动实现**
