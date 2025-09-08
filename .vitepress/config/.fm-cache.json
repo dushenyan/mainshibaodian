@@ -6,5 +6,9 @@
   "/Users/shenyandu/Desktop/mainshibaodian/docs/ES6/JavaScript 模块化方案详解.md": "tags: ['JavaScript', '模块化', '方案', '演进', '历程', 'CommonJS', 'AMD', 'CMD']",
   "/Users/shenyandu/Desktop/mainshibaodian/docs/ES6/Webpack 如何让浏览器支持 CommonJS 规范.md": "tags: ['Webpack', 'CommonJS', '规范', '转换', '原理', '实现']",
   "/Users/shenyandu/Desktop/mainshibaodian/docs/ES6/CommonJS规范和ES6模块规范中的区别.md": "tags: ['CommonJS', 'ES6', '模块规范', '区别']\n",
-  "/Users/shenyandu/Desktop/mainshibaodian/docs/JavaScript/MessageChannel 详解：跨上下文通信的利器.md": "tags: ['JavaScript', 'MessageChannel', '跨上下文', '通信', '利器', '详解', '原理', '使用场景']"
+  "/Users/shenyandu/Desktop/mainshibaodian/docs/JavaScript/MessageChannel 详解：跨上下文通信的利器.md": "tags: ['JavaScript', 'MessageChannel', '跨上下文', '通信', '利器', '详解', '原理', '使用场景']",
+  "/Users/shenyandu/Desktop/mainshibaodian/docs/ES6/深入理解 ES6 的 Proxy 及其应用场景.md": "tags: ['ES6', 'Proxy', '元编程', '控制能力', '基础概念', '实际应用', '详细解析']",
+  "/Users/shenyandu/Desktop/mainshibaodian/docs/ES6/await 与 Promise 的关系解析.md": "tags: ['ES6', 'async/await', 'Promise', '关系解析', '底层原理', '应用场景', '详细讲解']",
+  "/Users/shenyandu/Desktop/mainshibaodian/docs/ES6/a.md": "tags: ['ES6', 'Reflect', '对象操作', '标准化', 'Proxy', '替代传统操作符', '详细讲解']",
+  "/Users/shenyandu/Desktop/mainshibaodian/docs/ES6/ES6 Reflect 对象的深度解析.md": "tags: ['ES6', 'Reflect', '对象操作', '标准化', 'Proxy', '替代传统操作符', '详细讲解']"
 }
