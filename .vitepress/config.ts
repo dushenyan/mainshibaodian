@@ -21,7 +21,7 @@ const vitePressOptions: UserConfig = withMermaid({
   lang: 'zh-CN',
   base: '/',
   head: [
-    ['link', { rel: 'icon', type: 'image/png', href: '/logo_cc.png' },
+    ['link', { rel: 'icon', type: 'image/png', href: '/gexingqianming.svg' },
     ],
     ['link', { rel: 'manifest', href: '/manifest.webmanifest' },
     ], // chrome pwa

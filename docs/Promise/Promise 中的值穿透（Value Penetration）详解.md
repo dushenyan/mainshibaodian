@@ -1,3 +1,7 @@
+---
+tags: ['值穿透']
+---
+
 # Promise 中的值穿透（Value Penetration）详解
 
 ## 可用环境代码

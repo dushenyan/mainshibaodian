@@ -1,3 +1,7 @@
+---
+tags: ['Promise','深入理解']
+---
+
 # 深入理解 JavaScript Promise
 
 ## 一、Promise 的核心概念

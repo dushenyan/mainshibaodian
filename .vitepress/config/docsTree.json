@@ -409,31 +409,61 @@
     "items": [
       {
         "title": "JavaScript 运行时（Runtime）详解",
-        "metadata": {},
+        "metadata": {
+          "tags": [
+            "JavaScript",
+            "运行时",
+            "事件循环",
+            "调用栈",
+            "内存堆",
+            "Web API",
+            "回调队列"
+          ]
+        },
         "link": "%2Fdocs%2FPromise%2FJavaScript%20%E8%BF%90%E8%A1%8C%E6%97%B6%EF%BC%88Runtime%EF%BC%89%E8%AF%A6%E8%A7%A3",
         "fileExtension": ".md"
       },
       {
         "title": "Promise 中的值穿透（Value Penetration）详解",
-        "metadata": {},
+        "metadata": {
+          "tags": [
+            "值穿透"
+          ]
+        },
         "link": "%2Fdocs%2FPromise%2FPromise%20%E4%B8%AD%E7%9A%84%E5%80%BC%E7%A9%BF%E9%80%8F%EF%BC%88Value%20Penetration%EF%BC%89%E8%AF%A6%E8%A7%A3",
         "fileExtension": ".md"
       },
       {
         "title": "使用 Promise 实现异步操作并发控制",
-        "metadata": {},
+        "metadata": {
+          "tags": [
+            "异步操作",
+            "并发控制"
+          ]
+        },
         "link": "%2Fdocs%2FPromise%2F%E4%BD%BF%E7%94%A8%20Promise%20%E5%AE%9E%E7%8E%B0%E5%BC%82%E6%AD%A5%E6%93%8D%E4%BD%9C%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6",
         "fileExtension": ".md"
       },
       {
         "title": "如何用Promise.all实现并发请求？如何处理部分请求",
-        "metadata": {},
+        "metadata": {
+          "tags": [
+            "Promise",
+            "并发请求",
+            "部分请求失败"
+          ]
+        },
         "link": "%2Fdocs%2FPromise%2F%E5%A6%82%E4%BD%95%E7%94%A8Promise.all%E5%AE%9E%E7%8E%B0%E5%B9%B6%E5%8F%91%E8%AF%B7%E6%B1%82%EF%BC%9F%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86%E9%83%A8%E5%88%86%E8%AF%B7%E6%B1%82",
         "fileExtension": ".md"
       },
       {
         "title": "深入理解 JavaScript Promise",
-        "metadata": {},
+        "metadata": {
+          "tags": [
+            "Promise",
+            "深入理解"
+          ]
+        },
         "link": "%2Fdocs%2FPromise%2F%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%20JavaScript%20Promise",
         "fileExtension": ".md"
       },
@@ -606,12 +636,6 @@
         "title": "如何将 unknown 类型指定为更具体的类型",
         "metadata": {},
         "link": "%2Fdocs%2FTypeScript%2F%E5%A6%82%E4%BD%95%E5%B0%86%20unknown%20%E7%B1%BB%E5%9E%8B%E6%8C%87%E5%AE%9A%E4%B8%BA%E6%9B%B4%E5%85%B7%E4%BD%93%E7%9A%84%E7%B1%BB%E5%9E%8B",
-        "fileExtension": ".md"
-      },
-      {
-        "title": "示例案集",
-        "metadata": {},
-        "link": "%2Fdocs%2FTypeScript%2F%E7%A4%BA%E4%BE%8B%E6%A1%88%E9%9B%86",
         "fileExtension": ".md"
       },
       {
@@ -827,6 +851,20 @@
         "title": "welcome",
         "metadata": {},
         "link": "%2Fdocs%2Fother%2Fwelcome",
+        "fileExtension": ".md"
+      },
+      {
+        "title": "常用脚本命令",
+        "metadata": {
+          "tags": [
+            "tree",
+            "sharing",
+            "nvm",
+            "taze",
+            "bump"
+          ]
+        },
+        "link": "%2Fdocs%2Fother%2F%E5%B8%B8%E7%94%A8%E8%84%9A%E6%9C%AC%E5%91%BD%E4%BB%A4",
         "fileExtension": ".md"
       },
       {

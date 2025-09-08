@@ -10,5 +10,11 @@
   "/Users/shenyandu/Desktop/mainshibaodian/docs/ES6/深入理解 ES6 的 Proxy 及其应用场景.md": "tags: ['ES6', 'Proxy', '元编程', '控制能力', '基础概念', '实际应用', '详细解析']",
   "/Users/shenyandu/Desktop/mainshibaodian/docs/ES6/await 与 Promise 的关系解析.md": "tags: ['ES6', 'async/await', 'Promise', '关系解析', '底层原理', '应用场景', '详细讲解']",
   "/Users/shenyandu/Desktop/mainshibaodian/docs/ES6/a.md": "tags: ['ES6', 'Reflect', '对象操作', '标准化', 'Proxy', '替代传统操作符', '详细讲解']",
-  "/Users/shenyandu/Desktop/mainshibaodian/docs/ES6/ES6 Reflect 对象的深度解析.md": "tags: ['ES6', 'Reflect', '对象操作', '标准化', 'Proxy', '替代传统操作符', '详细讲解']"
+  "/Users/shenyandu/Desktop/mainshibaodian/docs/ES6/ES6 Reflect 对象的深度解析.md": "tags: ['ES6', 'Reflect', '对象操作', '标准化', 'Proxy', '替代传统操作符', '详细讲解']",
+  "/Users/shenyandu/Desktop/mainshibaodian/docs/other/常用脚本命令.md": "tags: ['tree','sharing','nvm','taze','bump']",
+  "/Users/shenyandu/Desktop/mainshibaodian/docs/Promise/深入理解 JavaScript Promise.md": "tags: ['Promise','深入理解']",
+  "/Users/shenyandu/Desktop/mainshibaodian/index.md": "layout: home\nlayoutClass: 'home-layout'\n\nhero:\n  name: shenyan'资源集合\n  tagline: 开箱即用的Vite Press模板，快速搭建你的文档网站。\n  image:\n    src: /logo_cc.png\n  actions:\n    - theme: brand\n      text: 快速入手\n      link: /docs/other/hello\nfeatures:\n  - icon: ⚡\n    title: 简单\n    details: 开箱即用，只需要简单配置，就可以马上使用。\n  - icon: 🛠️\n    title: 全面\n    details: 集成组件库、TailwindCSS、SVG图标等默认解决方案，应有尽有！\n  - icon: ✊\n    title: 强大\n    link: https://github.com/shoppingzh/press-util\n    linkText: 更多\n    details: 自动生成导航栏与侧边栏，你的烦恼即是我的烦恼。",
+  "/Users/shenyandu/Desktop/mainshibaodian/docs/Promise/如何用Promise.all实现并发请求？如何处理部分请求.md": "tags: ['Promise','并发请求','部分请求失败']",
+  "/Users/shenyandu/Desktop/mainshibaodian/docs/Promise/JavaScript 运行时（Runtime）详解.md": "tags: ['JavaScript','运行时']",
+  "/Users/shenyandu/Desktop/mainshibaodian/docs/Promise/Promise 中的值穿透（Value Penetration）详解.md": "tags: ['值穿透']"
 }
