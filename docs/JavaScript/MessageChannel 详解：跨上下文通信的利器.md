@@ -1,3 +1,7 @@
+---
+tags: ['JavaScript', 'MessageChannel', '跨上下文', '通信', '利器', '详解', '原理', '使用场景']
+---
+
 # MessageChannel 详解：跨上下文通信的利器
 
 ## 一、MessageChannel 基本概念

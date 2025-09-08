@@ -1,5 +1,10 @@
 {
-  "/Users/shenyandu/Desktop/mainshibaodian/docs/ES6/es5和6的区别.md": "tags: ['ES5', 'ES6']\nprogress: 40",
+  "/Users/shenyandu/Desktop/mainshibaodian/docs/ES6/es5和6的区别.md": "tags: ['ES5', 'ES6', '区别', '对比', '详细', '解析']\nprogress: 40",
   "/Users/shenyandu/Desktop/mainshibaodian/docs/JavaScript/const 声明数组后能否 push 元素.md": "tags: ['ES5', 'ES6']\nprogress: 40",
-  "/Users/dushenyan/Desktop/mainshibaodian/docs/typescript/JS项目生成TS类型方式详解.md": "titleTemplate: TS\nbracketEscaping: true"
+  "/Users/dushenyan/Desktop/mainshibaodian/docs/typescript/JS项目生成TS类型方式详解.md": "titleTemplate: TS\nbracketEscaping: true",
+  "/Users/shenyandu/Desktop/mainshibaodian/docs/ES6/CommonJS规范和ES6模块规范有哪些区别？.md": "tags: ['CommonJS', 'ES6', '模块规范', '区别']\n",
+  "/Users/shenyandu/Desktop/mainshibaodian/docs/ES6/JavaScript 模块化方案详解.md": "tags: ['JavaScript', '模块化', '方案', '演进', '历程', 'CommonJS', 'AMD', 'CMD']",
+  "/Users/shenyandu/Desktop/mainshibaodian/docs/ES6/Webpack 如何让浏览器支持 CommonJS 规范.md": "tags: ['Webpack', 'CommonJS', '规范', '转换', '原理', '实现']",
+  "/Users/shenyandu/Desktop/mainshibaodian/docs/ES6/CommonJS规范和ES6模块规范中的区别.md": "tags: ['CommonJS', 'ES6', '模块规范', '区别']\n",
+  "/Users/shenyandu/Desktop/mainshibaodian/docs/JavaScript/MessageChannel 详解：跨上下文通信的利器.md": "tags: ['JavaScript', 'MessageChannel', '跨上下文', '通信', '利器', '详解', '原理', '使用场景']"
 }
