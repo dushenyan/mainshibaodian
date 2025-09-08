@@ -80,7 +80,10 @@ watch(() => _activeName.value, () => {
           </div>
         </div>
         <div v-show="item.metadata && item.metadata.progress" class="item-right">
-          <el-progress :percentage="item.metadata ? item.metadata.progress : 0" type="dashboard" color="var(--vp-c-brand)" class="progress-bar" />
+          <el-progress
+            :percentage="item.metadata ? item.metadata.progress : 0" type="dashboard"
+            color="var(--vp-c-brand)" class="progress-bar"
+          />
         </div>
       </li>
     </ul>
@@ -120,7 +123,7 @@ watch(() => _activeName.value, () => {
       user-select: none;
       outline: none;
 
-      .item-left{
+      .item-left {
         display: flex;
         flex-direction: column;
         flex-grow: 1;
@@ -130,7 +133,7 @@ watch(() => _activeName.value, () => {
         flex-shrink: 0;
         width: 66px;
 
-        :deep(.el-progress-circle){
+        :deep(.el-progress-circle) {
           height: 100% !important;
           width: 100% !important;
         }
@@ -147,9 +150,11 @@ watch(() => _activeName.value, () => {
       }
 
       .tag-group {
-        margin-top: 8px;
+        display: flex;
+        flex-wrap: wrap;
 
         .tag-flag {
+          display: inline-block;
           margin-right: 8px;
           padding: 0px 4px;
           line-height: 1.5em;
@@ -161,6 +166,8 @@ watch(() => _activeName.value, () => {
           color: var(--vp-c-brand);
           background-color: var(--vp-c-bg);
           border-color: var(--vp-c-brand);
+          margin-top: 8px;
+
         }
       }
     }
@@ -184,8 +191,18 @@ watch(() => _activeName.value, () => {
 
       .page-table-item {
         padding: 14px 12px;
-        flex-direction: column;
+        flex-direction: row;
         align-items: flex-start;
+
+        .progress-bar {
+          flex-shrink: 0;
+          width: 55px;
+
+          :deep(.el-progress-circle) {
+            height: 100% !important;
+            width: 100% !important;
+          }
+        }
 
         .title {
           font-size: 15px;

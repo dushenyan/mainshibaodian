@@ -1,3 +1,50 @@
+diff --git a/dist/client/theme-default/composables/prev-next.js b/dist/client/theme-default/composables/prev-next.js
+index 8e11a5ba76a7cd296b6a555b0d1741a12cd6b30a..b9db42eca92ba2a70684fd4c16ba4ea7eece9cbe 100644
+--- a/dist/client/theme-default/composables/prev-next.js
++++ b/dist/client/theme-default/composables/prev-next.js
+@@ -10,14 +10,12 @@ export function usePrevNext() {
+         const index = candidates.findIndex((link) => {
+             return isActive(page.value.relativePath, link.link);
+         });
+-        const hidePrev = (theme.value.docFooter?.prev === false && !frontmatter.value.prev) ||
+-            frontmatter.value.prev === false;
+-        const hideNext = (theme.value.docFooter?.next === false && !frontmatter.value.next) ||
+-            frontmatter.value.next === false;
++        // 默认隐藏：除非显式设为 true
++        const showPrev = theme.value.docFooter?.prev === true || frontmatter.value.prev === true;
++        const showNext = theme.value.docFooter?.next === true || frontmatter.value.next === true;
+         return {
+-            prev: hidePrev
+-                ? undefined
+-                : {
++            prev: showPrev
++                ? {
+                     text: (typeof frontmatter.value.prev === 'string'
+                         ? frontmatter.value.prev
+                         : typeof frontmatter.value.prev === 'object'
+@@ -28,10 +26,10 @@ export function usePrevNext() {
+                     link: (typeof frontmatter.value.prev === 'object'
+                         ? frontmatter.value.prev.link
+                         : undefined) ?? candidates[index - 1]?.link
+-                },
+-            next: hideNext
+-                ? undefined
+-                : {
++                }
++                : undefined,
++            next: showNext
++                ? {
+                     text: (typeof frontmatter.value.next === 'string'
+                         ? frontmatter.value.next
+                         : typeof frontmatter.value.next === 'object'
+@@ -43,6 +41,7 @@ export function usePrevNext() {
+                         ? frontmatter.value.next.link
+                         : undefined) ?? candidates[index + 1]?.link
+                 }
++                : undefined
+         };
+     });
+ }
 diff --git a/dist/client/theme-default/composables/sidebar.js b/dist/client/theme-default/composables/sidebar.js
 index 9447a885913b5279b3d72e72fb8036713a9a1e2b..118cefef97b4685a1f85351e7fd455d42dbfde0a 100644
 --- a/dist/client/theme-default/composables/sidebar.js
