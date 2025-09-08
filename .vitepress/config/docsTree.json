@@ -784,9 +784,21 @@
     "title": "other",
     "items": [
       {
+        "title": "PNPM Patch 依赖库补丁",
+        "metadata": {},
+        "link": "%2Fdocs%2Fother%2FPNPM%20Patch%20%E4%BE%9D%E8%B5%96%E5%BA%93%E8%A1%A5%E4%B8%81",
+        "fileExtension": ".md"
+      },
+      {
         "title": "README",
         "metadata": {},
         "link": "%2Fdocs%2Fother%2FREADME",
+        "fileExtension": ".md"
+      },
+      {
+        "title": "YAML教程",
+        "metadata": {},
+        "link": "%2Fdocs%2Fother%2FYAML%E6%95%99%E7%A8%8B",
         "fileExtension": ".md"
       },
       {
@@ -809,12 +821,6 @@
           ]
         },
         "link": "%2Fdocs%2Fother%2Fhello",
-        "fileExtension": ".md"
-      },
-      {
-        "title": "js-yaml",
-        "metadata": {},
-        "link": "%2Fdocs%2Fother%2Fjs-yaml",
         "fileExtension": ".md"
       },
       {
