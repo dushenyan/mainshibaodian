@@ -1,4 +1,8 @@
-# 能详细说说 Vue 2 的 `Object.defineProperty` 在响应式实现中有哪些缺陷吗？
+---
+tags: ['Vue2','实现原理','响应式','defineProperty']
+---
+
+# Vue2中使用 `Object.defineProperty` 实现响应式的缺陷
 
 **我**（5年经验开发者）：好的，这个问题可以从实际开发中的三个典型场景展开，我用代码示例说明：
 

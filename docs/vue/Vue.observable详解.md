@@ -1,3 +1,7 @@
+---
+tags: ['Vue2','Vue3','observable','响应式对象','转换']
+---
+
 # Vue.observable是什么?
 
 面试官您好，关于Vue.observable是什么这个问题，我想从它的概念、用途和实现原理几个方面来回答。
@@ -6,7 +10,7 @@ Vue.observable是Vue 2.6.0版本引入的一个API，它的主要作用是将一
 
 让我通过几个方面详细解释：
 
-### 1. 基本概念和用途
+## 1. 基本概念和用途
 
 Vue.observable创建的响应式对象类似于Vue组件中的data对象，具有以下特点：
 - 当对象属性被修改时，会触发依赖更新
@@ -15,9 +19,9 @@ Vue.observable创建的响应式对象类似于Vue组件中的data对象，具�
 
 在Vue 2中，我们通常使用组件的data选项来创建响应式数据。但有时候我们需要在组件之外创建可共享的响应式状态，这时Vue.observable就非常有用。
 
-### 2. 代码示例
+## 2. 代码示例
 
-#### 示例1：基本使用
+### 示例1：基本使用
 
 ```html
 <div>
@@ -69,7 +73,7 @@ new Vue({
 })
 ```
 
-#### 示例2：创建可复用的状态存储
+### 示例2：创建可复用的状态存储
 
 ```javascript
 // store.js
@@ -115,13 +119,13 @@ new Vue({
 
 这个例子展示了如何使用Vue.observable创建一个简单的状态管理系统，类似于Vuex的基本功能。
 
-### 3. 实现原理
+## 3. 实现原理
 
 Vue.observable的实现基于Vue内部的响应式系统。当我们调用Vue.observable(obj)时，Vue会遍历obj的所有属性，并使用Object.defineProperty(在Vue 2中)或Proxy(在Vue 3中)将这些属性转换为getter/setter形式，从而实现响应式。
 
 在Vue 2中，Vue.observable实际上是对Vue.util.defineReactive的一个封装，它会递归地将对象的所有属性转换为响应式。
 
-### 4. 与Vue 3的对比
+## 4. 与Vue 3的对比
 
 在Vue 3中，Vue.observable被更强大的reactive API所取代。Vue 3的reactive API功能更强大，支持嵌套响应式对象，并且与Composition API更好地集成。
 

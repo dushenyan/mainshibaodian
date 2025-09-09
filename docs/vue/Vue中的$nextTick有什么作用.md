@@ -1,3 +1,7 @@
+---
+tags: ['Vue2','Vue3','$nextTick']
+---
+
 # Vue中的$nextTick有什么作用?
 
 ## 可用环境代码

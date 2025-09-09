@@ -1,3 +1,7 @@
+---
+tags: ['Vue2','实现原理','keep-alive']
+---
+
 # 说说你对Vue中keep-alive的理解
 
 ## 可用环境代码

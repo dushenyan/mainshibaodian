@@ -1,3 +1,8 @@
+---
+tags: ['Vue2','实现原理','高级API','shallowRef','triggerRef','customRef','shallowReactive','shallowReadonly','effectScope','getCurrentScope','onScopeDispose']
+---
+# 高级API
+
 ## shallowRef()
 `shallowRef` 是 Vue 3 中的一个响应式 API，用于创建一个浅层响应式引用。它的主要用途和特点如下：
 

@@ -5,7 +5,7 @@ export default antfu({
   vue: true,
   typescript: true,
 
-  jsonc: false,
+  jsonc: true,
 
   ignores: [
     'node_modules',

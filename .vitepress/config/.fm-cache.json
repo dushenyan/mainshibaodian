@@ -16,5 +16,20 @@
   "/Users/shenyandu/Desktop/mainshibaodian/index.md": "layout: home\nlayoutClass: 'home-layout'\n\nhero:\n  name: shenyan'资源集合\n  tagline: 开箱即用的Vite Press模板，快速搭建你的文档网站。\n  image:\n    src: /logo_cc.png\n  actions:\n    - theme: brand\n      text: 快速入手\n      link: /docs/other/hello\nfeatures:\n  - icon: ⚡\n    title: 简单\n    details: 开箱即用，只需要简单配置，就可以马上使用。\n  - icon: 🛠️\n    title: 全面\n    details: 集成组件库、TailwindCSS、SVG图标等默认解决方案，应有尽有！\n  - icon: ✊\n    title: 强大\n    link: https://github.com/shoppingzh/press-util\n    linkText: 更多\n    details: 自动生成导航栏与侧边栏，你的烦恼即是我的烦恼。",
   "/Users/shenyandu/Desktop/mainshibaodian/docs/Promise/如何用Promise.all实现并发请求？如何处理部分请求.md": "tags: ['Promise','并发请求','部分请求失败']",
   "/Users/shenyandu/Desktop/mainshibaodian/docs/Promise/JavaScript 运行时（Runtime）详解.md": "tags: ['JavaScript','运行时']",
-  "/Users/shenyandu/Desktop/mainshibaodian/docs/Promise/Promise 中的值穿透（Value Penetration）详解.md": "tags: ['值穿透']"
+  "/Users/shenyandu/Desktop/mainshibaodian/docs/Promise/Promise 中的值穿透（Value Penetration）详解.md": "tags: ['值穿透']",
+  "/Users/shenyandu/Desktop/mainshibaodian/docs/Vue/Vue2/Vue3 样式穿透深度解析.md": "tags: ['Vue2','Vue3','样式穿透','配合JS']",
+  "/Users/shenyandu/Desktop/mainshibaodian/docs/Vue/Vue3 样式穿透深度解析.md": "tags: ['Vue2','Vue3','样式穿透','配合JS']",
+  "/Users/shenyandu/Desktop/mainshibaodian/docs/Vue/Vue样式穿透深度解析.md": "tags: ['Vue2','Vue3','样式穿透','配合JS']",
+  "/Users/shenyandu/Desktop/mainshibaodian/docs/Vue/Vue中的$nextTick有什么作用.md": "tags: ['Vue2','Vue3','$nextTick']",
+  "/Users/shenyandu/Desktop/mainshibaodian/docs/Vue/Vue.observable详解.md": "tags: ['Vue2','Vue3','observable','响应式对象','转换']",
+  "/Users/shenyandu/Desktop/mainshibaodian/docs/Vue/template 标签为什么不可以使用 v-show.md": "tags: ['Vue2','实现原理','template标签','v-show']",
+  "/Users/shenyandu/Desktop/mainshibaodian/docs/Vue/Proxy 和 Object.defineProperty 的区别是啥.md": "tags: ['Vue2','实现原理','Proxy','Object.defineProperty']",
+  "/Users/shenyandu/Desktop/mainshibaodian/docs/ES6/说说你对高阶函数的理解.md": "layoutClass: nav-layout\ntags: ['ES6','高阶函数']",
+  "/Users/shenyandu/Desktop/mainshibaodian/docs/Vue/什么是虚拟DOM.md": "tags: ['Vue2','实现原理','虚拟DOM']",
+  "/Users/shenyandu/Desktop/mainshibaodian/docs/Vue/说说vue中，key的原理.md": "tags: ['Vue2','实现原理','key','虚拟DOM','响应式']",
+  "/Users/shenyandu/Desktop/mainshibaodian/docs/Vue/响应defineProperty的缺陷.md": "tags: ['Vue2','实现原理','响应式','defineProperty']",
+  "/Users/shenyandu/Desktop/mainshibaodian/docs/Vue/基础API.md": "tags: ['Vue2','实现原理','高级API','shallowRef','triggerRef','customRef','shallowReactive','shallowReadonly','effectScope','getCurrentScope','onScopeDispose']",
+  "/Users/shenyandu/Desktop/mainshibaodian/docs/Vue/高级响应API.md": "tags: ['Vue2','实现原理','高级API','shallowRef','triggerRef','customRef','shallowReactive','shallowReadonly','effectScope','getCurrentScope','onScopeDispose']",
+  "/Users/shenyandu/Desktop/mainshibaodian/docs/Vue/能详细讲讲你在Vue项目中如何处理组件通信.md": "tags: ['Vue2','实现原理','组件通信']",
+  "/Users/shenyandu/Desktop/mainshibaodian/docs/Vue/说说你对Vue中keep-alive的理解.md": "tags: ['Vue2','实现原理','keep-alive']"
 }

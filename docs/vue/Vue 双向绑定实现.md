@@ -1,8 +1,13 @@
+--- 
+tags: ['Vue2','Vue3区别','双向绑定','实现原理','手写实现']
+title: 'Vue 双向绑定实现'
+date: '2023-08-10'
+---
+
 # Vue双向绑定实现
 
 以下是手写 Vue 双向绑定的精简实现，包含关键代码和详细注释，帮助您理解其核心原理：
 
-::: sandbox {template=static}
 ```html index.html
 <!DOCTYPE html>
 <html>
@@ -166,7 +171,6 @@
 
 </html>
 ```
-:::
 
 ### 核心实现解析：
 
