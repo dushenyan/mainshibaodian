@@ -31,5 +31,8 @@
   "/Users/shenyandu/Desktop/mainshibaodian/docs/Vue/基础API.md": "tags: ['Vue2','实现原理','高级API','shallowRef','triggerRef','customRef','shallowReactive','shallowReadonly','effectScope','getCurrentScope','onScopeDispose']",
   "/Users/shenyandu/Desktop/mainshibaodian/docs/Vue/高级响应API.md": "tags: ['Vue2','实现原理','高级API','shallowRef','triggerRef','customRef','shallowReactive','shallowReadonly','effectScope','getCurrentScope','onScopeDispose']",
   "/Users/shenyandu/Desktop/mainshibaodian/docs/Vue/能详细讲讲你在Vue项目中如何处理组件通信.md": "tags: ['Vue2','实现原理','组件通信']",
-  "/Users/shenyandu/Desktop/mainshibaodian/docs/Vue/说说你对Vue中keep-alive的理解.md": "tags: ['Vue2','实现原理','keep-alive']"
+  "/Users/shenyandu/Desktop/mainshibaodian/docs/Vue/说说你对Vue中keep-alive的理解.md": "tags: ['Vue2','实现原理','keep-alive']",
+  "/Users/shenyandu/Desktop/mainshibaodian/docs/Vue/[响应式 API：进阶.md": "tags: ['Vue2','实现原理','高级API','shallowRef','triggerRef','customRef','shallowReactive','shallowReadonly','effectScope','getCurrentScope','onScopeDispose']",
+  "/Users/shenyandu/Desktop/mainshibaodian/docs/Vue/响应式API进阶.md": "tags: ['Vue2','实现原理','高级API','shallowRef','triggerRef','customRef','shallowReactive','shallowReadonly','effectScope','getCurrentScope','onScopeDispose']",
+  "/Users/shenyandu/Desktop/mainshibaodian/docs/Vue/TypeScript 工具类型.md": "bracketEscaping: true"
 }

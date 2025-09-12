@@ -234,7 +234,6 @@ watch(() => _activeName.value, () => {
 
       .page-table-item {
         flex-direction: row;
-        align-items: center;
         padding: 12px 14px;
 
         .title {
@@ -243,7 +242,7 @@ watch(() => _activeName.value, () => {
 
         .tag-group {
           display: flex;
-          flex-wrap: nowrap;
+          flex-direction: wrap;
         }
       }
     }

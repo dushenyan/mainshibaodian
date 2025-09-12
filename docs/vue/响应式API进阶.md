@@ -1,7 +1,8 @@
 ---
 tags: ['Vue2','实现原理','高级API','shallowRef','triggerRef','customRef','shallowReactive','shallowReadonly','effectScope','getCurrentScope','onScopeDispose']
 ---
-# 高级API
+
+# 响应式API进阶
 
 ## shallowRef()
 `shallowRef` 是 Vue 3 中的一个响应式 API，用于创建一个浅层响应式引用。它的主要用途和特点如下：
@@ -43,6 +44,7 @@ state.value.count = 2
 
   const state = shallowRef({ count: 0 })
 
+  // 监听 state 变化 而不是 state.value 变化
   watch(state, (newValue, oldValue) => {
     console.log('state changed:', newValue, oldValue)
   }, { deep: true })
@@ -75,11 +77,9 @@ state.value.count = 2
 
 实际运行这个组件，你会发现：
 
-+ 点击 "Update State" 按钮时，`state.value.count` 确实会增加，并且视图会更新。这是因为 Vue 的响应式系统能够追踪到模板中使用的 `state.count` 的变化。
++ 点击 "Update State" 按钮时，`state.value.count` 的值确实会增加，视图并不会更新。
 + 然而，`watch` 回调不会因为 `updateState` 而触发，因为 `shallowRef` 不会使内部属性变为响应式。
 + 点击 "Replace State" 按钮时，整个 `state.value` 被替换，这会触发 `watch` 回调和视图更新。
-
-这个行为可能与预期的 `shallowRef` 行为有些不同，主要是因为 Vue 3 的响应式系统在模板渲染时会进行特殊处理。
 
 如果你想要严格控制更新，可以考虑使用 `triggerRef` 函数：
 
@@ -103,7 +103,7 @@ state.value.count = 2
 + 对于 `watch` 等响应式 API，`shallowRef` 的内部变化默认不会被检测到。
 + 如果需要精确控制更新，可以使用 `triggerRef`。
 
-这个行为确实可能会让人感到困惑，因为它在不同上下文中的表现略有不同。在实际使用中，需要根据具体情况来决定是否使用 `shallowRef` 或者是否需要手动触发更新。
+在实际使用中，需要根据具体情况来决定是否使用 `shallowRef` 或者是否需要手动触发更新。
 
 ## triggerRef()
 + **使用以及举例说明、**
@@ -246,8 +246,8 @@ trig**ger 函数**
 `trigger` 函数的作用是触发所有依赖于当前响应式引用的副作用（`ReactiveEffect`）重新执行。当响应式数据的值发生变化时，调用 `trigger` 函数，Vue 会通知所有依赖于这个数据的副作用重新运行，从而更新视图或执行其他操作。
 
 ### 代码解释
-+ `**track**`** ****函数**：在 `get` 方法中调用 `track` 函数，记录当前访问这个响应式引用的依赖项。当其他副作用（如 `watchEffect` 或模板渲染）访问 `searchQuery.value` 时，就会被记录下来。
-+ `**trigger**`** ****函数**：在 `set` 方法中，当防抖时间结束并更新了 `value` 的值后，调用 `trigger` 函数，通知所有依赖于 `searchQuery` 的副作用重新执行，从而更新视图。
++ `track` **函数**：在 `get` 方法中调用 `track` 函数，记录当前访问这个响应式引用的依赖项。当其他副作用（如 `watchEffect` 或模板渲染）访问 `searchQuery.value` 时，就会被记录下来。
++ `trigger` **函数**：在 `set` 方法中，当防抖时间结束并更新了 `value` 的值后，调用 `trigger` 函数，通知所有依赖于 `searchQuery` 的副作用重新执行，从而更新视图。
 
 综上所述，`track` 和 `trigger` 函数是 Vue 响应式系统的核心组成部分，它们确保了数据变化时，相关的副作用能及时更新。
 
@@ -307,6 +307,136 @@ trig**ger 函数**
 4. 模板部分：显示缓存数据，提供一个输入框和按钮，用户可以输入新值并点击按钮更新数据。
 
 通过这种方式，当用户输入相同的值时，不会触发视图更新，从而提高性能。
+
+### 案例: 接口请求数据自定义转换字典值Ref
+```vue
+<script setup lang="ts" name="DictMap">
+import { customRef, onMounted, shallowRef, type ShallowRef } from 'vue';
+
+interface TableDataVO {
+  id: number
+  name: string
+  age: number
+  toy: string
+  [key: string]: any
+}
+
+// 定义映射后的数据类型，包含字典标签字段
+interface MappedTableDataVO extends TableDataVO {
+  toy_label?: string
+  no_label?: string
+}
+
+const tableData = shallowRef<TableDataVO[]>([])
+
+// 玩具字典数据 列举十条
+const ToyDictMap: DictRefOptions[] = Array.from({ length: 10 }, (_, i) => ({
+  label: `玩具${i + 1}`,
+  value: `${i + 1}`,
+}))
+
+const NoDictMap: DictRefOptions[] = Array.from({ length: 10 }, (_, i) => ({
+  label: `序号${i + 1}`,
+  value: `${i + 1}`,
+}))
+
+interface DictRefOptions {
+  label: string
+  value: string
+}
+
+// 实现 dictRef 函数
+function dictRef<T extends Record<string, any>>(
+  sourceRef: ShallowRef<T[]>,
+  options: Array<{
+    dictList: DictRefOptions[]
+    labelKey: string
+    valueKey: string
+  }>
+) {
+  return customRef<T[]>(() => {
+    let target: T[] = []
+    
+    return {
+      get() {
+        // 映射数据，添加字典标签
+        target = sourceRef.value.map(row => {
+          let result = { ...row }
+          
+          options.forEach(option => {
+            const { dictList, labelKey, valueKey } = option
+            const dict = dictList.find(d => d.value === row[valueKey])
+            // 插入类型labelKey对应的值作为key
+            result = { ...result, [labelKey]: dict?.label || row[valueKey] }
+          })
+          
+          return result as T
+        })
+        
+        return target
+      },
+      set(val: T[]) {
+        sourceRef.value = val
+      },
+    }
+  })
+}
+
+onMounted(() => {
+  // 模拟数据请求 
+  setTimeout(() => {
+    tableData.value = [{
+      id: 11221,
+      name: '张三',
+      age: 18,
+      toy: '1',
+    }, {
+      id: 1,
+      name: '李四',
+      age: 19,
+      toy: '3',
+    }, {
+      id: 3,
+      name: '王五',
+      age: 20,
+      toy: '3',
+    }]
+  }, 2000)
+})
+
+// 用自定义 ref 包装 tableData，实现字典映射
+const mappedData = dictRef<MappedTableDataVO>(tableData, [{
+  dictList: ToyDictMap,
+  labelKey: 'toy_label',
+  valueKey: 'toy'
+}, {
+  dictList: NoDictMap,
+  labelKey: 'no_label',
+  valueKey: 'id'
+}])
+</script>
+
+<template>
+  <div>
+    <table>
+      <tr>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>玩具值</th>
+        <th>玩具</th>
+        <th>序号</th>
+      </tr>
+      <tr v-for="item in mappedData" :key="item.id">
+        <td>{{ item.name }}</td>
+        <td>{{ item.age }}</td>
+        <td>{{ item.toy }}</td>
+        <td>{{ item.toy_label }}</td>
+        <td>{{ item.no_label }}</td>
+      </tr>
+    </table>
+  </div>
+</template>
+```
 
 ## shallowReactive()
 `shallowReactive()` 是 Vue 3 响应式系统中的一个函数，用于创建一个浅响应式对象。与 `reactive()` 创建的深响应式对象不同，`shallowReactive()` 仅对对象的顶层属性进行响应式处理，对象的嵌套属性不会被转换为响应式。
@@ -640,7 +770,7 @@ scope.stop();
 #### 2. 插件开发
 在开发 Vue 插件时，`effectScope` 能帮助管理插件产生的副作用，保证插件在被卸载时，其副作用也能被正确清理。
 
-```vue
+```js
 import { App, effectScope, watchEffect, ref } from 'vue';
 
   export const myPlugin = {
@@ -795,7 +925,7 @@ import { App, effectScope, watchEffect, ref } from 'vue';
 #### 2. 插件开发中的副作用管理
 在开发 Vue 插件时，可使用 `getCurrentScope` 确保插件产生的副作用被正确添加到当前作用域中，便于在插件卸载时清理这些副作用。
 
-```vue
+```ts
 import { App, effectScope, getCurrentScope, watchEffect, ref } from 'vue';
 
   export const myPlugin = {
@@ -932,7 +1062,7 @@ import { App, effectScope, getCurrentScope, watchEffect, ref } from 'vue';
 #### 2. 插件开发中的资源释放
 在开发 Vue 插件时，插件可能会创建一些需要在插件被卸载时清理的资源，如定时器、事件监听器等。使用 `onScopeDispose` 可以方便地在插件作用域停止时执行清理操作。
 
-```vue
+```ts
 import { App, effectScope, onScopeDispose, ref } from 'vue';
 
   export const cleanupPlugin = {
