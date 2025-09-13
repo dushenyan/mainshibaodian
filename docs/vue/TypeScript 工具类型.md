@@ -1,5 +1,6 @@
 ---
 bracketEscaping: true
+tags: ['PropType<T>','MaybeRef<T>','MaybeRefOrGetter<T>','ExtractPropTypes<T>','ExtractPublicPropTypes<T>','ComponentCustomProperties','ComponentCustomProps','CSSProperties']
 ---
 
 # TypeScript 工具类型
@@ -1214,6 +1215,7 @@ export default defineComponent({
 3. **文档说明**：明确记录哪些 props 是公共 API 的一部分
 4. **结合 as const**：确保 props 定义的类型信息完整保留
 5. **组件库开发必用**：特别适合需要维护公共 API 的组件库
+
 ## Vue中的类型工具 ComponentCustomProperties 详解
 
 ### 什么是 ComponentCustomProperties
