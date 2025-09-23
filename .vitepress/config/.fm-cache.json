@@ -30,5 +30,12 @@
   "/Users/dushenyan/Desktop/mainshibaodian/docs/vue/说说你对Vue中keep-alive的理解.md": "tags: ['Vue2','实现原理','keep-alive']",
   "/Users/dushenyan/Desktop/mainshibaodian/docs/vue/渲染函数.md": "tags: ['h()','mergeProps()','cloneVNode()','isVNode()','resolveComponent()','resolveDirective()','withDirectives()','withModifiers()']",
   "/Users/dushenyan/Desktop/mainshibaodian/docs/vue/响应式工具.md": "tags: ['isRef()','unref()','toRef()','toValue()','toRefs()','isProxy()','isReactive()','isReadonly()']",
-  "/Users/dushenyan/Desktop/mainshibaodian/docs/vue/响应式Setup方法.md": "tags: ['基础使用','访问Props详解','上下文详解','与渲染函数结合使用']"
+  "/Users/dushenyan/Desktop/mainshibaodian/docs/vue/响应式Setup方法.md": "tags: ['基础使用','访问Props详解','上下文详解','与渲染函数结合使用']",
+  "/Users/shenyandu/Desktop/mainshibaodian/docs/Vue/自定义渲染器.md": "tags: [ '自定义渲染器 createRenderer()','__VUE_OPTIONS_API__','__VUE_PROD_DEVTOOLS__','__VUE_PROD_HYDRATION_MISMATCH_DETAILS__']",
+  "/Users/shenyandu/Desktop/mainshibaodian/docs/Vue/自定义元素.md": "tags: [ 'defineCustomElement()']\n",
+  "/Users/shenyandu/Desktop/mainshibaodian/docs/Vue/依赖注入以及辅助.md": "tags: ['provide', 'inject','hasInjectionContext','useAttrs()','useSlots()','useModel()','useTemplateRef()','useId()']",
+  "/Users/shenyandu/Desktop/mainshibaodian/docs/Vue/响应式核心.md": "tags: ['ref()', 'computed()', 'reactive()','readonly()','watchEffect()','watchPostEffect()','watchSyncEffect()', 'watch()','onWatcherCleanup()']",
+  "/Users/shenyandu/Desktop/mainshibaodian/docs/Vue/如何处理组件通信.md": "tags: ['Vue2','实现原理','组件通信']",
+  "/Users/shenyandu/Desktop/mainshibaodian/docs/Vue/Hooks工具函数.md": "tags: ['useEmits']",
+  "/Users/shenyandu/Desktop/mainshibaodian/docs/Vue/渲染函数.md": "tags: ['h()','mergeProps()','cloneVNode()','isVNode()','resolveComponent()','resolveDirective()','withDirectives()','withModifiers()']"
 }

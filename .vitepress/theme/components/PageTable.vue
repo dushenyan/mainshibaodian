@@ -95,6 +95,10 @@ watch(() => _activeName.value, () => {
   margin: 15px auto 60px;
   max-width: 85vw;
 
+  :deep(.el-tabs__nav-wrap::after) {
+    display: none;
+  }
+
   h1 {
     font-size: 24px;
     font-weight: 600;
