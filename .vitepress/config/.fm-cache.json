@@ -35,7 +35,9 @@
   "/Users/shenyandu/Desktop/mainshibaodian/docs/Vue/自定义元素.md": "tags: [ 'defineCustomElement()']\n",
   "/Users/shenyandu/Desktop/mainshibaodian/docs/Vue/依赖注入以及辅助.md": "tags: ['provide', 'inject','hasInjectionContext','useAttrs()','useSlots()','useModel()','useTemplateRef()','useId()']",
   "/Users/shenyandu/Desktop/mainshibaodian/docs/Vue/响应式核心.md": "tags: ['ref()', 'computed()', 'reactive()','readonly()','watchEffect()','watchPostEffect()','watchSyncEffect()', 'watch()','onWatcherCleanup()']",
-  "/Users/shenyandu/Desktop/mainshibaodian/docs/Vue/如何处理组件通信.md": "tags: ['Vue2','实现原理','组件通信']",
+  "/Users/shenyandu/Desktop/mainshibaodian/docs/Vue/如何处理组件通信.md": "tags: ['Props/Events (父子组件通信)','Provide/Inject (跨层级组件通信)','Vuex/Pinia (状态管理)','Event Bus (全局事件)']",
   "/Users/shenyandu/Desktop/mainshibaodian/docs/Vue/Hooks工具函数.md": "tags: ['useEmits']",
-  "/Users/shenyandu/Desktop/mainshibaodian/docs/Vue/渲染函数.md": "tags: ['h()','mergeProps()','cloneVNode()','isVNode()','resolveComponent()','resolveDirective()','withDirectives()','withModifiers()']"
+  "/Users/shenyandu/Desktop/mainshibaodian/docs/Vue/渲染函数.md": "tags: ['h()','mergeProps()','cloneVNode()','isVNode()','resolveComponent()','resolveDirective()','withDirectives()','withModifiers()']",
+  "/Users/shenyandu/Desktop/mainshibaodian/docs/Vue/Vue实例挂载的过程中发生了什么.md": "tags: ['Vue2实例挂载','形象描述','过程详解']",
+  "/Users/shenyandu/Desktop/mainshibaodian/docs/Vue/响应式API进阶.md": "tags: ['Vue2','实现原理','高级API','shallowRef','triggerRef','customRef','shallowReactive','shallowReadonly','effectScope','getCurrentScope','onScopeDispose']"
 }

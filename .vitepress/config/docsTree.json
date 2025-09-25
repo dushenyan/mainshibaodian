@@ -507,6 +507,11 @@
     "link": "%2Fdocs%2FPromise"
   },
   {
+    "title": "REACT",
+    "items": [],
+    "link": "%2Fdocs%2FREACT"
+  },
+  {
     "title": "TypeScript",
     "items": [
       {
@@ -781,7 +786,13 @@
       },
       {
         "title": "Vue实例挂载的过程中发生了什么",
-        "metadata": {},
+        "metadata": {
+          "tags": [
+            "Vue2实例挂载",
+            "形象描述",
+            "过程详解"
+          ]
+        },
         "link": "%2Fdocs%2FVue%2FVue%E5%AE%9E%E4%BE%8B%E6%8C%82%E8%BD%BD%E7%9A%84%E8%BF%87%E7%A8%8B%E4%B8%AD%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88",
         "fileExtension": ".md"
       },
@@ -965,9 +976,10 @@
         "title": "如何处理组件通信",
         "metadata": {
           "tags": [
-            "Vue2",
-            "实现原理",
-            "组件通信"
+            "Props/Events (父子组件通信)",
+            "Provide/Inject (跨层级组件通信)",
+            "Vuex/Pinia (状态管理)",
+            "Event Bus (全局事件)"
           ]
         },
         "link": "%2Fdocs%2FVue%2F%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1",
