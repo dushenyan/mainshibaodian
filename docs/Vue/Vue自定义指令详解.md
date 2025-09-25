@@ -1,4 +1,4 @@
- # Vue自定义指令详解：概念、Vue2与Vue3区别及应用场景
+# Vue自定义指令详解：概念、Vue2与Vue3区别及应用场景
 
 ## 一、Vue自定义指令是什么？
 
@@ -249,41 +249,107 @@ Vue.directive('tooltip', {
 ```
 
 **Vue3实现：**
-```javascript
-app.directive('tooltip', {
-  mounted(el, binding) {
-    // 创建工具提示元素(与Vue2相同)
-    const tooltip = document.createElement('span')
-    tooltip.className = 'tooltiptext'
-    tooltip.textContent = binding.value
 
-    el.classList.add('tooltip')
-    el.appendChild(tooltip)
+1. 悬浮框层样式
 
-    el.addEventListener('mouseenter', showTooltip)
-    el.addEventListener('mouseleave', hideTooltip)
+```css
+/* tooltip.css */
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
 
-    function showTooltip() {
-      tooltip.style.visibility = 'visible'
-      tooltip.style.opacity = '1'
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 4px;
+  padding: 5px 8px;
+  position: absolute;
+  z-index: 1000;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #333 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+```
+
+2. 指令实现 directiveTooltip
+```ts
+// directiveTooltip.ts
+import './tooltip.css'
+
+import type { App } from "vue"
+
+export default function (app: App<Element>) {
+  app.directive('tooltip', {
+    beforeMount(el, binding) {
+      // 创建工具提示元素
+      const tooltip = document.createElement('span')
+      tooltip.className = 'tooltiptext'
+      tooltip.textContent = binding.value
+
+      el.classList.add('tooltip')
+      el.appendChild(tooltip)
+
+      el.addEventListener('mouseenter', showTooltip)
+      el.addEventListener('mouseleave', hideTooltip)
+
+      function showTooltip() {
+        tooltip.style.visibility = 'visible'
+        tooltip.style.opacity = '1'
+      }
+
+      function hideTooltip() {
+        tooltip.style.visibility = 'hidden'
+        tooltip.style.opacity = '0'
+      }
+    },
+    unmounted(el) {
+      // 清理工作
+      const tooltip = el.querySelector('.tooltiptext')
+      if (tooltip) {
+        el.removeChild(tooltip)
+        el.classList.remove('tooltip')
+      }
+      el.removeEventListener('mouseenter')
+      el.removeEventListener('mouseleave')
     }
+  })
+}
+```
 
-    function hideTooltip() {
-      tooltip.style.visibility = 'hidden'
-      tooltip.style.opacity = '0'
-    }
-  },
-  beforeUnmount(el) {
-    // 清理工作(与Vue2的unbind类似)
-    const tooltip = el.querySelector('.tooltiptext')
-    if (tooltip) {
-      el.removeChild(tooltip)
-      el.classList.remove('tooltip')
-    }
-    el.removeEventListener('mouseenter')
-    el.removeEventListener('mouseleave')
-  }
-})
+3. 注册指令
+```ts
+// main.ts
+import { createApp } from 'vue'
+import App from './App.vue'
+import directiveTooltip from './directiveTooltip'
+
+const app = createApp(App)
+directiveTooltip(app)
+app.mount('#app')
 ```
 
 ## 五、总结
