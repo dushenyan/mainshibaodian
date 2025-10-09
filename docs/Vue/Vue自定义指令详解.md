@@ -17,13 +17,13 @@ Vue自定义指令是Vue框架提供的一种机制，允许开发者注册自�
 
 ## 二、Vue2与Vue3中自定义指令的区别
 
-| 对比维度 | Vue2 | Vue3 |
-|---------|------|------|
-| **钩子函数名称** | bind, inserted, update, componentUpdated, unbind | beforeMount, mounted, beforeUpdate, updated, beforeUnmount, unmounted |
-| **生命周期对应** | bind → beforeMount<br>inserted → mounted<br>update → beforeUpdate<br>componentUpdated → updated<br>unbind → beforeUnmount/unmounted | 更贴近组件生命周期 |
-| **参数访问** | binding.value, binding.arg, binding.modifiers | 相同 |
-| **指令定义方式** | Vue.directive()或组件内directives选项 | 相同 |
-| **移除元素处理** | unbind钩子 | beforeUnmount钩子 |
+| 对比维度         | Vue2                                                                                                                                | Vue3                                                                  |
+| ---------------- | ----------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| **钩子函数名称** | bind, inserted, update, componentUpdated, unbind                                                                                    | beforeMount, mounted, beforeUpdate, updated, beforeUnmount, unmounted |
+| **生命周期对应** | bind → beforeMount<br>inserted → mounted<br>update → beforeUpdate<br>componentUpdated → updated<br>unbind → beforeUnmount/unmounted | 更贴近组件生命周期                                                    |
+| **参数访问**     | binding.value, binding.arg, binding.modifiers                                                                                       | 相同                                                                  |
+| **指令定义方式** | Vue.directive()或组件内directives选项                                                                                               | 相同                                                                  |
+| **移除元素处理** | unbind钩子                                                                                                                          | beforeUnmount钩子                                                     |
 
 **主要变化：**
 1. **钩子函数重命名**：Vue3的钩子名称更清晰地反映了它们与组件生命周期的关系
@@ -184,6 +184,64 @@ Vue.directive('lazyload', {
     // 清理观察者
   }
 })
+```
+
+### 6.高亮节点块
+
+```ts
+app.directive('highlight', {
+  mounted(el, binding) {
+    el.style.backgroundColor = binding.value || 'yellow'
+    el.style.border = 'none'
+  }
+})
+```
+```vue
+<div v-highlight>阿石创大叔大婶</div>
+```
+
+### 7.表单输入大写
+```ts
+app.directive('uppercaseDirective', {
+  mounted(el: HTMLInputElement) {
+    const handler = (e: Event) => {
+      if (e.target instanceof HTMLInputElement) {
+        const start = e.target.selectionStart
+        const end = e.target.selectionEnd
+        const upperCaseValue = e.target.value.toUpperCase()
+        e.target.value = upperCaseValue
+        
+        // 恢复光标位置
+        e.target.setSelectionRange(start, end)
+        
+        // 手动触发 input 事件，确保 v-model 得到更新
+        const event = new Event('input', { bubbles: true })
+        e.target.dispatchEvent(event)
+      }
+    }
+
+    el.addEventListener('input', handler)
+    // 保存事件处理器以便在 unmounted 时移除
+    el._uppercaseHandler = handler
+  },
+  unmounted(el) {
+    // 清理事件监听器
+    if (el._uppercaseHandler) {
+      el.removeEventListener('input', el._uppercaseHandler)
+    }
+  }
+})
+```
+```vue
+<script setup lang="ts" name="RefDemo">
+import { ref } from 'vue';
+
+const inputValue = ref('')
+</script>
+
+<template>  
+    <input v-uppercaseDirective v-model="inputValue" type="text" placeholder="输入文本"></input>
+</template>
 ```
 
 ## 四、Vue2和Vue3自定义指令实现对比示例
