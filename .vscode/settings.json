@@ -46,5 +46,10 @@
     "scss",
     "pcss",
     "postcss"
-  ]
+  ],
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    "vite.config.*": "pages.config.*, manifest.config.*, uno.config.*, unocss.config.*, *.env, .env.*,tsconfig.*,eslint.config.*",
+    "package.*": "*.yaml,.npmrc,.nvmrc,Makefile"
+  }
 }
