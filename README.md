@@ -33,3 +33,19 @@ title: vitepress-template
  */
 import Home from '@theme/components/vp-home.vue'
 </script> -->
+
+readmeai \
+    --api gemini \
+    -m gemini-1.5-flash \
+    -o readmeai-gemini-plus.md \
+    -sm 使用中文输出 \
+    -r .
+
+ readmeai \
+    --api gemini \
+    --model gemini-1.5-flash \
+    --output readmeai-gemini.md \
+    --repository . \
+    --system-message 帮我使用中文进行内容输出
+
+    AIzaSyACnOD766kBl6h3cIZR1IX_8r65rgHKyWY

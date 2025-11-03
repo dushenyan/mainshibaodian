@@ -28,6 +28,11 @@ function getJiShuJiHe(): NavItem[] {
  */
 export const nav = [
   {
+    text: '随机试题',
+    activeMatch: '/docs/RandomQuestions',
+    link: '/docs/RandomQuestions/index',
+  },
+  {
     text: '资源导航',
     activeMatch: '/docs/nav',
     link: '/docs/nav/index',

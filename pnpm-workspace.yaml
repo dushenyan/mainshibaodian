@@ -1,5 +1,5 @@
+patchedDependencies:
+  vitepress@1.0.0-rc.34: patches/vitepress@1.0.0-rc.34.patch
 ignoredBuiltDependencies:
   - esbuild
   - vue-demi
-patchedDependencies:
-  vitepress@1.0.0-rc.34: patches/vitepress@1.0.0-rc.34.patch
